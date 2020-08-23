@@ -12,3 +12,16 @@ Version: 0.1
 
 /* импортируем стили родительской темы */
 @import url("../storefront/style.css");
+
+.development {
+    background: red;
+    position: fixed;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 0;
+    text-align: center;
+    opacity: 0.5;
+}

@@ -22,3 +22,5 @@
 /wp-trackback.php
 /xmlrpc.php
 /wp-cron.php
+/wp-content/plugins/
+/.idea/
