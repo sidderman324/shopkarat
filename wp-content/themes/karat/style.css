@@ -1,0 +1,14 @@
+/*
+Theme Name: Карат
+Template: storefront
+
+Не обязательные параметры:
+Theme URI: 
+Description: Тема для интернет-магазина мебели "Карат"
+Author: Крагель Д.А.
+Author URI: https://trilimes.ru
+Version: 0.1
+*/
+
+/* импортируем стили родительской темы */
+@import url("../storefront/style.css");
