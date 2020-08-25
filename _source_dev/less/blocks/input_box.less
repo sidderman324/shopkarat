@@ -1,0 +1,39 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/input_box.less';
+
+
+.input_box {
+	padding-bottom: 1em;
+	position: relative;
+
+	span.text {
+
+	}
+
+	.input_text {
+		-webkit-appearance: none; 
+		width: 100%;
+		display: inline-block;
+		border: 1px solid @black;
+		border-radius: 5em;
+		.text-mix;
+		line-height: 2;
+		padding: 0 0.6em;
+		height: 2.1em;
+		transition: .3s;
+	}
+	.input_text.warning,
+	.input_text.warning:focus {
+		border-color: @red;
+	}
+
+	.input_text:focus {
+		border-color: @orange;
+	}
+
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}

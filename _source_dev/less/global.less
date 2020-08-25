@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'RUBSN';
+  src: url('../fonts/RUBSN.eot');
+  src: url('../fonts/RUBSN.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/RUBSN.woff2') format('woff2'),
+  url('../fonts/RUBSN.woff') format('woff'),
+  url('../fonts/RUBSN.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.woff2') format('woff2'),
+        url('../fonts/Inter-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Light.woff2') format('woff2'),
+        url('../fonts/Inter-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Bold.woff2') format('woff2'),
+        url('../fonts/Inter-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none !important;
+}
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+h1 {
+  margin: 0;
+}
+body {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  transition: 0.3s;
+  overflow-x: hidden;
+  color: @black;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  @media(max-width: @screen-lg) {
+    font-size: 12px;
+  }
+  @media(max-width: @screen-md) {
+    font-size: 16px;    
+  }
+  @media(max-width: @screen-sm) {
+    font-size: 5vw;
+  }
+}
+
+.container {
+  padding: 0 30px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 1300px;
+
+  @media(max-width: @screen-lg) {
+    width: @screen-md;
+    padding: 0 20px;
+  }
+  @media(max-width: @screen-md) {
+    width: @screen-sm;
+    padding: 0 20px;
+  }
+  @media(max-width: @screen-sm) {
+    width: 100%;
+    padding: 0 5%;
+  }
+  
+}
+
+
+.text {
+  .text-mix;
+}

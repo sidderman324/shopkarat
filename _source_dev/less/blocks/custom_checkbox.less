@@ -1,0 +1,101 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/custom_checkbox.less';
+
+
+.custom_checkbox {
+  .text-mix;
+}
+
+.custom_checkbox {
+	position: relative;
+	width: 100%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+}
+.custom_checkbox label {
+	display: inline-block;
+}
+.custom_checkbox span {
+	font-size: 1em;
+	color: @black;
+	display: inline-block;
+}
+.custom_checkbox input {
+	position: absolute;
+	margin-bottom: 0 !important;
+	border: .05em solid #000 !important;
+	background-color: #fff !important;
+
+	-webkit-appearance: none;
+}
+/* Base for label styling */
+.custom_checkbox [type='checkbox']:not(:checked),
+.custom_checkbox [type='checkbox']:checked {
+	position: absolute;
+	top: 1em;
+	left: .5em;
+    opacity: 0;
+}
+.custom_checkbox [type='checkbox']:not(:checked) + label,
+.custom_checkbox [type='checkbox']:checked + label {
+	position: relative;
+	padding-left: 0;
+	cursor: pointer;
+	outline: none !important;
+	display: inline-block;
+}
+
+/* radio aspect */
+.custom_checkbox [type='checkbox']:not(:checked) + label:before,
+.custom_checkbox [type='checkbox']:checked + label:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
+	left: 100%;
+	width: 3em;
+    height: 1.7em;
+	border: 1px solid @black;
+	border-radius: 5em;
+	background-color: @gray;
+	transition: .3s;
+}
+.custom_checkbox [type='checkbox']:checked + label:before {
+	background-color: @orange;
+	border: 1px solid @black;
+}
+/* checked mark aspect */
+.custom_checkbox [type='checkbox']:not(:checked) + label:after,
+.custom_checkbox [type='checkbox']:checked + label:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	left: 101.5%;
+	font-size: 1em;
+	font-weight: 900;
+	transition: all .3s;
+	width: 1.35em;
+	height: 1.35em;
+	background-color: #fff;
+	border-radius: 50%;
+	border: 1px solid @black;
+}
+.custom_checkbox [type='checkbox']:checked + label:after {
+	transform: translate(83%,-50%) scale(1);
+	opacity: 1;
+}
+/* disabled radio */
+.custom_checkbox [type='checkbox']:disabled:not(:checked) + label:before,
+.custom_checkbox [type='checkbox']:disabled:checked + label:before {
+	border-color: #bbb;
+	background-color: #ddd;
+	box-shadow: none;
+}
+.custom_checkbox [type='checkbox']:disabled:checked + label:after {
+	color: #999;
+}
+.custom_checkbox [type='checkbox']:disabled + label {
+	color: #aaa;
+}
