@@ -1,0 +1,35 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/subscribe_block.less';
+
+
+.subscribe_block {
+  margin-top: 3.2em;
+  padding: 2.4em 0;
+  position: relative;
+
+  border-top: 3px solid @orange;
+
+  p.subtext {
+    font-size: .875em;
+    text-align: center;
+  }
+
+  form {
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 615px;
+    margin-top: 2em;
+
+    .input_box {
+      width: 20em;
+
+      .input_text {
+        font-size: .875em;
+      }
+    }
+  }
+}

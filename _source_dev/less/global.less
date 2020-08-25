@@ -10,33 +10,31 @@
   font-display: block;
 }
 
-
-
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Regular.woff2') format('woff2'),
-        url('../fonts/Inter-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2'),
+  url('../fonts/Inter-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Light.woff2') format('woff2'),
-        url('../fonts/Inter-Light.woff') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Light.woff2') format('woff2'),
+  url('../fonts/Inter-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-Bold.woff2') format('woff2'),
-        url('../fonts/Inter-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Bold.woff2') format('woff2'),
+  url('../fonts/Inter-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 
@@ -78,7 +76,7 @@ body {
     font-size: 12px;
   }
   @media(max-width: @screen-md) {
-    font-size: 16px;    
+    font-size: 16px;
   }
   @media(max-width: @screen-sm) {
     font-size: 5vw;
@@ -89,7 +87,8 @@ body {
   padding: 0 30px;
   margin: 0 auto;
   box-sizing: border-box;
-  width: 1300px;
+  width: @screen-lg;
+  position: relative;
 
   @media(max-width: @screen-lg) {
     width: @screen-md;
@@ -103,10 +102,47 @@ body {
     width: 100%;
     padding: 0 5%;
   }
-  
+
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  list-style-type: none;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+section {
+  overflow: hidden;
 }
 
 
+
+h2.title {
+  .title-mix;
+  text-align: center;
+}
 .text {
   .text-mix;
+}
+
+
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  background-image: url('../imgs/icons/icon_arrow_black.svg');
+  width: 1.5em;
+  height: 3em;
+  background-size: contain;
+  top: 50%;
+  margin: -1.5em;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+  right: -.8em;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  left: -.8em;
+  transform: rotate(180deg);
 }

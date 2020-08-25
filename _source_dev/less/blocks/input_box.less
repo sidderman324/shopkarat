@@ -2,15 +2,44 @@
 
 
 .input_box {
-	padding-bottom: 1em;
 	position: relative;
+
+	&--search {
+		width: 50em;
+		margin-left: 7em;
+		padding-bottom: 0;
+
+		.link {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 1em;
+		}
+
+		.input_text {
+			letter-spacing: .03em !important;
+			padding: 0 1.5em !important;
+			height: 2.778em !important;
+			font-size: 1.125em !important;
+			border-radius: 4px !important;
+			border: 1px solid @orange !important;
+		}
+	}
+
+	&--square {
+		.input_text {
+			padding: 0 1.5em !important;
+			border-radius: 4px !important;
+			border: 1px solid @orange !important;
+		}
+	}
 
 	span.text {
 
 	}
 
 	.input_text {
-		-webkit-appearance: none; 
+		-webkit-appearance: none;
 		width: 100%;
 		display: inline-block;
 		border: 1px solid @black;
@@ -18,7 +47,7 @@
 		.text-mix;
 		line-height: 2;
 		padding: 0 0.6em;
-		height: 2.1em;
+		height: 2.429em;
 		transition: .3s;
 	}
 	.input_text.warning,

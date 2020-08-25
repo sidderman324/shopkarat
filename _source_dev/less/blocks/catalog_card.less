@@ -1,0 +1,147 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/catalog_card.less';
+
+
+.catalog_card {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+  width: 24%;
+  // padding-right: 1em;
+
+  .img_wrapper {
+    border: 1px solid @black;
+    border-radius: 4px;
+  }
+
+  .catalog_card_title {
+    font-size: 1.125em;
+    font-weight: bold;
+    padding-top: 1.1em;
+    line-height: 1.4;
+  }
+  .catalog_card_status {
+    font-size: 1.125em;
+    font-weight: bold;
+    padding-top: .6em;
+  }
+  .catalog_card_articul {
+    font-size: .75em;
+    padding-top: 1.3em;
+  }
+
+  .catalog_card_infoblock {
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .link {
+      margin-right: .3em;
+    }
+    .icon {
+      width: 1.2em;
+      height: 1.2em;
+    }
+  }
+
+  .catalog_card_price_block {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: .8em;
+
+    .price {
+      font-size: 1.125em;
+      font-weight: bold;
+      margin-right: 1.7em;
+      position: relative;
+      display: inline-block;
+
+      &--old {
+        color: #898787;
+        font-size: .875em;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 105%;
+          height: 1px;
+          background-color: #898787;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+    }
+  }
+
+
+
+
+  .catalog_card_amount_block {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    color: @black;
+    font-size: 1.125em;
+    font-weight: 500;
+    margin: 1em 0;
+    text-decoration: none;
+
+    @media(max-width: @screen-sm) {
+      position: absolute;
+      left: 0;
+      bottom: 1.9em;
+    }
+
+    .catalog_card_amount_btn,
+    .amount_input {
+      width: 1.8em;
+      height: 1.8em;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 1px solid @black;
+      font-size: .875em;
+      font-weight: bold;
+      box-sizing: border-box;
+    }
+    .catalog_card_amount_btn--minus {
+      cursor: pointer;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+      border-right: none;
+    }
+    .catalog_card_amount_btn--plus {
+      cursor: pointer;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      border-left: none;
+    }
+  }
+
+
+
+
+
+
+
+
+  .catalog_card_btn_block {
+    .btn {
+      font-size: .875em;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/page-header.less';
+
+
+.page-header {
+
+  .container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+
+.phonebox {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10.3em;
+
+  a.phone_header {
+    font-size: 1.125em;
+    font-weight: bold;
+    margin: 0 4em 0 1.2em;
+  }
+}
+.lk_block {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 12.4em;
+  justify-content: space-between;
+
+  .lk_link {
+    width: auto;
+    text-align: left;
+    font-size: .875em;
+    margin-bottom: .8em;
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+
+  .btn {
+    width: 100%;
+    font-size: .875em;
+  }
+}
+
+
+.link_block {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 12.4em;
+  justify-content: space-between;
+
+}
+
+.link {
+  display: inline-block;
+
+  &--basket {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    > span { margin-right: .5em; }
+  }
+  &--favorite,
+  &--compare {
+    .icon {
+      width: 1.5em;
+      height: 1.5em;
+    }
+  }
+  &--geo {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flex;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+      margin-right: .5em;
+    }
+  }
+}
+
+.icon_count_box {
+  position: relative;
+
+  .count {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 1.8em;
+    height: 1.8em;
+    font-size: .625em;
+    border: 1px solid @orange;
+    border-radius: 4px;
+    top: 0;
+    right: 0;
+    transform: translate(50%,-50%);
+    background-color: @white;
+  }
+}
+
+
+.logo_wrapper {
+  width: 14.3em;
+  height: auto;
+}

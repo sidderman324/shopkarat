@@ -1,0 +1,24 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/middle_menu_block.less';
+
+
+.middle_menu_block {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1.2em 0;
+
+  .row {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-of-type { padding-top: .8em; }
+  }
+
+}

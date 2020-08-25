@@ -1,0 +1,28 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/rating.less';
+
+
+.rating {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 2.7em;
+
+  .rating_star {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin-right: .4em;
+
+    &--full {
+      background-image: url('../imgs/icons/icon_star_full.svg');
+    }
+    &--empty {
+      background-image: url('../imgs/icons/icon_star_empty.svg');
+    }
+  }
+}

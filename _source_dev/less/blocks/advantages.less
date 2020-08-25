@@ -1,0 +1,55 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/advantages.less';
+
+
+.advantages {
+  padding: 1.1em 0;
+
+  .advantages_wrapper {
+    margin-top: 3em;
+
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 6.2em 0 5em;
+
+    .advantage_item {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .advantage_icon {
+        width: 4em;
+        margin-bottom: 1em;
+      }
+
+      .advantage_text {
+        font-size: 1.125em;
+        text-align: center;
+      }
+
+      &:nth-child(2) {
+        .advantage_icon {
+          width: 4.8em;
+        }
+      }
+      &:nth-child(3) {
+        .advantage_icon {
+          width: 4.8em;
+        }
+      }
+      &:nth-child(4) {
+        .advantage_icon {
+          width: 4.8em;
+        }
+      }
+
+
+
+    }
+  }
+}

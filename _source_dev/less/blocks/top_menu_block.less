@@ -1,0 +1,41 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/top_menu_block.less';
+
+
+.top_menu_block {
+  width: 100%;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 100vw;
+    height: 100%;
+    background-color: @gray-bgr;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  ul.top_menu {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+
+    li {
+      list-style-type: none;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: @black;
+        font-size: 1.125em;
+        font-weight: bold;
+        padding: .7em 0;
+      }
+    }
+  }
+}
