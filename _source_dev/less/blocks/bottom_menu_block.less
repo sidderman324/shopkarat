@@ -6,7 +6,8 @@
   padding: 1.3em 0 0.8em;
   position: relative;
 
-  &:before {
+  &:before,
+  &:after {
     content: '';
     display: inline-block;
     width: 100vw;
@@ -16,6 +17,10 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+  }
+  &:after {
+    top: auto;
+    bottom: 0;
   }
 
   ul.icon_menu {

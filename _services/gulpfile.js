@@ -129,6 +129,7 @@ gulp.task('js', function () {
       dirs.source + '/js/jquery-3.1.1.js',
       dirs.source + '/js/jquery-migrate-1.4.1.min.js',
       dirs.source + '/js/jquery.nested.js',
+      dirs.source + '/js/jquery-ui.min.js',
       dirs.source + '/js/vue.js',
       dirs.source + '/js/swiper.js',
       dirs.source + '/js/script.js',

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Глагне</title>
 
 	<link rel="stylesheet" href="../static/css/style.css?v=<?php echo time(); ?>">
 
@@ -147,11 +147,11 @@
 						</div>
 						<div class="swiper-slide catalog_card">
 							<div class="img_wrapper">
-								<img src="../static/imgs/catalog/product_1.jpg" alt="">
+								<img src="../static/imgs/catalog/product_2.jpg" alt="">
 							</div>
 
-							<p class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</p>
-							<p class="catalog_card_status catalog_card_status--for-order">Под заказ</p>
+							<p class="catalog_card_title">Ваза бочонок "Тень" 38 см (4) (YAB-KR-19)</p>
+							<p class="catalog_card_status catalog_card_status--in-stock">В наличии</p>
 							<p class="catalog_card_articul">Артикул № 3558</p>
 
 							<div class="catalog_card_infoblock">
@@ -189,11 +189,11 @@
 						</div>
 						<div class="swiper-slide catalog_card">
 							<div class="img_wrapper">
-								<img src="../static/imgs/catalog/product_1.jpg" alt="">
+								<img src="../static/imgs/catalog/product_3.jpg" alt="">
 							</div>
 
-							<p class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</p>
-							<p class="catalog_card_status catalog_card_status--for-order">Под заказ</p>
+							<p class="catalog_card_title">Основание Для кровати (25*28) 900х1900 (Метал + деревянные ламели)</p>
+							<p class="catalog_card_status catalog_card_status--for-order">Скоро в продаже</p>
 							<p class="catalog_card_articul">Артикул № 3558</p>
 
 							<div class="catalog_card_infoblock">

@@ -4,7 +4,7 @@
 			<nav>
 				<ul class="top_menu">
 					<li><a href="#">О компании</a></li>
-					<li><a href="#">Каталог</a></li>
+					<li><a href="catalog.php">Каталог</a></li>
 					<li><a href="#">Акции</a></li>
 					<li><a href="#">Услуги</a></li>
 					<li><a href="#">Калькулятор распила</a></li>
@@ -17,7 +17,7 @@
 
 		<div class="middle_menu_block">
 			<div class="row">
-				<div class="logo_wrapper"><img src="../static/imgs/main_logo_orange.svg" alt=""></div>
+				<a href="/wp-content/themes/karat/frontend/main-page.php"><div class="logo_wrapper"><img src="../static/imgs/main_logo_orange.svg" alt=""></div></a>
 
 				<div class="phonebox">
 					<span class="icon icon--phone"></span>

@@ -1,0 +1,151 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/filter_block.less';
+
+
+.filter_block {
+  width: 24%;
+  margin-top: 3.2em;
+  padding-top: 1em;
+  border-radius: 4px;
+  border: 1px solid @black;
+
+  .title {
+    .title-mix;
+    text-align: center;
+    color: @orange;
+    position: relative;
+    padding-bottom: .35em;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      background-color: @black;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+
+  .filter_spoiler {
+    border-bottom: 1px solid #C4C4C4;
+
+    .filter_spoiler_title {
+      font-size: 1.125em;
+      font-weight: bold;
+      padding: .3em .1em;
+      margin: .8em 2.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .filter_spoiler_inner {
+      overflow: hidden;
+      height: 0;
+      transition: .3s;
+    }
+    .link_list {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+
+      .category_list_item {
+        // margin: 0.6em 3em;
+        margin: .5em 2.6em;
+        font-size: 1em;
+        transition: .3s;
+
+        &:hover {
+          color: @orange;
+        }
+      }
+      .category_list_item.active {
+        color: @orange;
+      }
+    }
+
+
+    .checkbox_list {
+      margin: .5em 2.6em;
+
+
+      .row {
+        padding: .5em 0;
+
+        .custom_checkbox {
+          font-size: 1em;
+        }
+
+        .custom_checkbox [type='checkbox']:not(:checked) + label,
+        .custom_checkbox [type='checkbox']:checked + label {
+          padding-left: 3.5em;
+        }
+        .custom_checkbox [type='checkbox']:not(:checked) + label:before,
+        .custom_checkbox [type='checkbox']:checked + label:before {
+          left: 0;
+        }
+        .custom_checkbox [type='checkbox']:not(:checked) + label:after,
+        .custom_checkbox [type='checkbox']:checked + label:after {
+          left: 1.5%;
+        }
+      }
+    }
+
+
+    .filter_spoiler_price_interval {
+      margin: .5em 2.6em;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .ui-slider-horizontal {
+        height: 2px;
+        border: 0;
+        background-color: #E5E5E5;
+      }
+      .ui-slider-horizontal .ui-slider-range {
+        background-color: @black;
+      }
+      .ui-slider .ui-slider-handle {
+        top: 50%;
+        transform: translate(-50%,-50%);
+        margin: 0 !important;
+        height: 1.7em;
+        width: 0.9em;
+        border-radius: 15px;
+        background-color: @orange;
+        border-color: @black;
+      }
+
+      #priceIntervalSlider {
+        width: 100%;
+        margin-top: 4em;
+        margin-bottom: 3em;
+
+        #currentStart,
+        #currentEnd {
+          position: absolute;
+          top: -2em;
+          left: 0;
+        }
+        #currentEnd {left: auto; right: 0;}
+      }
+    }
+  }
+
+  .filter_spoiler.opened {
+    .filter_spoiler_title {
+      border-bottom: 2px solid @orange;
+    }
+    .filter_spoiler_inner {
+      height: auto;
+      padding-bottom: 1em;
+    }
+  }
+}

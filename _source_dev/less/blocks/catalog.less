@@ -4,8 +4,38 @@
 .catalog {
   padding: 4.7em 0;
 
+  &--catalog-page {
+    .container {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  h2.title {
+    width: 100%;
+    text-align: left;
+  }
+
   .catalog_item {
     padding-top: 2.9em;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &--catalog-page {
+      width: 74.7%;
+
+      .catalog_card {
+        width: 32.2%;
+      }
+    }
   }
   .swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
     margin-top: 0;
