@@ -1,0 +1,232 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/basket.less';
+
+
+.basket {
+  padding: 3.6em 0;
+
+  h1.title {
+    text-align: left;
+  }
+
+  .tabs {
+    padding-top: .8em;
+
+    .tabs_head { border-top: none; }
+    .tabs_head .tabs_head_item { padding-bottom: .8em; }
+    .tabs_head .tabs_head_item:after { bottom: .5em; }
+    .tabs_body .tabs_body_item {
+      padding-right: 0;
+
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .tabs_body .tabs_body_item.active {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+    }
+
+    .summary {
+      margin-top: 2.2em;
+      text-transform: initial !important;
+      display: inline-block;
+      margin-left: auto;
+      margin-right: 10.9em;
+
+      span {
+        display: inline-block;
+        margin-left: 2.4em;
+      }
+    }
+
+    .title {
+      font-size: 1.125em;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 2em;
+    }
+
+    .notification {
+      font-weight: bold;
+      color: #DE0F0F;
+    }
+    .price,
+    .total_price,
+    .sale {
+      font-size: 1.125em;
+    }
+  }
+
+
+  .total_summary {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid @black;
+    border-radius: 4px;
+    padding: 1.3em 2.6em 1.3em 2.6em;
+    width: 100%;
+
+    .text { margin-right: .9em; }
+
+    .input_box {
+      width: 9.8em;
+      margin-right: 1.4em;
+    }
+    .basket_total_price {
+      margin-left: auto;
+      font-size: 1.875em;
+      font-weight: bold;
+      color: @orange;
+
+      span {
+        display: inline-block;
+        margin-left: 2em;
+      }
+    }
+
+    &--aside {
+      border: none;
+      border-bottom: 1px solid #c4c4c4;
+
+      .basket_total_price {
+        font-size: 1.125em;
+        color: @black;
+      }
+    }
+  }
+
+  .button_block {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2.4em;
+
+    .btn {
+      padding-left: 2.3em;
+      padding-right: 2.3em;
+    }
+    .btn--icon-arrow {
+      padding: 0 3.5em 0 1.5em;
+    }
+    .btn--icon-arrow:before {
+      right: .8em;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+
+  .table_head,
+  .table_body {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .table_row {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .table_cell:nth-child(1) {
+    width: 14.7%;
+  }
+  .table_cell:nth-child(2) {
+    width: 22.8%;
+  }
+  .table_cell:nth-child(3) {
+    width: 17.1%;
+  }
+  .table_cell:nth-child(4) {
+    width: 12.2%;
+  }
+  .table_cell:nth-child(5) {
+    width: 11.7%;
+  }
+  .table_cell:nth-child(6) {
+    width: 12%;
+  }
+  .table_cell:nth-child(7) {
+    width: 9.6%;
+  }
+
+  .table_head {
+    .table_row {
+      border-bottom: 2px solid @orange;
+    }
+
+    .table_cell {
+      padding: 0.35em 0 0.35em 2.3em;
+      font-size: 1.125em;
+      font-weight: bold;
+    }
+  }
+  .table_body {
+    .table_row {
+      border-bottom: 1px solid #C4C4C4;
+    }
+    .table_cell {
+      padding: 1.9em 0 1.9em 2.5em;
+
+      .img_wrapper {
+        width: 8.4em;
+        border: 1px solid @black;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+    }
+    .table_cell:nth-child(2) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .table_cell:nth-child(3) {
+      margin-bottom: 0;
+      .catalog_card_amount_block {
+        margin: .3em 0;
+      }
+      span {
+        display: inline-block;
+        width: 5.3145em;
+        text-align: center;
+      }
+    }
+    .table_cell:nth-child(3),
+    .table_cell:nth-child(4),
+    .table_cell:nth-child(5),
+    .table_cell:nth-child(6) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .table_cell:nth-child(7) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+}

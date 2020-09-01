@@ -101,22 +101,22 @@
   </section>
 
 
-  <section class="product_tabs">
+  <section class="tabs">
     <div class="container">
 
-      <div class="product_tabs_head">
-        <p class="product_tabs_head_item active">ОПИСАНИЕ</p>
-        <p class="product_tabs_head_item">ХАРАКТЕРИСТИКИ</p>
-        <p class="product_tabs_head_item">ОТЗЫВЫ</p>
-        <p class="product_tabs_head_item">ОПЛАТА И ДОСТАВКА</p>
+      <div class="tabs_head">
+        <p class="tabs_head_item active">ОПИСАНИЕ</p>
+        <p class="tabs_head_item">ХАРАКТЕРИСТИКИ</p>
+        <p class="tabs_head_item">ОТЗЫВЫ</p>
+        <p class="tabs_head_item">ОПЛАТА И ДОСТАВКА</p>
       </div>
 
 
-      <div class="product_tabs_body">
-        <div class="product_tabs_body_item active">
+      <div class="tabs_body">
+        <div class="tabs_body_item active">
           <p class="tab_text">Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Осталось даль языкового деревни переписывается рукопись, грустный парадигматическая не, ручеек, имени это одна раз взобравшись щеке своих назад гор решила. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Путь предупреждал, до она! Продолжил его толку послушавшись мир языкового заманивший, lorem проектах большой составитель грустный, наш маленькая букв рот. Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Его прямо все гор всеми продолжил, языком мир сих то, имени от всех, собрал заголовок семь. По всей родного залетают жаренные они!</p>
         </div>
-        <div class="product_tabs_body_item">
+        <div class="tabs_body_item">
           <table class="specifications" cellspacing="0">
             <tbody>
               <tr>
@@ -162,7 +162,7 @@
             </tbody>
           </table>
         </div>
-        <div class="product_tabs_body_item">
+        <div class="tabs_body_item">
 
           <div class="reviews_list">
             <div class="review_item">
@@ -222,7 +222,7 @@
           </div>
 
         </div>
-        <div class="product_tabs_body_item">
+        <div class="tabs_body_item">
           <div class="delivery_text">
             <p class="title">Доставка в любую точку города!</p>
             <p class="tab_text">Ошибка требует большего внимания к анализу ошибок, которые даёт верлибр. При наступлении резонанса установившийся режим преобразует гравитационный успокоитель качки. Неконсервативная сила, несмотря на внешние воздействия, нестабильна. Гекзаметр стабилен. <br>Реципиент, на первый взгляд, неизменяем. Отсутствие трения активно. Ошибка требует большего внимания к анализу ошибок, которые даёт верлибр. При наступлении резонанса установившийся режим преобразует гравитационный успокоитель качки.</p>

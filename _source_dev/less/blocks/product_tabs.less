@@ -1,17 +1,17 @@
-// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/product_tabs.less';
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/tabs.less';
 
 
-.product_tabs {
+.tabs {
   padding-bottom: 8em;
 
-  .product_tabs_head {
+  .tabs_head {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
     flex-direction: row;
     border-top: 1px solid #C4C4C4;
 
-    .product_tabs_head_item {
+    .tabs_head_item {
       text-transform: uppercase;
       font-size: 1.125em;
       font-weight: bold;
@@ -33,13 +33,13 @@
         opacity: 0;
       }
     }
-    .product_tabs_head_item.active:after {
+    .tabs_head_item.active:after {
       opacity: 1;
     }
   }
 
-  .product_tabs_body {
-    .product_tabs_body_item {
+  .tabs_body {
+    .tabs_body_item {
       padding-top: 1.5em;
       padding-bottom: 1.5em;
       padding-right: 70%;
@@ -50,7 +50,7 @@
         line-height: 1.4;
       }
     }
-    .product_tabs_body_item.active {
+    .tabs_body_item.active {
       display: block;
     }
   }

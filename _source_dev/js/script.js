@@ -101,14 +101,14 @@ $(document).ready(function(){
 
   // Переключение табов в характеристиках
 
-  $('.product_tabs_head_item').on('click',function(e){
+  $('.tabs_head_item').on('click',function(e){
     e.preventDefault();
 
     var index = $(this).index();
-    $('.product_tabs_head_item').removeClass('active');
-    $('.product_tabs_body_item').removeClass('active');
+    $('.tabs_head_item').removeClass('active');
+    $('.tabs_body_item').removeClass('active');
     $(this).addClass('active');
-    $('.product_tabs_body_item').eq(index).addClass('active');
+    $('.tabs_body_item').eq(index).addClass('active');
 
   })
 

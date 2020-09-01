@@ -61,7 +61,7 @@
 						<span class="icon icon--favorite"></span>
 						<span class="count">1</span>
 					</a>
-					<a href="#" class="link link--basket">
+					<a href="basket.php" class="link link--basket">
 						<span>Корзина</span>
 						<span class="icon_count_box">
 							<span class="icon icon--basket"></span>

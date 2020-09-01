@@ -9,6 +9,7 @@
   flex-direction: column;
   width: 24%;
   margin-bottom: 2em;
+  align-items: flex-start;
   // padding-right: 1em;
 
   .img_wrapper {
@@ -37,7 +38,8 @@
   .catalog_card_status {
     font-size: 1.125em;
     font-weight: bold;
-    padding-top: .6em;
+    padding: .3em 1em;
+    border-radius: 4px;
   }
   .catalog_card_articul {
     font-size: .75em;
@@ -152,6 +154,79 @@
     display: -ms-flex;
     display: flex;
     flex-direction: row;
+  }
+
+
+
+  &--in-stock {
+    .catalog_card_status {
+      background-color: #379046;
+      color: #fff;
+    }
+  }
+
+  &--for-order {
+    .catalog_card_status {
+      background-color: #1E2836;
+      color: #fff;
+    }
+  }
+
+  &--soon-in-stock {
+    .catalog_card_status {
+      background-color: #CF3E00;
+      color: #fff;
+    }
+  }
+
+  &--sale-label,
+  &--new-product-label {
+    .img_wrapper {
+      position: relative;
+
+      &:before {
+        content: '';
+        font-size: 1.25em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        position: absolute;
+        top: 0.7em;
+        right: 0;
+        z-index: 2;
+        width: 7.1em;
+        text-align: center;
+      }
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 8.9em;
+        height: 3.2em;
+        position: absolute;
+        right: 0;
+        top: 0em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        z-index: 1;
+      }
+    }
+  }
+  &--sale-label .img_wrapper {
+    &:before {
+      content: 'АКЦИЯ!';
+    }
+    &:after {
+      background-image: url('../imgs/label_red.svg');
+    }
+  }
+  &--new-product-label .img_wrapper {
+    &:before {
+      content: 'НОВИНКА';
+    }
+    &:after {
+      background-image: url('../imgs/label_blue.svg');
+    }
   }
 
 }
