@@ -6,11 +6,13 @@
 
 	<link rel="stylesheet" href="../static/css/style.css">
 
-	
+
 	<script src="../static/js/script.min.js"></script>
 
 </head>
 <body>
+
+	<?php include ('./_include/header.php');?>
 
 	<div class="container">
 
@@ -37,7 +39,7 @@
 				<div class="row">
 					<div class="custom_checkbox">
 						<input id="detail_rotate" type="checkbox" checked v-model="detailRotate">
-						<label for="detail_rotate" name="detail_rotate"><span>Вращение деталей:</span></label>						
+						<label for="detail_rotate" name="detail_rotate"><span>Вращение деталей:</span></label>
 					</div>
 					<p class="text"></p>
 				</div>
@@ -63,7 +65,7 @@
 
 
 		<div class="control_block">
-			
+
 			<div class="left">
 				<div class="row">
 					<p class="text">Листов в раскрое:</p>
@@ -113,46 +115,46 @@
 						<div class="table_row" v-for="(detail, index) in detailItem">
 							<div class="cell">
 								<div class="input_box">
-									<input 
-									type="number" 
-									:id="'detail_length_'+index" 
-									data-type="length" 
-									data-min="10" 
-									:data-max="currentState.cuttingSize[0]" 
-									@input="validateSizes" 
+									<input
+									type="number"
+									:id="'detail_length_'+index"
+									data-type="length"
+									data-min="10"
+									:data-max="currentState.cuttingSize[0]"
+									@input="validateSizes"
 									class="input_text"
 									>
 								</div>
 							</div>
 							<div class="cell">
 								<div class="input_box">
-									<input 
-									type="number" 
-									:id="'detail_width_'+index" 
-									data-type="width" 
-									data-min="10" 
-									:data-max="currentState.cuttingSize[1]" 
-									@input="validateSizes" 
+									<input
+									type="number"
+									:id="'detail_width_'+index"
+									data-type="width"
+									data-min="10"
+									:data-max="currentState.cuttingSize[1]"
+									@input="validateSizes"
 									class="input_text"
 									>
 								</div>
 							</div>
 							<div class="cell">
 								<div class="input_box">
-									<input 
-									type="number" 
-									:id="'detail_count_'+index" 
-									data-type="count" 
-									data-min="1" 
-									data-max="999999999999" 
-									@input="validateSizes" 
+									<input
+									type="number"
+									:id="'detail_count_'+index"
+									data-type="count"
+									data-min="1"
+									data-max="999999999999"
+									@input="validateSizes"
 									class="input_text"
 									value="1"
 									>
 								</div>
 							</div>
 							<div class="cell">
-								
+
 								<div class="detail_square">
 									<span class="square"></span>
 									<div class="edge_group edge_top" data-position="top">
@@ -192,10 +194,10 @@
 		</div>
 
 
-		
 
 
-		<div class="cutting_block">			
+
+		<div class="cutting_block">
 			<input type="hidden" id="platesCount" v-model="currentState.cuttingPlates" @change="platesChange()">
 			<div class="plate_box" v-for="item in currentState.cuttingPlates">
 				<p class="text">Лист {{item}}</p>
@@ -212,14 +214,14 @@
 
 				<div class="plate_item" :style="'height:' + currentState.plateHeight + 'px'">
 
-					<div 
-					class="detail_item box" 
-					v-for="(detail, index) in detailItemRender" 
+					<div
+					class="detail_item box"
+					v-for="(detail, index) in detailItemRender"
 					v-if="currentState.arrPlates[index][1] == item"
 					:id="'detail_item_' + detail[3] + '_' + detail[4]"
 					:data-px-length="detail[6][0]"
 					:data-px-width="detail[6][1]"
-					:data-detail-length="detail[1]" 					
+					:data-detail-length="detail[1]"
 					:data-detail-width="detail[2]"
 					:data-border-top="detail[4][0]"
 					:data-border-right="detail[4][1]"
@@ -346,9 +348,9 @@
 						var count = parseInt(detail[i][3]);
 						totalCount = totalCount + count;
 					}
-					// this.currentState.totalDetailCount = totalCount;						
+					// this.currentState.totalDetailCount = totalCount;
 					if (this.isAN(totalCount)) {
-						this.currentState.totalDetailCount = totalCount;						
+						this.currentState.totalDetailCount = totalCount;
 					} else {
 						this.currentState.totalDetailCount = '-';
 					}
@@ -369,10 +371,10 @@
 						totalDetailPerimeter = totalDetailPerimeter + itemPerimetr;
 					}
 
-					if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; } 
+					if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; }
 					else { this.currentState.totalDetailSquare = '-'; }
 
-					if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter; } 
+					if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter; }
 					else { this.currentState.totalDetailPerimeter = '-'; }
 				},
 
@@ -393,7 +395,7 @@
 						var detailLength = parseInt(detail[i][1]);
 						var detailWidth = parseInt(detail[i][2]);
 						var detailCount = parseInt(detail[i][3]);
-						var edgeArr = detail[i][4];		
+						var edgeArr = detail[i][4];
 
 						if(edgeArr[0] != 0) {
 							if(edgeArr[0] == '0.4 мм') {
@@ -402,7 +404,7 @@
 								edgeLength_2 = edgeLength_2 + detailLength;
 							} if(edgeArr[0] == '2.0 мм') {
 								edgeLength_3 = edgeLength_3 + detailLength;
-							} 
+							}
 						} if(edgeArr[1] != 0) {
 							if(edgeArr[1] == '0.4 мм') {
 								edgeLength_1 = edgeLength_1 + detailWidth;
@@ -410,7 +412,7 @@
 								edgeLength_2 = edgeLength_2 + detailWidth;
 							} if(edgeArr[1] == '2.0 мм') {
 								edgeLength_3 = edgeLength_3 + detailWidth;
-							} 
+							}
 						} if(edgeArr[2] != 0) {
 							if(edgeArr[2] == '0.4 мм') {
 								edgeLength_1 = edgeLength_1 + detailLength;
@@ -418,7 +420,7 @@
 								edgeLength_2 = edgeLength_2 + detailLength;
 							} if(edgeArr[2] == '2.0 мм') {
 								edgeLength_3 = edgeLength_3 + detailLength;
-							} 
+							}
 						} if(edgeArr[3] != 0) {
 							if(edgeArr[3] == '0.4 мм') {
 								edgeLength_1 = edgeLength_1 + detailWidth;
@@ -426,21 +428,21 @@
 								edgeLength_2 = edgeLength_2 + detailWidth;
 							} if(edgeArr[3] == '2.0 мм') {
 								edgeLength_3 = edgeLength_3 + detailWidth;
-							} 
-						} 
+							}
+						}
 
 						edgeLength_1 = edgeLength_1 * detailCount;
 						edgeLength_2 = edgeLength_2 * detailCount;
 						edgeLength_3 = edgeLength_3 * detailCount;
 					}
 
-					if (this.isAN(edgeLength_1)) { this.currentState.edgeLength_1 = edgeLength_1; } 
+					if (this.isAN(edgeLength_1)) { this.currentState.edgeLength_1 = edgeLength_1; }
 					else { this.currentState.edgeLength_1 = '-'; }
 
-					if (this.isAN(edgeLength_2)) { this.currentState.edgeLength_2 = edgeLength_2; } 
+					if (this.isAN(edgeLength_2)) { this.currentState.edgeLength_2 = edgeLength_2; }
 					else { this.currentState.edgeLength_2 = '-'; }
 
-					if (this.isAN(edgeLength_3)) { this.currentState.edgeLength_3 = edgeLength_3; } 
+					if (this.isAN(edgeLength_3)) { this.currentState.edgeLength_3 = edgeLength_3; }
 					else { this.currentState.edgeLength_3 = '-'; }
 				},
 
@@ -496,7 +498,7 @@
 
 						var cuttingLength = parseInt(cuttingSize[0]);
 						var cuttingWidth = parseInt(cuttingSize[1]);
-						
+
 						var width = parseInt(details[i][2]);
 						var length = parseInt(details[i][1]);
 
@@ -531,7 +533,7 @@
 					var plateWidth = this.currentState.plateWidth;
 					var plateHeight = this.currentState.plateHeight;
 
-					
+
 
 					// Стартово положение top и left равняется расстоянию между деталями
 					var posX = margin;
@@ -607,7 +609,7 @@
 							// Проверка, попадает ли в ширину, если взять от left 0
 
 
-							// Проверка, 
+							// Проверка,
 
 						}
 
@@ -627,7 +629,7 @@
 
 
 
-					// При добавлении детали необходимо провододить сканирование нижней левой и верхней правой точки каждой детали как стартовые координаты сканирования, естественно с прибавлением к ним отступа margin. 
+					// При добавлении детали необходимо провододить сканирование нижней левой и верхней правой точки каждой детали как стартовые координаты сканирования, естественно с прибавлением к ним отступа margin.
 
 					// Сканирование начинаешь с с правой верхней точки. Далее прибавляешь к координатам ширину новой детали, проверяешь влезает ли в лист, если ок - то ок. Верхие точки проверяются в порядке возрастания id детали.
 
@@ -733,7 +735,7 @@
 					// setTimeout(this.nested, 100);
 				},
 
-				// Функция вращения 
+				// Функция вращения
 				getDetailRotate: function(group, item) {
 					var i = this.detailItem.length;
 					var detailItem = this.detailItem[group];
@@ -751,13 +753,13 @@
 
 
 					var j = this.checkDetailRepeat(length, width, edgeArrRotate);
-					
+
 					if(this.isAN(j)) {
 						var counter = this.detailItem[j][3] + 1;
 						this.detailItem[j][3] = counter;
 
 						if(this.detailItem[group][3] == 0) {
-							this.detailItem.splice(group, 1);								
+							this.detailItem.splice(group, 1);
 						}
 
 					} else {
@@ -765,7 +767,7 @@
 						this.detailItem.push(detailNew);
 
 						if(this.detailItem[group][3] == 0) {
-							this.detailItem.splice(group, 1);								
+							this.detailItem.splice(group, 1);
 						}
 					}
 
@@ -809,7 +811,7 @@
 									case '1.0 мм': typeID = 1; break;
 									case '2.0 мм': typeID = 2; break;
 								}
-								
+
 								square_block.find('.edge_group').eq(j).find('span').eq(typeID).addClass('selected');
 							}
 						}
@@ -858,7 +860,7 @@
 					edgeArrRotate[1] = edgeArr[2];
 					edgeArrRotate[2] = edgeArr[3];
 					edgeArrRotate[3] = edgeArr[0];
-					
+
 					return edgeArrRotate;
 				},
 
@@ -908,5 +910,9 @@
 
 
 </div>
+
+
+<?php include ('./_include/footer.php');?>
+
 </body>
 </html>

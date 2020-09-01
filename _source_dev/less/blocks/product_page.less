@@ -1,0 +1,101 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/product_page.less';
+
+
+.product_page {
+  padding: 4.7em 0 .5em;
+
+
+  .catalog_card--product-page {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1.6em;
+
+    .img_wrapper {
+      width: 42%;
+    }
+
+    .product_block {
+      width: 49.3%;
+
+      h1.title {
+        .subtitle-mix;
+      }
+      .catalog_card_status {
+        margin-top: 0.5em;
+        padding: 0.4em 0;
+      }
+      .catalog_card_articul {
+        font-size: 1.125em;
+        padding-top: .8em;
+      }
+      .catalog_card_infoblock {
+        font-size: 2em;
+        margin-bottom: .9em;
+        margin-top: 1em;
+
+        .rating {
+          margin-right: 2em;
+        }
+      }
+      .catalog_card_price_block {
+        font-size: 1.65em;
+        margin-top: 1.7em;
+      }
+      .catalog_card_amount_block {
+        font-size: 1.8em;
+        margin: .8em 0;
+      }
+      .catalog_card_btn_block {
+        font-size: 1.5em;
+        margin-top: 0.7em;
+      }
+    }
+
+
+    .payment_info {
+      width: 100%;
+
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 3.6em;
+      width: 30.5em;
+      margin-left: auto;
+      font-size: 1.125em;
+
+      .block {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1em;
+
+        .orange, .bold {
+          // font-size: 1.125em;
+          font-weight: bold;
+        }
+        .orange {
+          width: 11em;
+          color: @orange;
+          text-decoration: underline;
+        }
+        .bold {
+          width: 19.3em;
+        }
+      }
+      .payment_icons {
+        width: 100%;
+        margin-top: 1.5em;
+        padding-left: 0.4em;
+      }
+    }
+  }
+
+}

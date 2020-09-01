@@ -57,6 +57,9 @@
 
 </footer>
 
+
+<div class="popup_bgr js-popup-close"></div>
+
 <!-- <script src="/static/js/jquery-3.1.1.js"></script> -->
 <!-- <script src="/static/js/jquery-migrate-1.4.1.min.js"></script> -->
 <!-- <script src="/static/js/toastr.min.js"></script> -->

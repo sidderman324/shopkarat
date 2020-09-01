@@ -32,6 +32,10 @@
   .filter_spoiler {
     border-bottom: 1px solid #C4C4C4;
 
+    &--price {
+      border-bottom: none;
+    }
+
     .filter_spoiler_title {
       font-size: 1.125em;
       font-weight: bold;
@@ -89,7 +93,7 @@
         }
         .custom_checkbox [type='checkbox']:not(:checked) + label:after,
         .custom_checkbox [type='checkbox']:checked + label:after {
-          left: 1.5%;
+          left: 2.5%;
         }
       }
     }
@@ -136,6 +140,20 @@
         }
         #currentEnd {left: auto; right: 0;}
       }
+    }
+  }
+
+  .filter_button_block {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    margin: .5em 2em;
+    justify-content: space-between;
+    padding-bottom: 2em;
+
+    .btn {
+      width: 45%;
     }
   }
 

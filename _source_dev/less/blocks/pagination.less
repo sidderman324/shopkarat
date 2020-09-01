@@ -1,0 +1,63 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/pagination.less';
+
+
+.pagination {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin: 0 auto;
+
+  .name {
+    font-size: .875em;
+    margin-right: .5em;
+  }
+
+  .pagintaion_page_block {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    .pagination_arrow {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: 0.4em;
+      background-image: url('../imgs/icons/icon_arrow_black.svg');
+      position: relative;
+      top: .1em;
+      margin: 0 .2rem;
+
+      &--prev {
+        transform: rotate(180deg);
+        background-position: center top;
+      }
+    }
+
+    .pagintaion_page_link {
+      margin: 0 .2rem;
+      font-size: 1em;
+      position: relative;
+
+      &--active {
+
+        &:after {
+          content: '';
+          display: inline-block;
+          height: 2px;
+          width: 100%;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -.2em;
+          background-color: @orange;
+        }
+      }
+    }
+  }
+}

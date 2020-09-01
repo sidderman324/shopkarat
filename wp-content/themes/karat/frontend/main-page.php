@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Глагне</title>
+	<title>Главная страница</title>
 
 	<link rel="stylesheet" href="../static/css/style.css?v=<?php echo time(); ?>">
 
@@ -62,11 +62,11 @@
 				<div class="swiper-container" id="catalogPopularSlider">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide catalog_card">
-							<div class="img_wrapper">
+							<a href="catalog_card.php" class="img_wrapper">
 								<img src="../static/imgs/catalog/product_1.jpg" alt="">
-							</div>
+							</a>
 
-							<p class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</p>
+							<a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
 							<p class="catalog_card_status catalog_card_status--for-order">Под заказ</p>
 							<p class="catalog_card_articul">Артикул № 3558</p>
 
@@ -104,11 +104,11 @@
 
 						</div>
 						<div class="swiper-slide catalog_card">
-							<div class="img_wrapper">
+							<a href="catalog_card.php" class="img_wrapper">
 								<img src="../static/imgs/catalog/product_1.jpg" alt="">
-							</div>
+							</a>
 
-							<p class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</p>
+							<a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
 							<p class="catalog_card_status catalog_card_status--for-order">Под заказ</p>
 							<p class="catalog_card_articul">Артикул № 3558</p>
 
@@ -146,11 +146,11 @@
 
 						</div>
 						<div class="swiper-slide catalog_card">
-							<div class="img_wrapper">
+							<a href="catalog_card.php" class="img_wrapper">
 								<img src="../static/imgs/catalog/product_2.jpg" alt="">
-							</div>
+							</a>
 
-							<p class="catalog_card_title">Ваза бочонок "Тень" 38 см (4) (YAB-KR-19)</p>
+							<a href="catalog_card.php" class="catalog_card_title">Ваза бочонок "Тень" 38 см (4) (YAB-KR-19)</a>
 							<p class="catalog_card_status catalog_card_status--in-stock">В наличии</p>
 							<p class="catalog_card_articul">Артикул № 3558</p>
 
@@ -188,11 +188,11 @@
 
 						</div>
 						<div class="swiper-slide catalog_card">
-							<div class="img_wrapper">
+							<a href="catalog_card.php" class="img_wrapper">
 								<img src="../static/imgs/catalog/product_3.jpg" alt="">
-							</div>
+							</a>
 
-							<p class="catalog_card_title">Основание Для кровати (25*28) 900х1900 (Метал + деревянные ламели)</p>
+							<a href="catalog_card.php" class="catalog_card_title">Основание Для кровати (25*28) 900х1900 (Метал + деревянные ламели)</a>
 							<p class="catalog_card_status catalog_card_status--for-order">Скоро в продаже</p>
 							<p class="catalog_card_articul">Артикул № 3558</p>
 

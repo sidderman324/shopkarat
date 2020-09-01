@@ -8,11 +8,13 @@
   flex-direction: row;
   flex-direction: column;
   width: 24%;
+  margin-bottom: 2em;
   // padding-right: 1em;
 
   .img_wrapper {
     border: 1px solid @black;
     border-radius: 4px;
+    overflow: hidden;
   }
 
   .catalog_card_title {
@@ -20,6 +22,17 @@
     font-weight: bold;
     padding-top: 1.1em;
     line-height: 1.4;
+    height: 5.1em;
+
+
+    display: -moz-box;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
   }
   .catalog_card_status {
     font-size: 1.125em;
@@ -134,14 +147,53 @@
 
 
 
-
-
-
-
-
   .catalog_card_btn_block {
-    .btn {
-      font-size: .875em;
-    }
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
   }
+
+}
+
+
+
+
+.catalog_card_mini {
+  border: 1px solid @orange;
+  border-radius: 4px;
+  padding-bottom: 2em;
+  padding-left: .5em;
+  padding-right: .5em;
+
+  .img_wrapper {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .catalog_card_mini_title,
+  .catalog_card_mini_price {
+    font-size: .875em;
+    text-align: center;
+  }
+  .catalog_card_mini_price {
+    font-weight: bold;
+  }
+  .catalog_card_mini_title {
+    margin-bottom: 1em;
+
+    display: -moz-box;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
+
+    height: 5em;
+  }
+
+
+
 }

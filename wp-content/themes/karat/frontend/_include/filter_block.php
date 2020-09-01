@@ -125,7 +125,7 @@
     </div>
 
 
-    <div class="filter_spoiler opened">
+    <div class="filter_spoiler filter_spoiler--price opened">
       <div class="filter_spoiler_title">Цена</div>
 
       <div class="filter_spoiler_inner">
@@ -144,6 +144,11 @@
 
         </div>
       </div>
+    </div>
+
+    <div class="filter_button_block">
+      <a href="#" class="btn btn--orange">Показать</a>
+      <a href="#" class="btn btn--transparent">Сбросить</a>
     </div>
 
 

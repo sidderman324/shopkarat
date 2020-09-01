@@ -1,0 +1,137 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/product_tabs.less';
+
+
+.product_tabs {
+  padding-bottom: 8em;
+
+  .product_tabs_head {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #C4C4C4;
+
+    .product_tabs_head_item {
+      text-transform: uppercase;
+      font-size: 1.125em;
+      font-weight: bold;
+      position: relative;
+      padding: 1.4em 0;
+      margin-right: 4.7em;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        background-color: @orange;
+        position: absolute;
+        left: 0;
+        bottom: 1.2em;
+        transition: .3s;
+        opacity: 0;
+      }
+    }
+    .product_tabs_head_item.active:after {
+      opacity: 1;
+    }
+  }
+
+  .product_tabs_body {
+    .product_tabs_body_item {
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+      padding-right: 70%;
+      display: none;
+
+      .tab_text {
+        font-size: 1em;
+        line-height: 1.4;
+      }
+    }
+    .product_tabs_body_item.active {
+      display: block;
+    }
+  }
+}
+
+
+.specifications {
+  border: 1px solid @black;
+  border-radius: 4px;
+  width: 100%;
+
+  td {
+    width: 49%;
+    display: inline-block;
+    padding: .8em 1em;
+    border-right: 1px solid @black;
+
+    &:last-child {
+      border: none;
+    }
+  }
+  tr {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid @black;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+
+.reviews_list {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+
+  .review_item {
+    margin-bottom: 3em;
+
+    .review_head {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      padding: .8em 0;
+      border-bottom: 3px solid @orange;
+      margin-bottom: .8em;
+
+      .review_name {
+        font-size: 1.125em;
+        font-weight: bold;
+      }
+      .rating_box {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: row;
+
+        .rating {
+          margin-right: 1.5em;
+        }
+      }
+    }
+  }
+}
+
+
+.delivery_text {
+  .title {
+    font-size: 1.125em;
+    font-weight: bold;
+    margin-bottom: .8em;
+  }
+  .tab_text {
+    margin-bottom: 2em;
+  }
+}

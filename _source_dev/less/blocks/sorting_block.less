@@ -1,0 +1,79 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/sorting_block.less';
+
+
+.sorting_block {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2.4em 0 1.1em;
+  margin-bottom: 2.7em;
+  border-bottom: 1px solid #C4C4C4;
+
+  .sorting_title {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .sort_item {
+    margin-left: 2.3em;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .name {
+      font-size: .875em;
+      margin-right: 1em;
+    }
+
+    .btn_box {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+
+      .sort_btn {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        border: 1px solid @black;
+        border-radius: 4px;
+        background-color: #fff;
+        margin-right: .3em;
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: .5em;
+          height: .5em;
+          border-bottom: 1px solid @black;
+          border-right: 1px solid @black;
+          position: absolute;
+          top: 43%;
+          left: 50%;
+          transform: translate(-50%,-50%) rotate(45deg);
+        }
+
+        &--acs:before {
+          transform: translate(-50%,-50%) rotate(-135deg);
+          top: 63%;
+        }
+      }
+      .sort_btn.selected {
+        background-color: @orange;
+
+        &:before {
+          border-color: #fff;
+        }
+      }
+    }
+  }
+}
