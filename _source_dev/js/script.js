@@ -56,6 +56,23 @@ $(document).ready(function(){
   });
 
 
+  // Открытие меню
+
+  $('.js-show-catalog-menu').on('click',function(e){
+    e.preventDefault();
+
+    $(this).toggleClass('active');
+    $('.hover_menu_block').toggleClass('visible');
+  });
+
+  $('.bottom_menu_block, .middle_menu_block, section').on('click', function(){
+    if($('.hover_menu_block').hasClass('visible')) {
+      $('.js-show-catalog-menu').removeClass('active');
+      $('.hover_menu_block').removeClass('visible');
+    }
+  })
+
+
 
 
   var stars;

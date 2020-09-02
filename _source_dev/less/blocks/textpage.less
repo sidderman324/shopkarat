@@ -1,0 +1,225 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/textpage.less';
+
+
+.textpage {
+  padding: 3.6em 0 8em;
+
+  .container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+
+    .title {
+      margin-bottom: 1em;
+    }
+
+    .text_block {
+      width: 47.7%;
+    }
+    .img_wrapper {
+      width: 40.6%;
+      margin-top: 1em;
+    }
+
+    .separator {
+      height: 3em;
+      display: inline-block;
+    }
+
+
+    .box {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 5em;
+      flex-wrap: wrap;
+
+      h2.title,
+      h1.title {
+        text-align: left;
+        width: 100%;
+      }
+
+      .column {
+        width: 49%;
+
+        &:first-child {
+          padding-right: 8%;
+        }
+
+        &:last-child {
+          padding-left: 8%;
+        }
+      }
+    }
+
+    .payment_block {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      position: relative;
+      padding-left: 6em;
+      padding-top: 3em;
+
+      &:first-of-type {
+        margin-top: 2em;
+      }
+
+      .text {
+        width: 28.8em;
+        margin-left: auto;
+      }
+
+      .icon {
+        width: 4.7em;
+        height: 4.7em;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+
+
+    .block_title {
+      font-size: 1.125em;
+      font-weight: bold;
+      width: 100%;
+      padding-bottom: .4em;
+      margin-bottom: 1.5em;
+      border-bottom: 2px solid @orange;
+      text-transform: uppercase;
+
+      &--narrow {
+        display: inline-block;
+        width: auto;
+      }
+    }
+    .big_text {
+      font-size: 1.125em;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .text {
+      margin-bottom: 1em;
+      line-height: 1.5;
+      font-size: 1em;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .orange {
+      font-weight: bold;
+      color: @orange;
+    }
+    .big {
+      font-size: 1.125em;
+    }
+    ul,
+    ol {
+      li {
+        padding-left: 1.5em;
+        position: relative;
+        margin-bottom: 1em;
+      }
+    }
+
+    ol {
+      li {
+        list-style-type: decimal;
+        margin-left: 1.2em;
+        padding-left: 0.8em;
+        margin-bottom: 1.5em;
+
+        p.text {
+          margin-bottom: 0.2em;
+        }
+
+        a {
+          display: inline-block;
+          margin-right: .5em;
+        }
+      }
+    }
+
+    ul.list li {
+      &:before {
+        content: '';
+        display: inline-block;
+        width: .5em;
+        height: .5em;
+        position: absolute;
+        top: .3em;
+        left: 0;
+        background-color: @orange;
+        border: 1px solid @black;
+        border-radius: 50%;
+        font-size: 1.1em;
+      }
+    }
+    ul.list_check li {
+      &:before {
+        content: '';
+        display: inline-block;
+        width: 0.6em;
+        height: .7em;
+        position: absolute;
+        top: 0.4em;
+        left: 0;
+        font-size: 1.1em;
+        background-image: url('../imgs/icons/icon_check.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+    }
+
+
+    .specifications {
+      border: none;
+      width: 75%;
+      thead {
+        td {
+          font-weight: bold;
+          border-right: none;
+          border-bottom: 2px solid @orange;
+          margin-bottom: 0;
+          height: 3.7em;
+          display: inline-flex;
+          align-items: center;
+        }
+      }
+
+      tr {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+      }
+
+      td {
+        width: 24% !important;
+        margin-bottom: 0 !important;
+      }
+
+      tbody {
+        display: inline-block;
+        margin-top: 1em;
+        border: 1px solid @black;
+        border-radius: 4px;
+      }
+    }
+
+  }
+}

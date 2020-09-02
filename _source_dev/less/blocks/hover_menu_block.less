@@ -1,0 +1,89 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/hover_menu_block.less';
+
+.hover_menu_block.visible {
+  visibility: visible;
+  top: 100%;
+}
+.hover_menu_block {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 2em 2em 1em 2em;
+  top: -200vh;
+  background-color: #fff;
+  border: 1px solid @black;
+  z-index: 10;
+  transition: ease .5s;
+  visibility: hidden;
+
+  justify-content: space-between;
+
+  // max-height: 90vh;
+
+  .inner {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .column {
+    width: 33.3%;
+  }
+
+  .menu_link_box {
+    margin-bottom: 2em;
+
+    .menu_section_link {
+      position: relative;
+      padding: 0.8em 2.5em;
+      display: inline-block;
+
+      .title {
+        font-size: 1.125em;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      .icon--furniture {
+        width: 3.2em !important;
+        height: 3.2em !important;
+      }
+    }
+
+    ul {
+      padding-left: 2.5em;
+
+      li {
+        .menu_item_link {
+          font-size: 1.125em;
+          display: inline-block;
+          padding: 0.3em 0;
+          transition: .3s;
+
+          &:hover {
+            color: @orange;
+          }
+        }
+        .menu_item_link.active {
+          font-weight: bold;
+          color: @orange;
+        }
+        .menu_item_link.bold {
+          font-weight: bold;
+        }
+        .menu_item_link.subtitle {
+          font-weight: bold;
+          text-transform: uppercase;
+          border-bottom: 2px solid @orange;
+        }
+      }
+    }
+  }
+}

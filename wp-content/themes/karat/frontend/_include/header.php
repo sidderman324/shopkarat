@@ -3,8 +3,8 @@
 		<div class="top_menu_block">
 			<nav>
 				<ul class="top_menu">
-					<li><a href="#">О компании</a></li>
-					<li><a href="catalog.php">Каталог</a></li>
+					<li><a href="about_company.php">О компании</a></li>
+					<li><a href="catalog.php" class="js-show-catalog-menu">Каталог</a></li>
 					<li><a href="#">Акции</a></li>
 					<li><a href="#">Услуги</a></li>
 					<li><a href="calculator.php">Калькулятор распила</a></li>
@@ -12,7 +12,152 @@
 					<li><a href="#">Контакты</a></li>
 				</ul>
 			</nav>
+
+			<div class="hover_menu_block">
+				<div class="inner">
+					<div class="column">
+						<div class="menu_link_box">
+							<a href="#" class="menu_section_link">
+								<span class="icon icon--decor"></span>
+								<span class="title">ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
+							</a>
+							<ul>
+								<li><a href="#" class="menu_item_link">Декоры угловые</a></li>
+								<li><a href="#" class="menu_item_link">Комплекты для труб и консолей</a></li>
+								<li><a href="#" class="menu_item_link">Короны на шкаф</a></li>
+								<li><a href="#" class="menu_item_link">Кронштейны и капители</a></li>
+								<li><a href="#" class="menu_item_link">Мебельные опоры</a></li>
+								<li><a href="#" class="menu_item_link active">Мебельный декор</a></li>
+								<li><a href="#" class="menu_item_link">Мебельный молдинг</a></li>
+								<li><a href="#" class="menu_item_link">Накладки для мягкой мебели</a></li>
+								<li><a href="#" class="menu_item_link">Наклейки для мебели</a></li>
+								<li><a href="#" class="menu_item_link">Рамки для зеркал</a></li>
+								<li><a href="#" class="menu_item_link">Розетки из полимера</a></li>
+								<li><a href="#" class="menu_item_link">Спинки кроватей</a></li>
+								<li><a href="#" class="menu_item_link">Столы, стулья, банкетки</a></li>
+							</ul>
+						</div>
+
+						<div class="menu_link_box">
+							<a href="#" class="menu_section_link">
+								<span class="icon icon--furniture"></span>
+								<span class="title">ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
+							</a>
+							<ul>
+								<li><a href="#" class="menu_item_link">Декоры угловые</a></li>
+								<li><a href="#" class="menu_item_link">Комплекты для труб и консолей</a></li>
+								<li><a href="#" class="menu_item_link">Короны на шкаф</a></li>
+								<li><a href="#" class="menu_item_link">Кронштейны и капители</a></li>
+								<li><a href="#" class="menu_item_link">Мебельные опоры</a></li>
+								<li><a href="#" class="menu_item_link active">Мебельный декор</a></li>
+								<li><a href="#" class="menu_item_link">Мебельный молдинг</a></li>
+								<li><a href="#" class="menu_item_link">Накладки для мягкой мебели</a></li>
+								<li><a href="#" class="menu_item_link">Наклейки для мебели</a></li>
+								<li><a href="#" class="menu_item_link">Рамки для зеркал</a></li>
+								<li><a href="#" class="menu_item_link">Розетки из полимера</a></li>
+								<li><a href="#" class="menu_item_link">Спинки кроватей</a></li>
+								<li><a href="#" class="menu_item_link">Столы, стулья, банкетки</a></li>
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="column">
+						<div class="menu_link_box">
+							<a href="#" class="menu_section_link">
+								<span class="icon icon--edge"></span>
+								<span class="title">КРОМОЧНЫЕ МАТЕРИАЛЫ</span>
+							</a>
+							<ul>
+								<li><a href="#" class="menu_item_link subtitle">Кант врезной, накладной</a></li>
+								<li><a href="#" class="menu_item_link">Кант врезной 16 мм</a></li>
+								<li><a href="#" class="menu_item_link">Кант накладной 16 мм</a></li>
+
+								<li><a href="#" class="menu_item_link subtitle">Клей для кромки ПВХ</a></li>
+								<li><a href="#" class="menu_item_link bold">Кромка меламиновая Pfleiderer</a></li>
+								<li><a href="#" class="menu_item_link">Кромка Pfleiderer на метраж</a></li>
+								<li><a href="#" class="menu_item_link">Кромка Pfleiderer в рулоне</a></li>
+
+								<li><a href="#" class="menu_item_link bold">Кромка ПВХ</a></li>
+								<li><a href="#" class="menu_item_link">Bramek</a></li>
+								<li><a href="#" class="menu_item_link">Lamarty</a></li>
+								<li><a href="#" class="menu_item_link">Egger</a></li>
+							</ul>
+						</div>
+
+						<div class="menu_link_box">
+							<a href="#" class="menu_section_link">
+								<span class="icon icon--plates"></span>
+								<span class="title">ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
+							</a>
+							<ul>
+								<li><a href="#" class="menu_item_link">Декоры угловые</a></li>
+								<li><a href="#" class="menu_item_link">Комплекты для труб и консолей</a></li>
+								<li><a href="#" class="menu_item_link">Короны на шкаф</a></li>
+								<li><a href="#" class="menu_item_link">Кронштейны и капители</a></li>
+								<li><a href="#" class="menu_item_link">Мебельные опоры</a></li>
+								<li><a href="#" class="menu_item_link active">Мебельный декор</a></li>
+								<li><a href="#" class="menu_item_link">Мебельный молдинг</a></li>
+								<li><a href="#" class="menu_item_link">Накладки для мягкой мебели</a></li>
+								<li><a href="#" class="menu_item_link">Наклейки для мебели</a></li>
+								<li><a href="#" class="menu_item_link">Рамки для зеркал</a></li>
+								<li><a href="#" class="menu_item_link">Розетки из полимера</a></li>
+								<li><a href="#" class="menu_item_link">Спинки кроватей</a></li>
+								<li><a href="#" class="menu_item_link">Столы, стулья, банкетки</a></li>
+							</ul>
+						</div>
+					</div>
+
+
+					<div class="column">
+						<div class="menu_link_box">
+							<a href="#" class="menu_section_link">
+								<span class="icon icon--sink"></span>
+								<span class="title">МОЙКИ И СМЕСИТЕЛИ</span>
+							</a>
+							<ul>
+								<li><a href="#" class="menu_item_link subtitle">Мойки каменные marrbaxx</a></li>
+								<li><a href="#" class="menu_item_link">Мойки каменные глянцевые</a></li>
+								<li><a href="#" class="menu_item_link">Мойки каменные матовые</a></li>
+								<li><a href="#" class="menu_item_link">Аксессуары к мойкам</a></li>
+
+								<li><a href="#" class="menu_item_link subtitle">Клей для кромки ПВХ</a></li>
+								<li><a href="#" class="menu_item_link bold">Кромка меламиновая Pfleiderer</a></li>
+								<li><a href="#" class="menu_item_link">Кромка Pfleiderer на метраж</a></li>
+								<li><a href="#" class="menu_item_link">Кромка Pfleiderer в рулоне</a></li>
+								<li><a href="#" class="menu_item_link bold">Кромка ПВХ</a></li>
+								<li><a href="#" class="menu_item_link">Bramek</a></li>
+								<li><a href="#" class="menu_item_link">Lamarty</a></li>
+								<li><a href="#" class="menu_item_link">Egger</a></li>
+							</ul>
+						</div>
+
+						<div class="menu_link_box">
+							<a href="#" class="menu_section_link">
+								<span class="icon icon--shkaf"></span>
+								<span class="title">ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
+							</a>
+							<ul>
+								<li><a href="#" class="menu_item_link">Декоры угловые</a></li>
+								<li><a href="#" class="menu_item_link">Комплекты для труб и консолей</a></li>
+								<li><a href="#" class="menu_item_link">Короны на шкаф</a></li>
+								<li><a href="#" class="menu_item_link">Кронштейны и капители</a></li>
+								<li><a href="#" class="menu_item_link">Мебельные опоры</a></li>
+								<li><a href="#" class="menu_item_link active">Мебельный декор</a></li>
+								<li><a href="#" class="menu_item_link">Мебельный молдинг</a></li>
+								<li><a href="#" class="menu_item_link">Накладки для мягкой мебели</a></li>
+								<li><a href="#" class="menu_item_link">Наклейки для мебели</a></li>
+								<li><a href="#" class="menu_item_link">Рамки для зеркал</a></li>
+								<li><a href="#" class="menu_item_link">Розетки из полимера</a></li>
+								<li><a href="#" class="menu_item_link">Спинки кроватей</a></li>
+								<li><a href="#" class="menu_item_link">Столы, стулья, банкетки</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
 
 
 		<div class="middle_menu_block">
@@ -77,43 +222,43 @@
 		<div class="bottom_menu_block">
 			<ul class="icon_menu">
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--decor"></span>
 						<span>ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--edge"></span>
 						<span>КРОМОЧНЫЕ МАТЕРИАЛЫ</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--sink"></span>
 						<span>МОЙКИ И СМЕСИТЕЛИ</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--furniture"></span>
 						<span>МЕБЕЛЬНАЯ ФУРНИТУРА</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--plates"></span>
 						<span>ПЛИТНЫЕ МАТЕРИАЛЫ</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--shkaf"></span>
 						<span>ПРОФИЛЬ ДЛЯ ШКАФОВ-КУПЕ</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="catalog.php">
 						<span class="icon icon--facade"></span>
 						<span>ФАСАДЫ</span>
 					</a>

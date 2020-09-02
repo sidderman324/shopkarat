@@ -27,10 +27,10 @@
       <div class="footer_menu_block_item">
         <p class="title">УСЛОВИЯ</p>
         <ul class="footer_menu_block_list">
-          <li><a href="#">Доставка</a></li>
-          <li><a href="#">Оплата</a></li>
-          <li><a href="#">Гарантия</a></li>
-          <li><a href="#">Помощь</a></li>
+          <li><a href="payment_delivery.php">Доставка</a></li>
+          <li><a href="payment_delivery.php">Оплата</a></li>
+          <li><a href="payment_delivery.php">Гарантия</a></li>
+          <li><a href="payment_delivery.php">Помощь</a></li>
         </ul>
       </div>
       <div class="footer_menu_block_item">
