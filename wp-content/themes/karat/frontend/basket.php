@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Корзина</title>
 
-  <link rel="stylesheet" href="../static/css/style.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="/wp-content/themes/karat/static/css/style.css?v=<?php echo time(); ?>">
 
 </head>
 <body>
 
-  <?php include ('./_include/header.php');?>
+  <?php include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/header.php');?>
 
 
   <section class="basket">
@@ -294,7 +294,7 @@
 
 
 
-  <?php include ('./_include/footer.php');?>
+  <?php include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/footer.php');?>
 
 
 </body>

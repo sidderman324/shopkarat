@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<?php include ('./_include/header.php');?>
+	<?php include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/header.php');?>
 
 	<div class="container">
 
@@ -912,7 +912,7 @@
 </div>
 
 
-<?php include ('./_include/footer.php');?>
+<?php include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/footer.php');?>
 
 </body>
 </html>

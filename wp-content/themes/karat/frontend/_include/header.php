@@ -3,11 +3,11 @@
 		<div class="top_menu_block">
 			<nav>
 				<ul class="top_menu">
-					<li><a href="about_company.php">О компании</a></li>
-					<li><a href="catalog.php" class="js-show-catalog-menu">Каталог</a></li>
+					<li><a href="/wp-content/themes/karat/frontend/about_company.php">О компании</a></li>
+					<li><a href="/wp-content/themes/karat/frontend/catalog.php" class="js-show-catalog-menu">Каталог</a></li>
 					<li><a href="#">Акции</a></li>
 					<li><a href="#">Услуги</a></li>
-					<li><a href="calculator.php">Калькулятор распила</a></li>
+					<li><a href="/wp-content/themes/karat/frontend/calculator.php">Калькулятор распила</a></li>
 					<li><a href="#">Конструктор кухни</a></li>
 					<li><a href="#">Контакты</a></li>
 				</ul>
@@ -162,7 +162,7 @@
 
 		<div class="middle_menu_block">
 			<div class="row">
-				<a href="/wp-content/themes/karat/frontend/main-page.php"><div class="logo_wrapper"><img src="../static/imgs/main_logo_orange.svg" alt=""></div></a>
+				<a href="/wp-content/themes/karat/frontend/main-page.php"><div class="logo_wrapper"><img src="/wp-content/themes/karat/static/imgs/main_logo_orange.svg" alt=""></div></a>
 
 				<div class="phonebox">
 					<span class="icon icon--phone"></span>
@@ -176,7 +176,7 @@
 
 					<a href="#" class="lk_link js-popup-open" data-popup-name="js-popup-login">Вход</a>
 
-					<a href="#" class="btn btn--black js-popup-open" data-popup-name="js-popup-login">Личный кабинет</a>
+					<a href="/wp-content/themes/karat/frontend/lk/lk-index.php" class="btn btn--black">Личный кабинет</a>
 
 				</div>
 			</div>

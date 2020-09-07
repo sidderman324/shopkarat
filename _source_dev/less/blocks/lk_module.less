@@ -1,0 +1,254 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/lk_module.less';
+
+
+.lk_module {
+  padding: 5em 0;
+
+  &--index {
+    .container {
+      flex-wrap: wrap;
+    }
+  }
+
+
+  .container {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    align-items: flex-start;
+
+    h1.title {
+      margin-top: -.2em;
+      max-width: 12em;
+    }
+
+
+    .manager_info {
+      position: absolute;
+      top: 0;
+      right: 30px;
+      min-width: 26em;
+
+      .text:first-child {
+        font-size: 1em;
+      }
+
+      span, a {
+        display: inline-block;
+        margin-left: 3em;
+      }
+
+      p {
+        width: 100%;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-bottom: .3em;
+      }
+    }
+
+
+    .row {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+
+    .lk_content {
+      width: 66.5%;
+
+      .button_block {
+        width: 35%;
+        margin-top: 1em;
+      }
+
+      .specifications--orders {
+        width: 100% !important;
+
+        margin-top: 2em;
+        margin-bottom: 2em;
+      }
+      .specifications--narrow {
+        width: 60%;
+
+        td.text span {
+          display: inline-block;
+
+          &:first-child {
+            margin-right: .5em;
+          }
+        }
+
+        td:first-child {
+          width: 40% !important;
+        }
+        td:last-child {
+          width: 60% !important;
+        }
+      }
+      .specifications--bottom-left tbody {
+        border-bottom-left-radius: 0px;
+      }
+      .specifications--border-head td {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        align-items: center;
+      }
+      .specifications--orders td.table_btn {
+        padding: 0;
+      }
+      .specifications--border-head tbody {
+        width: 100%;
+      }
+      .specifications--orders td:first-of-type {
+        z-index: 100;
+      }
+
+      .specifications--orders td {
+        width: 16.66% !important;
+        position: relative;
+      }
+      .specifications--orders-inner {
+        margin-bottom: 0;
+      }
+      .specifications--orders-inner td {
+        width: 12% !important;
+      }
+      .specifications--orders-inner td:first-child {
+        width: 40.1% !important;
+      }
+
+      .specifications--order-summary {
+        width: 40.1%;
+
+        tbody {
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          margin-top: 0;
+          border-top: none;
+        }
+
+        td {
+          width: 50% !important;
+        }
+      }
+
+      .orange_bgr {
+        background-color: @orange;
+
+        .text { color: #fff; }
+      }
+
+
+
+      form {
+        width: 40%;
+        margin-top: 3em;
+
+        .input_box {
+          margin-bottom: 1em;
+        }
+      }
+
+
+
+
+
+
+
+      .payment_table_btn {
+        text-transform: uppercase;
+        font-weight: bold;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: .3s;
+
+        &:hover {
+          background-color: @orange;
+          color: @white;
+        }
+      }
+      .payment_table_btn.disable {
+        color: #76716A;
+        cursor: default;
+      }
+
+
+      .more_info_label.visible {
+        visibility: visible;
+        opacity: 1;
+      }
+      .more_info_label {
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+        position: absolute;
+        background-color: #fff;
+        top: 50%;
+        left: 4em;
+        transform: translateY(-50%);
+        border-radius: 4px;
+        padding-right: .2em;
+        border: 1px solid @black;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        opacity: 0;
+        transition: .3s;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          height: 1em;
+          width: 1em;
+          left: -0.55em;
+          top: 50%;
+          background-color: #fff;
+          transform: translateY(-50%) rotate(45deg);
+          border-bottom: 1px solid @black;
+          border-left: 1px solid @black;
+          position: absolute;
+
+        }
+
+        a {
+          white-space: nowrap;
+          font-size: 1em;
+          line-height: 1.6;
+          padding: 0 .7em;
+          z-index: 999;
+          border-bottom: 1px solid @black;
+          color: @black;
+          transition: .3s;
+
+          &:hover {
+            color: @orange;
+          }
+
+          &:last-of-type {
+            border-bottom: none;
+          }
+        }
+      }
+
+
+      .pagination {
+        justify-content: center;
+      }
+    }
+
+  }
+}

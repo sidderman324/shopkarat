@@ -131,6 +131,22 @@ h1.title {
 }
 .text {
   .text-mix;
+
+  &--gray {
+    color: #76716A;
+  }
+  &--orange {
+    color: @orange;
+  }
+  &--big {
+    font-size: 1.125em;
+  }
+  &--underline {
+    text-decoration: underline;
+  }
+  &--bold {
+    font-weight: bold;
+  }
 }
 
 
@@ -148,4 +164,50 @@ h1.title {
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
   left: -.8em;
   transform: rotate(180deg);
+}
+
+
+.burger_wrapper {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	position: relative;
+	margin-right: 1.5em;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	height: 2em;
+
+	span {
+		@media(max-width: @screen-sm) {
+			display: none;
+		}
+	}
+
+	.burger {
+		display: inline-block;
+		width: 1.5em;
+		height: 2px;
+		background-color: @orange;
+		position: relative;
+
+		&:after,
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 1.5em;
+			height: 2px;
+			background-color: @orange;
+			position: absolute;
+			left: 0;
+		}
+		&:after {
+			top: -.5em;
+		}
+		&:before {
+			bottom: -.5em;
+		}
+	}
+
 }

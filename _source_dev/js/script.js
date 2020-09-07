@@ -56,6 +56,16 @@ $(document).ready(function(){
   });
 
 
+  // Закрытие попап окна
+  $('.js-order-more-label').on('click',function(e){
+    e.preventDefault();
+
+    $('.more_info_label').removeClass('visible');
+    var label = $(this).parents('td').find('.more_info_label');
+    label.addClass('visible');
+  });
+
+
   // Открытие меню
 
   $('.js-show-catalog-menu').on('click',function(e){

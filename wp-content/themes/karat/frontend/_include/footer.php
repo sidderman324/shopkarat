@@ -70,4 +70,4 @@
 <!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
 
 
-<script src="../static/js/script.min.js?v=<?php echo time(); ?>"></script>
+<script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script>
