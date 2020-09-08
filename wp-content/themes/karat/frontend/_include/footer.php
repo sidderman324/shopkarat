@@ -45,7 +45,7 @@
 
 
     <div class="footer_bottom_block">
-      <div class="logo_wrapper"><img src="../static/imgs/main_logo_orange.svg" alt=""></div>
+      <div class="logo_wrapper"><img src="/wp-content/themes/karat/static/imgs/main_logo_orange.svg" alt=""></div>
 
       <div class="phonebox">
         <a href="tel:+78612050519" class="phone_header">8(861)205-05-19</a>

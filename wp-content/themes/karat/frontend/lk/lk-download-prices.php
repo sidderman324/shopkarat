@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Личный кабинет - Регистрационные данные</title>
+  <title>Личный кабинет - Скачать актуальный прайс</title>
 
   <link rel="stylesheet" href="/wp-content/themes/karat/static/css/style.css?v=<?php echo time(); ?>">
 
@@ -21,10 +21,10 @@
 
         <ul class="sidebar_menu_list">
           <li><a href="lk-orders-list.php"><span class="icon icon--orders"></span>Мои заказы</a></li>
-          <li><a href="lk-profile-settings.php" class="active"><span class="icon icon--reg_data"></span>Регистрационные данные</a></li>
+          <li><a href="lk-profile-settings.php"><span class="icon icon--reg_data"></span>Регистрационные данные</a></li>
           <li><a href="lk-contragents.php"><span class="icon icon--contragents"></span>Мои организации</a></li>
           <li><a href="lk-order-shipment.php"><span class="icon icon--otguzka"></span>Отгрузить заказы</a></li>
-          <li><a href="lk-download-prices.php"><span class="icon icon--price"></span>Скачать прайс</a></li>
+          <li><a href="lk-download-prices.php" class="active"><span class="icon icon--price"></span>Скачать прайс</a></li>
           <li><a href="#"><span class="icon icon--reclamation"></span>Отправить рекламацию</a></li>
         </ul>
       </div>
@@ -45,31 +45,14 @@
 
 
       <div class="lk_content">
-        <h1 class="title">Профиль пользователя</h1>
+        <h1 class="title">Скачать актуальный прайс</h1>
 
         <div class="row">
           <div class="column">
-            <form action="" method="POST">
-              <div class="input_box input_box--square input_box--black">
-                <input type="text" class="input_text" name="" placeholder="Фамилия Имя Отчество">
-              </div>
-              <div class="input_box input_box--square input_box--black">
-                <input type="text" class="input_text" name="" placeholder="Email">
-              </div>
-              <div class="input_box input_box--square input_box--black">
-                <input type="text" class="input_text" name="" placeholder="Телефон">
-              </div>
-              <div class="input_box input_box--square input_box--black">
-                <input type="text" class="input_text" name="" placeholder="Новый пароль">
-              </div>
-              <div class="input_box input_box--square input_box--black">
-                <input type="text" class="input_text" name="" placeholder="Подтверждение пароля">
-              </div>
-
-
-              <input type="submit" name="" value="Сохранить изменения" class="btn btn--orange">
-
-            </form>
+            <a href="#" class="btn btn--download btn--download-excel">декоры мебельные</a>
+            <a href="#" class="btn btn--download btn--download-excel">плиточные материалы</a>
+            <a href="#" class="btn btn--download btn--download-excel">мебельная фурнитура</a>
+            <a href="#" class="btn btn--download btn--download-excel">фасады</a>
           </div>
         </div>
       </div>

@@ -81,4 +81,46 @@
 			background-image: url('../imgs/icons/icon_basket_white.svg');
 		}
 	}
+
+
+
+	&--download {
+		padding: 0 3em 0 3em;
+		background-color: @black;
+		color: @white;
+		border-color: @black;
+		position: relative;
+		text-align: left;
+		margin-bottom: 1em;
+
+		&:after {
+			content: '';
+			display: inline-block;
+			width: 1.5em;
+			height: 1.5em;
+			position: absolute;
+			top: 50%;
+			right: 0.5em;
+			transform: translateY(-50%);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			background-image: url('../imgs/icons/icon_download.svg');
+		}
+
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 1.5em;
+			height: 1.5em;
+			position: absolute;
+			top: 50%;
+			left: 0.5em;
+			transform: translateY(-50%);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			background-image: url('../imgs/icons/icon_excel.svg');
+		}
+	}
 }

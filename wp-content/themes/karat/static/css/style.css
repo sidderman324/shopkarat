@@ -2800,6 +2800,43 @@ h1.title {
   background-size: contain;
   background-image: url('../imgs/icons/icon_basket_white.svg');
 }
+.btn--download {
+  padding: 0 3em 0 3em;
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  position: relative;
+  text-align: left;
+  margin-bottom: 1em;
+}
+.btn--download:after {
+  content: '';
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  top: 50%;
+  right: 0.5em;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../imgs/icons/icon_download.svg');
+}
+.btn--download:before {
+  content: '';
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 0.5em;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-image: url('../imgs/icons/icon_excel.svg');
+}
 .calculator_wrapper {
   padding-top: 4em;
   padding-bottom: 4em;
@@ -3223,6 +3260,7 @@ h1.title {
   cursor: pointer;
   outline: none !important;
   display: inline-block;
+  min-height: 1.7em;
 }
 .custom_checkbox--square [type='checkbox']:not(:checked) + label,
 .custom_checkbox--square [type='checkbox']:checked + label {
@@ -3401,6 +3439,91 @@ h1.title {
 .input_box input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.select {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
+.select_head {
+  width: 100%;
+  max-width: 100%;
+  height: 2.429em !important;
+  font-size: .875em;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 0 1.5em;
+  color: #000;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #000;
+}
+.select_head::after {
+  width: 1.5em;
+  height: 1.5em;
+  background: #FFF url('../imgs/icons/icon_arrow_black.svg') no-repeat center / contain;
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  content: '';
+  display: block;
+  transition: 0.2s ease-in;
+}
+.select_head.open {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.select_head.open::after {
+  transform: translateY(-50%) rotate(270deg);
+}
+.select_list {
+  display: none;
+  position: absolute;
+  border: 1px solid #000;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 4px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-top: 5px;
+  max-height: 205px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  color: #000;
+  scrollbar-color: dark;
+  scrollbar-width: thin;
+  overscroll-behavior: contain;
+}
+.select_list::-webkit-scrollbar {
+  width: 7px;
+  background-color: #F8F9FA;
+  padding: 5px;
+}
+.select_list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #D9D9D9;
+}
+.select_list .select_item {
+  position: relative;
+  border-top: 1px solid rgba(224, 229, 231, 0.5);
+  padding: 10px 15px;
+  font-size: .875em;
+  cursor: pointer;
+  list-style-type: none;
+}
+.select_list .select_item:hover {
+  color: #fff;
+  background-color: #F18700;
 }
 .page-header .container {
   display: -ms-flex;
@@ -5517,7 +5640,7 @@ h1.title {
   left: 50%;
 }
 .lk_module {
-  padding: 5em 0;
+  padding: 5em 0 10em;
 }
 .lk_module--index .container {
   -ms-flex-wrap: wrap;
@@ -5574,6 +5697,23 @@ h1.title {
       align-items: flex-start;
   -ms-flex-pack: justify;
       justify-content: space-between;
+}
+.lk_module .container .row .column {
+  width: 45%;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: start;
+      align-items: flex-start;
+}
+.lk_module .container .row .column .head {
+  margin-top: 3em;
+  min-height: 7.5em;
+}
+.lk_module .container .row .column .head p {
+  margin-bottom: 1em;
 }
 .lk_module .container .lk_content {
   width: 66.5%;
@@ -5634,6 +5774,19 @@ h1.title {
 .lk_module .container .lk_content .specifications--orders-inner td:first-child {
   width: 40.1% !important;
 }
+.lk_module .container .lk_content .specifications--shipment {
+  margin-bottom: 3em;
+  width: 70% !important;
+}
+.lk_module .container .lk_content .specifications--shipment td {
+  width: 20% !important;
+}
+.lk_module .container .lk_content .specifications--shipment td:nth-child(3) {
+  width: 40% !important;
+}
+.lk_module .container .lk_content .specifications--shipment td:last-child {
+  width: 7.5% !important;
+}
 .lk_module .container .lk_content .specifications--order-summary {
   width: 40.1%;
 }
@@ -5653,7 +5806,7 @@ h1.title {
   color: #fff;
 }
 .lk_module .container .lk_content form {
-  width: 40%;
+  width: 85%;
   margin-top: 3em;
 }
 .lk_module .container .lk_content form .input_box {

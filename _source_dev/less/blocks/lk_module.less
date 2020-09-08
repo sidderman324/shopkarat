@@ -2,7 +2,7 @@
 
 
 .lk_module {
-  padding: 5em 0;
+  padding: 5em 0 10em;
 
   &--index {
     .container {
@@ -24,6 +24,7 @@
       margin-top: -.2em;
       max-width: 12em;
     }
+
 
 
     .manager_info {
@@ -60,6 +61,24 @@
       flex-direction: row;
       align-items: flex-start;
       justify-content: space-between;
+
+      .column {
+        width: 45%;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .head {
+          margin-top: 3em;
+          min-height: 7.5em;
+
+          p {
+            margin-bottom: 1em;
+          }
+        }
+      }
     }
 
 
@@ -128,6 +147,21 @@
         width: 40.1% !important;
       }
 
+      .specifications--shipment {
+        margin-bottom: 3em;
+        width: 70% !important;
+
+        td {
+          width: 20% !important;
+        }
+        td:nth-child(3) {
+          width: 40% !important;
+        }
+        td:last-child {
+          width: 7.5% !important;
+        }
+      }
+
       .specifications--order-summary {
         width: 40.1%;
 
@@ -152,7 +186,7 @@
 
 
       form {
-        width: 40%;
+        width: 85%;
         margin-top: 3em;
 
         .input_box {

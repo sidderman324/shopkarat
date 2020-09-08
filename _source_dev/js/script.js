@@ -137,7 +137,31 @@ $(document).ready(function(){
     $(this).addClass('active');
     $('.tabs_body_item').eq(index).addClass('active');
 
-  })
+  });
+
+
+
+
+  $('.select').on('click', '.select_head', function () {
+    $('.select_head').addClass('open');
+    $('.select_list').fadeIn(100);
+    $(this).addClass('open');
+    $(this).next().fadeIn(100);
+  });
+
+  $('.select').on('click', '.select_item', function () {
+    $('.select_head').removeClass('open');
+    $(this).parent().fadeOut(100);
+    $(this).parent().prev().text($(this).text());
+    $(this).parent().prev().prev().val($(this).text());
+  });
+
+  $(document).click(function (e) {
+    if (!$(e.target).closest('.select').length) {
+      $('.select_head').removeClass('open');
+      $('.select_list').fadeOut(100);
+    }
+  });
 
 
 

@@ -22,9 +22,9 @@
         <ul class="sidebar_menu_list">
           <li><a href="lk-orders-list.php" class="active"><span class="icon icon--orders"></span>Мои заказы</a></li>
           <li><a href="lk-profile-settings.php"><span class="icon icon--reg_data"></span>Регистрационные данные</a></li>
-          <li><a href="#"><span class="icon icon--contragents"></span>Мои организации</a></li>
-          <li><a href="#"><span class="icon icon--otguzka"></span>Отгрузить заказы</a></li>
-          <li><a href="#"><span class="icon icon--price"></span>Скачать прайс</a></li>
+          <li><a href="lk-contragents.php"><span class="icon icon--contragents"></span>Мои организации</a></li>
+          <li><a href="lk-order-shipment.php"><span class="icon icon--otguzka"></span>Отгрузить заказы</a></li>
+          <li><a href="lk-download-prices.php"><span class="icon icon--price"></span>Скачать прайс</a></li>
           <li><a href="#"><span class="icon icon--reclamation"></span>Отправить рекламацию</a></li>
         </ul>
       </div>
