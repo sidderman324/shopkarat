@@ -45,6 +45,11 @@
       position: relative;
       padding: .9em 1em .9em 5em;
 
+      @media(max-width: @screen-xd) {
+        font-size: 1em;
+        padding-left: 2.7em;
+      }
+
       .icon {
         width: 4.2em;
         height: 4.3em;
@@ -52,6 +57,22 @@
         top: 50%;
         left: 0;
         transform: translateY(-50%);
+
+        @media(max-width: @screen-xd) {
+          width: 2.2em;
+          height: 2.2em;
+        }
+
+        &--furniture {
+          width: 5.2em !important;
+          height: 5.6em !important;
+
+          @media(max-width: @screen-xd) {
+            width: 3.2em !important;
+            height: 3.5em !important;
+            left: -.6em;
+          }
+        }
       }
     }
   }

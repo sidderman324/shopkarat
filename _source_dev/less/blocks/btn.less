@@ -19,6 +19,11 @@
 	width: auto;
 	white-space: nowrap;
 
+	@media(max-width: @screen-xd) {
+		padding-left: .9em;
+		padding-right: .9em;
+	}
+
 	&--orange {
 		background-color: @orange;
 		color: @white;
@@ -41,7 +46,7 @@
 		border-color: @orange;
 	}
 	&--icon-arrow {
-		padding: 0 4em;
+		padding: 0 4em !important;
 		position: relative;
 		font-size: 0.875em;
 
@@ -66,6 +71,10 @@
 		font-size: 0.875em;
 		margin-right: .8em;
 
+		@media(max-width: @screen-xd) {
+			padding: 0 2.5em 0 .8em;
+		}
+
 		&:before {
 			content: '';
 			display: inline-block;
@@ -79,13 +88,17 @@
 			background-position: center;
 			background-size: contain;
 			background-image: url('../imgs/icons/icon_basket_white.svg');
+
+			@media(max-width: @screen-xd) {
+				right: .4em;
+			}
 		}
 	}
 
 
 
 	&--download {
-		padding: 0 3em 0 3em;
+		padding: 0 3em 0 3em !important;
 		background-color: @black;
 		color: @white;
 		border-color: @black;

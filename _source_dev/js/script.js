@@ -35,6 +35,43 @@ $(document).ready(function(){
     $("#priceIntervalMax").val(max);
   });
 
+  $("#priceIntervalMin").on('change', function(){
+    updateSlider();
+  })
+  $("#priceIntervalMax").on('change', function(){
+    updateSlider();
+  })
+
+  function updateSlider() {
+    var min = parseInt($('#priceIntervalMin').val());
+    var max = parseInt($('#priceIntervalMax').val());
+
+    var minPrice = parseInt($('#priceIntervalMin').attr('data-price-start'));
+    var maxPrice = parseInt($('#priceIntervalMax').attr('data-price-end'));
+
+    if (max > maxPrice) { max = maxPrice }
+    if (min < minPrice) { min = minPrice }
+
+    if(min < max) {
+      $("#currentStart").text(min);
+      $("#currentEnd").text(max);
+      $("#priceIntervalSlider").slider( "values", [ min, max ] );
+
+      $('#priceIntervalMin').val(min);
+      $('#priceIntervalMax').val(max);
+    } else if (max < min) {
+      $("#currentStart").text(max);
+      $("#currentEnd").text(min);
+      $("#priceIntervalSlider").slider( "values", [ max, min ] );
+
+      $('#priceIntervalMin').val(max);
+      $('#priceIntervalMax').val(min);
+    }
+  }
+
+
+
+
 
   // Открытие попап окна
   $('.js-popup-open').on('click',function(e){
@@ -224,6 +261,12 @@ $(document).ready(function(){
       nextEl: '.partnersSlider-next',
       prevEl: '.partnersSlider-prev',
     },
+    breakpoints: {
+    1480: {
+      slidesPerView: 6,
+      spaceBetween: 20
+    }
+  }
 
   })
 

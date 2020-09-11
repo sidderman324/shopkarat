@@ -33,6 +33,10 @@
       right: 30px;
       min-width: 26em;
 
+      @media(max-width: @screen-xd) {
+        top: -3.5em;
+      }
+
       .text:first-child {
         font-size: 1em;
       }
@@ -88,6 +92,17 @@
       .button_block {
         width: 35%;
         margin-top: 1em;
+
+        @media(max-width: @screen-xd) {
+          flex-direction: column;
+          align-items: flex-end;
+        }
+
+        .btn {
+          @media(max-width: @screen-xd) {
+            margin-bottom: 1em;
+          }
+        }
       }
 
       .specifications--orders {
@@ -151,6 +166,10 @@
         margin-bottom: 3em;
         width: 70% !important;
 
+        @media(max-width: @screen-xd) {
+          width: 100% !important;
+        }
+
         td {
           width: 20% !important;
         }
@@ -209,6 +228,8 @@
         align-items: center;
         justify-content: center;
         transition: .3s;
+        padding: 0 .3em;
+        text-align: center;
 
         &:hover {
           background-color: @orange;

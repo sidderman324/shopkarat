@@ -131,10 +131,10 @@
       <div class="filter_spoiler_inner">
         <div class="filter_spoiler_price_interval">
           <div class="input_box input_box--square input_box--black-filter-price">
-            <input type="text" name="priceIntervalMin" id="priceIntervalMin" data-price-start="10" placeholder="от 10" class="input_text">
+            <input type="text" name="priceIntervalMin" id="priceIntervalMin" data-price-start="150" placeholder="от 150" class="input_text">
           </div>
           <div class="input_box input_box--square input_box--black-filter-price">
-            <input type="text" name="priceIntervalMax" id="priceIntervalMax" data-price-end="100000" placeholder="до 100000" class="input_text">
+            <input type="text" name="priceIntervalMax" id="priceIntervalMax" data-price-end="14000" placeholder="до 14000" class="input_text">
           </div>
 
           <div id="priceIntervalSlider">

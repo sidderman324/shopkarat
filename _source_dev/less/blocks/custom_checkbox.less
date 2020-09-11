@@ -16,7 +16,10 @@
 .custom_checkbox span {
   font-size: 1em;
   color: @black;
-  display: inline-block;
+  display: flex;
+  height: 100%;
+  min-height: 1.7em;
+  align-items: center;
 }
 
 .custom_checkbox a {
@@ -75,6 +78,10 @@
   border-radius: 5em;
   background-color: @gray;
   transition: .3s;
+
+  @media(max-width: @screen-xd) {
+    font-size: .9em;
+  }
 }
 .custom_checkbox [type='checkbox']:checked + label:before,
 .custom_checkbox--square [type='checkbox']:checked + label:before {
@@ -95,6 +102,10 @@
   border-radius: 4px;
   background-color: @gray;
   transition: .3s;
+
+  @media(max-width: @screen-xd) {
+    font-size: .9em;
+  }
 }
 
 .custom_checkbox--square-left [type='checkbox']:not(:checked) + label:before,
@@ -118,6 +129,10 @@
   background-color: #fff;
   border-radius: 50%;
   border: 1px solid @black;
+
+  @media(max-width: @screen-xd) {
+    font-size: .9em;
+  }
 }
 
 .custom_checkbox--square [type='checkbox']:not(:checked) + label:after,
@@ -134,6 +149,10 @@
   background-position: 65% 50%;
   background-size: 1em;
   opacity: 0;
+
+  @media(max-width: @screen-xd) {
+    font-size: .9em;
+  }
 }
 .custom_checkbox--square-left [type='checkbox']:not(:checked) + label:after,
 .custom_checkbox--square-left [type='checkbox']:checked + label:after {
@@ -141,7 +160,7 @@
 }
 
 .custom_checkbox [type='checkbox']:checked + label:after {
-  transform: translate(90%,-50%) scale(1);
+  transform: translate(85%,-50%) scale(1);
   opacity: 1;
 }
 .custom_checkbox--square [type='checkbox']:checked + label:after {

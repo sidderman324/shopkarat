@@ -43,6 +43,10 @@
       margin: .8em 2.2em;
       text-transform: uppercase;
       cursor: pointer;
+
+      @media(max-width: @screen-xd) {
+        margin: .8em 1.2em;
+      }
     }
 
     .filter_spoiler_inner {
@@ -62,6 +66,10 @@
         font-size: 1em;
         transition: .3s;
 
+        @media(max-width: @screen-xd) {
+          margin: .5em 1.2em;
+        }
+
         &:hover {
           color: @orange;
         }
@@ -74,6 +82,10 @@
 
     .checkbox_list {
       margin: .5em 2.6em;
+
+      @media(max-width: @screen-xd) {
+        margin: .5em 1.2em;
+      }
 
 
       .row {
@@ -107,6 +119,10 @@
       flex-direction: row;
       justify-content: space-between;
       flex-wrap: wrap;
+
+      @media(max-width: @screen-xd) {
+        margin: .5em 1.2em;
+      }
 
       .ui-slider-horizontal {
         height: 2px;
@@ -151,6 +167,10 @@
     margin: .5em 2em;
     justify-content: space-between;
     padding-bottom: 2em;
+
+    @media(max-width: @screen-xd) {
+      margin: .5em 1.2em;
+    }
 
     .btn {
       width: 45%;

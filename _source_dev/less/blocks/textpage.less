@@ -79,6 +79,10 @@
       .text {
         width: 28.8em;
         margin-left: auto;
+
+        @media(max-width: @screen-xd) {
+          width: 23em;
+        }
       }
 
       .icon {
@@ -192,6 +196,10 @@
 .specifications--border-head {
   border: none;
   width: 75%;
+
+  @media(max-width: @screen-xd) {
+    width: 100%;
+  }
   thead {
     td {
       font-weight: bold;
