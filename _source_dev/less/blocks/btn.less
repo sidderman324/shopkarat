@@ -13,7 +13,7 @@
 	cursor: pointer;
 	text-transform: uppercase;
 	font-weight: bold;
-	display: inline-flex;
+	display: inline-flex !important;
 	justify-content: center;
 	align-items: center;
 	width: auto;
@@ -22,6 +22,13 @@
 	@media(max-width: @screen-xd) {
 		padding-left: .9em;
 		padding-right: .9em;
+	}
+
+	@media (max-width: @screen-sm) {
+		border-radius: 2px;
+		padding: .1em .8em !important;
+		// height: 2.129em;
+		font-size: 1em !important;
 	}
 
 	&--orange {
@@ -42,6 +49,9 @@
 	&--white-border {
 		border-color: @white;
 	}
+	&--white-text {
+		color: @white;
+	}
 	&--orange-border {
 		border-color: @orange;
 	}
@@ -49,6 +59,10 @@
 		padding: 0 4em !important;
 		position: relative;
 		font-size: 0.875em;
+
+		@media (max-width: @screen-sm) {
+			padding: 0 2em !important;
+		}
 
 		&:before {
 			content: '';
@@ -63,6 +77,10 @@
 			background-position: center;
 			background-size: contain;
 			background-image: url('../imgs/icons/icon_arrow.svg');
+
+			@media (max-width: @screen-sm) {
+				right: .5em;
+			}
 		}
 	}
 	&--basket-icon {
@@ -73,6 +91,9 @@
 
 		@media(max-width: @screen-xd) {
 			padding: 0 2.5em 0 .8em;
+		}
+		@media (max-width: @screen-sm) {
+			padding: 0 2.5em 0 .8em !important;
 		}
 
 		&:before {

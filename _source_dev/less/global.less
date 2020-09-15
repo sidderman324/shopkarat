@@ -72,14 +72,14 @@ body {
   display: flex;
   flex-direction: column;
 
-  @media(max-width: @screen-lg) {
+  @media (max-width: @screen-lg) {
     font-size: 12px;
   }
-  @media(max-width: @screen-md) {
+  @media (max-width: @screen-md) {
     font-size: 16px;
   }
-  @media(max-width: @screen-sm) {
-    font-size: 5vw;
+  @media (max-width: @screen-sm) {
+    font-size: 3vw;
   }
 }
 
@@ -90,17 +90,17 @@ body {
   width: @screen-lg;
   position: relative;
 
-  @media(max-width: @screen-lg) {
+  @media (max-width: @screen-lg) {
     width: 1400px;
     padding: 0 20px;
   }
-  @media(max-width: @screen-xd) {
+  @media (max-width: @screen-xd) {
     width: 1024px;
     padding: 0 20px;
   }
-  @media(max-width: @screen-sm) {
-    width: 100%;
-    padding: 0 5%;
+  @media (max-width: @screen-sm) {
+    width: 100% !important;
+    padding: 0 3% !important;
   }
 
 }
@@ -157,13 +157,29 @@ h1.title {
   background-size: contain;
   top: 50%;
   margin: -1.5em;
+
+  @media (max-width: @screen-sm) { margin: 0; height: 1.8em; }
+}
+.swiper-button-next:hover,
+.swiper-container-rtl .swiper-button-prev:hover,
+.swiper-button-prev:hover,
+.swiper-container-rtl .swiper-button-next:hover {
+  background-image: url('../imgs/icons/icon_arrow_active.svg');
 }
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
   right: -.8em;
+
+  @media (max-width: @screen-sm) {
+    right: 1em;
+  }
 }
 .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
   left: -.8em;
   transform: rotate(180deg);
+
+  @media (max-width: @screen-sm) {
+    left: 1em;
+  }
 }
 
 
@@ -180,7 +196,7 @@ h1.title {
 	height: 2em;
 
 	span {
-		@media(max-width: @screen-sm) {
+		@media (max-width: @screen-sm) {
 			display: none;
 		}
 	}
@@ -191,6 +207,7 @@ h1.title {
 		height: 2px;
 		background-color: @orange;
 		position: relative;
+    transition: .3s;
 
 		&:after,
 		&:before {
@@ -201,12 +218,26 @@ h1.title {
 			background-color: @orange;
 			position: absolute;
 			left: 0;
+      transition: .3s;
 		}
 		&:after {
 			top: -.5em;
 		}
 		&:before {
 			bottom: -.5em;
+		}
+	}
+
+  .burger.active {
+		height: 0;
+
+		&:after {
+			top: -.2em;
+			transform: rotate(45deg);
+		}
+		&:before {
+			bottom: 0;
+			transform: rotate(-45deg);
 		}
 	}
 

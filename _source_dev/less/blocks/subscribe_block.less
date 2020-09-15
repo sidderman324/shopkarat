@@ -11,6 +11,10 @@
   p.subtext {
     font-size: .875em;
     text-align: center;
+
+    @media (max-width: @screen-sm) {
+      font-size: 1em;
+    }
   }
 
   form {
@@ -24,11 +28,26 @@
     max-width: 32em;
     margin-top: 2em;
 
+    @media (max-width: @screen-sm) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 1.5em;
+    }
+
     .input_box {
       width: 20em;
 
+      @media (max-width: @screen-sm) {
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: 1em;
+      }
+
       .input_text {
-        font-size: .875em;
+        font-size: 1em;
       }
     }
   }

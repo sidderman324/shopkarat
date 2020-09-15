@@ -1,7 +1,15 @@
 // Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/page-header.less';
 
+.page-header.opened {
+  z-index: 9999;
+}
 
 .page-header {
+
+  @media (max-width: @screen-sm) {
+    background-color: @gray-bgr;
+    height: 5.7em;
+  }
 
   .container {
     display: -webkit-flex;
@@ -9,6 +17,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+  }
+
+  .burger_wrapper {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translateY(-50%);
+    margin-right: 0;
+    font-size: 1.5em;
+
+    @media (max-width: @screen-sm) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+    }
   }
 
 }
@@ -23,10 +48,28 @@
   align-items: center;
   margin-left: 10.3em;
 
+  @media (max-width: @screen-sm) {
+    margin-left: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .icon {
+    @media (max-width: @screen-sm) {
+      display: none;
+    }
+  }
+
   a.phone_header {
     font-size: 1.125em;
     font-weight: bold;
     margin: 0 4em 0 1.2em;
+
+    @media (max-width: @screen-sm) {
+      font-size: .7em;
+      padding: .3em;
+      margin: 0;
+    }
   }
 }
 .lk_block {
@@ -37,6 +80,10 @@
   flex-wrap: wrap;
   width: 12.4em;
   justify-content: space-between;
+
+  @media (max-width: @screen-sm) {
+    display: none;
+  }
 
   .lk_link {
     width: auto;
@@ -127,4 +174,8 @@
 .logo_wrapper {
   width: 14.3em;
   height: auto;
+
+  @media (max-width: @screen-sm) {
+    width: 10em;
+  }
 }

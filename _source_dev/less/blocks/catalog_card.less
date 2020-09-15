@@ -34,16 +34,31 @@
     -webkit-box-orient: vertical;
     line-clamp: 3;
     box-orient: vertical;
+
+    @media (max-width: @screen-sm) {
+      font-size: 1.5em;
+      padding-top: .8em;
+      height: auto;
+      margin-bottom: .8em;
+    }
   }
   .catalog_card_status {
     font-size: 1.125em;
     font-weight: bold;
     padding: .3em 1em;
     border-radius: 4px;
+
+    @media (max-width: @screen-sm) {
+      font-size: 1.25em;
+    }
   }
   .catalog_card_articul {
     font-size: .75em;
     padding-top: 1.3em;
+
+    @media (max-width: @screen-sm) {
+      display: none;
+    }
   }
 
   .catalog_card_infoblock {
@@ -54,6 +69,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    @media (max-width: @screen-sm) {
+      width: 100%;
+      font-size: 1.6em;
+      justify-content: space-between;
+      margin: .6em 0;
+    }
+
+    .rating {
+      @media (max-width: @screen-sm) {
+        margin-right: auto;
+        font-size: 1.2em;
+      }
+    }
 
     .link {
       margin-right: .3em;
@@ -71,6 +100,14 @@
     flex-direction: row;
     align-items: baseline;
     margin-top: .8em;
+
+    @media (max-width: @screen-sm) {
+      margin-top: 0em;
+      font-size: 1.2em;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 1em;
+    }
 
     .price {
       font-size: 1.125em;
@@ -111,10 +148,11 @@
     margin: 1em 0;
     text-decoration: none;
 
-    @media(max-width: @screen-sm) {
+    @media (max-width: @screen-sm) {
       position: absolute;
       left: 0;
       bottom: 1.9em;
+      display: none;
     }
 
     .catalog_card_amount_btn,
@@ -154,6 +192,17 @@
     display: -ms-flex;
     display: flex;
     flex-direction: row;
+
+    @media (max-width: @screen-sm) {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .btn {
+      @media (max-width: @screen-sm) {
+        width: 45%;
+      }
+    }
   }
 
 

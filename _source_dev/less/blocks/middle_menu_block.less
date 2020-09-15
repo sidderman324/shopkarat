@@ -9,6 +9,10 @@
   width: 100%;
   padding: 1.2em 0;
 
+  @media (max-width: @screen-sm) {
+    height: 5.7em;
+  }
+
   .row {
     width: 100%;
     display: -webkit-flex;
@@ -18,7 +22,28 @@
     justify-content: space-between;
     align-items: center;
 
-    &:last-of-type { padding-top: .8em; }
+    @media (max-width: @screen-sm) {
+      justify-content: space-between;
+      padding-right: 4em;
+      height: 100%;
+    }
+
+    &:last-of-type {
+      padding-top: .8em;
+
+      @media (max-width: @screen-sm) {
+        display: none;
+      }
+    }
+
+    .mobile_block {
+      display: none;
+
+      @media (max-width: @screen-sm) {
+        display: inline-block;
+        margin-left: 1em;
+      }
+    }
   }
 
 }

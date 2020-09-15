@@ -37,6 +37,9 @@
     @media(max-width: @screen-xd) {
       height: 44em;
     }
+    @media (max-width: @screen-sm) {
+      height: 26em !important;
+    }
 
     .container {
       display: -webkit-flex;
@@ -53,6 +56,10 @@
         flex-direction: column;
         align-items: flex-start;
 
+        @media (max-width: @screen-sm) {
+          margin-top: .9rem;
+        }
+
         .title {
           font-size: 3em;
           font-weight: bold;
@@ -62,6 +69,11 @@
           line-height: 1;
           position: relative;
           background-color: rgba(255,255,255,.8);
+
+          @media (max-width: @screen-sm) {
+            font-size: 1.9em;
+            padding: .1em .7em;
+          }
         }
 
         .subtitle {
@@ -71,6 +83,12 @@
           padding: 0.3em 0.7em;
           background-color: rgba(0,0,0,.8);
           margin-left: 3.1em;
+
+          @media (max-width: @screen-sm) {
+            font-size: 1.35em;
+            padding: 0.2em 0.7em;
+            margin-left: 1.5em;
+          }
         }
       }
       .btn {
