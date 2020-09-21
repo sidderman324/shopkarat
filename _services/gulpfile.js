@@ -128,8 +128,10 @@ gulp.task('js', function () {
       // список обрабатываемых файлов
       dirs.source + '/js/jquery-3.1.1.js',
       dirs.source + '/js/jquery-migrate-1.4.1.min.js',
-      dirs.source + '/js/jquery.nested.js',
+      // dirs.source + '/js/jquery.nested.js',
+      dirs.source + '/js/isotope.pkgd.js',
       dirs.source + '/js/jquery-ui.min.js',
+      dirs.source + '/js/toastr.min.js',
       dirs.source + '/js/vue.js',
       dirs.source + '/js/simplebar.min.js',
       dirs.source + '/js/swiper.js',

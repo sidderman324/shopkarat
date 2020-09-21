@@ -49,7 +49,7 @@
   margin-left: 10.3em;
 
   @media (max-width: @screen-sm) {
-    margin-left: 1em;
+    margin-left: 0;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -66,7 +66,7 @@
     margin: 0 4em 0 1.2em;
 
     @media (max-width: @screen-sm) {
-      font-size: .7em;
+      font-size: .9em;
       padding: .3em;
       margin: 0;
     }
@@ -90,6 +90,10 @@
     text-align: left;
     font-size: .875em;
     margin-bottom: .8em;
+
+    &:first-child {
+      max-width: 10em;
+    }
 
     &:last-child {
       text-align: right;

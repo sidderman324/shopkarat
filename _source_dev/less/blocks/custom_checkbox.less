@@ -26,6 +26,7 @@
   font-size: 1em;
   color: @orange;
   display: inline-block;
+  margin-left: .4em;
 }
 
 .custom_checkbox input {
@@ -38,14 +39,18 @@
 }
 /* Base for label styling */
 .custom_checkbox [type='checkbox']:not(:checked),
-.custom_checkbox [type='checkbox']:checked {
+.custom_checkbox [type='checkbox']:checked,
+.custom_checkbox [type='radio']:not(:checked),
+.custom_checkbox [type='radio']:checked {
   position: absolute;
   top: 1em;
   left: .5em;
   opacity: 0;
 }
 .custom_checkbox [type='checkbox']:not(:checked) + label,
-.custom_checkbox [type='checkbox']:checked + label {
+.custom_checkbox [type='checkbox']:checked + label,
+.custom_checkbox [type='radio']:not(:checked) + label,
+.custom_checkbox [type='radio']:checked + label {
   position: relative;
   padding-left: 0;
   cursor: pointer;
@@ -54,19 +59,25 @@
   min-height: 1.7em;
 }
 .custom_checkbox--square [type='checkbox']:not(:checked) + label,
-.custom_checkbox--square [type='checkbox']:checked + label {
+.custom_checkbox--square [type='checkbox']:checked + label,
+.custom_checkbox--square [type='radio']:not(:checked) + label,
+.custom_checkbox--square [type='radio']:checked + label {
   padding-right: 1.5em;
 }
 
 .custom_checkbox--square-left [type='checkbox']:not(:checked) + label,
-.custom_checkbox--square-left [type='checkbox']:checked + label {
+.custom_checkbox--square-left [type='checkbox']:checked + label,
+.custom_checkbox--square-left [type='radio']:not(:checked) + label,
+.custom_checkbox--square-left [type='radio']:checked + label {
   padding-right: 0;
   padding-left: 2.5em;
 }
 
 /* radio aspect */
 .custom_checkbox [type='checkbox']:not(:checked) + label:before,
-.custom_checkbox [type='checkbox']:checked + label:before {
+.custom_checkbox [type='checkbox']:checked + label:before,
+.custom_checkbox [type='radio']:not(:checked) + label:before,
+.custom_checkbox [type='radio']:checked + label:before {
   content: '';
   position: absolute;
   top: 50%;
@@ -84,13 +95,17 @@
   }
 }
 .custom_checkbox [type='checkbox']:checked + label:before,
-.custom_checkbox--square [type='checkbox']:checked + label:before {
+.custom_checkbox--square [type='checkbox']:checked + label:before,
+.custom_checkbox [type='radio']:checked + label:before,
+.custom_checkbox--square [type='radio']:checked + label:before {
   background-color: @orange !important;
   border: 1px solid @black !important;
 }
 
 .custom_checkbox--square [type='checkbox']:not(:checked) + label:before,
-.custom_checkbox--square [type='checkbox']:checked + label:before {
+.custom_checkbox--square [type='checkbox']:checked + label:before,
+.custom_checkbox--square [type='radio']:not(:checked) + label:before,
+.custom_checkbox--square [type='radio']:checked + label:before {
   content: '';
   position: absolute;
   top: 50%;
@@ -109,13 +124,17 @@
 }
 
 .custom_checkbox--square-left [type='checkbox']:not(:checked) + label:before,
-.custom_checkbox--square-left [type='checkbox']:checked + label:before {
+.custom_checkbox--square-left [type='checkbox']:checked + label:before,
+.custom_checkbox--square-left [type='radio']:not(:checked) + label:before,
+.custom_checkbox--square-left [type='radio']:checked + label:before {
   left: 0;
 }
 
 /* checked mark aspect */
 .custom_checkbox [type='checkbox']:not(:checked) + label:after,
-.custom_checkbox [type='checkbox']:checked + label:after {
+.custom_checkbox [type='checkbox']:checked + label:after,
+.custom_checkbox [type='radio']:not(:checked) + label:after,
+.custom_checkbox [type='radio']:checked + label:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -136,7 +155,9 @@
 }
 
 .custom_checkbox--square [type='checkbox']:not(:checked) + label:after,
-.custom_checkbox--square [type='checkbox']:checked + label:after {
+.custom_checkbox--square [type='checkbox']:checked + label:after,
+.custom_checkbox--square [type='radio']:not(:checked) + label:after,
+.custom_checkbox--square [type='radio']:checked + label:after {
   background-color: transparent;
   border: none;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAVCAYAAABCIB6VAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADcSURBVHgBrZWBDYIwEEV/N2CEjuAIjuAGsoFuACOwgW6gG+AGjsAIssF5FzDGctKW60saQmgfx/GhDoUgoooPNY+Rxx2lYPFAX3qUgEUN/TLACkv2tOQCCyzwQQtoPq9gQSpTqvWwwIKTIm1hYW7BK5Dak/Cnrx4WlGgJNSyIQJF2sEBbosUXdzIi4hvlRCvoWZMw50OLSCVhbI7K04TEP1me1GsLaXpRjXLjgVKiRXrY1zggFZ58TpS2yIUXXSPSJ7YiFdEyq9KmjjJ/hU6Ri0Ay7THtXw/n3IhM3p4HQRUIxZ5gAAAAAElFTkSuQmCC);
@@ -155,29 +176,37 @@
   }
 }
 .custom_checkbox--square-left [type='checkbox']:not(:checked) + label:after,
-.custom_checkbox--square-left [type='checkbox']:checked + label:after {
+.custom_checkbox--square-left [type='checkbox']:checked + label:after,
+.custom_checkbox--square-left [type='radio']:not(:checked) + label:after,
+.custom_checkbox--square-left [type='radio']:checked + label:after {
   left: 0;
 }
 
-.custom_checkbox [type='checkbox']:checked + label:after {
+.custom_checkbox [type='checkbox']:checked + label:after,
+.custom_checkbox [type='radio']:checked + label:after {
   transform: translate(85%,-50%) scale(1);
   opacity: 1;
 }
-.custom_checkbox--square [type='checkbox']:checked + label:after {
+.custom_checkbox--square [type='checkbox']:checked + label:after,
+.custom_checkbox--square [type='radio']:checked + label:after {
   transform: translate(0%,-50%) scale(1);
   opacity: 1;
 }
 
 /* disabled radio */
 .custom_checkbox [type='checkbox']:disabled:not(:checked) + label:before,
-.custom_checkbox [type='checkbox']:disabled:checked + label:before {
+.custom_checkbox [type='checkbox']:disabled:checked + label:before,
+.custom_checkbox [type='radio']:disabled:not(:checked) + label:before,
+.custom_checkbox [type='radio']:disabled:checked + label:before {
   border-color: #bbb;
   background-color: #ddd;
   box-shadow: none;
 }
-.custom_checkbox [type='checkbox']:disabled:checked + label:after {
+.custom_checkbox [type='checkbox']:disabled:checked + label:after,
+.custom_checkbox [type='radio']:disabled:checked + label:after {
   color: #999;
 }
-.custom_checkbox [type='checkbox']:disabled + label {
+.custom_checkbox [type='checkbox']:disabled + label,
+.custom_checkbox [type='radio']:disabled + label {
   color: #aaa;
 }

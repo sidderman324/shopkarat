@@ -1,5 +1,8 @@
 <div class="filter_block">
-  <p class="title">Фильтр</p>
+
+  <span class="close_btn js-filters-hide"></span>
+
+  <p class="title">Фильтры</p>
 
   <div class="product_category_list">
     <div class="filter_spoiler">

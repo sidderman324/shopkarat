@@ -130,6 +130,10 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%,-50%);
+
+          @media (max-width: @screen-sm) {
+            width: 100%;
+          }
         }
       }
     }
@@ -216,7 +220,7 @@
 
   &--for-order {
     .catalog_card_status {
-      background-color: #1E2836;
+      background-color: #1d4986;
       color: #fff;
     }
   }
@@ -278,6 +282,93 @@
     }
   }
 
+}
+
+
+.catalog_item--catalog-page {
+  .catalog_card {
+    @media (max-width: @screen-sm) {
+      display: grid;
+      grid-template-columns: 37% 57%;
+      grid-gap: 6%;
+      padding: 2em 0;
+      border-top: 1px solid #c4c4c4;
+    }
+
+    .img_wrapper {
+      @media (max-width: @screen-sm) {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 4;
+      }
+    }
+
+    .catalog_card .img_wrapper:after {
+      @media (max-width: @screen-sm) {
+        font-size: .7em;
+      }
+    }
+    .catalog_card .img_wrapper:before {
+      @media (max-width: @screen-sm) {
+        font-size: .8em;
+      }
+    }
+
+    .catalog_card_title {
+      @media (max-width: @screen-sm) {
+        font-size: 1em;
+        padding-top: 0;
+        margin-bottom: 0;
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 1;
+      }
+    }
+    .catalog_card_status {
+      @media (max-width: @screen-sm) {
+        font-size: 1em;
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        width: -moz-max-content;
+        width: -webkit-max-content;
+        width: fit-content;
+      }
+    }
+    .catalog_card_infoblock {
+      @media (max-width: @screen-sm) {
+        font-size: 1.1em;
+        margin: 0;
+        grid-column: 2 / span 1;
+        grid-row: 3 / span 1;
+      }
+
+      .rating {
+        @media (max-width: @screen-sm) {
+          margin-bottom: .1em;
+        }
+      }
+    }
+    .catalog_card_price_block {
+      @media (max-width: @screen-sm) {
+        grid-column: 2 / span 1;
+        grid-row: 4 / span 1;
+        margin-bottom: .5em;
+      }
+    }
+    .catalog_card_btn_block {
+      @media (max-width: @screen-sm) {
+        grid-column: 1 / span 2;
+        grid-row: 5 / span 1;
+        justify-content: flex-start;
+      }
+
+      .btn {
+        @media (max-width: @screen-sm) {
+          width: auto;
+        }
+      }
+    }
+
+
+  }
 }
 
 .catalog_card_mini {

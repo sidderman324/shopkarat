@@ -17,7 +17,7 @@
   <section class="product_page">
     <div class="container">
 
-      <div class="catalog_card catalog_card--product-page">
+      <div class="catalog_card catalog_card--product-page catalog_card--in-stock catalog_card--new-product-label">
 
         <div class="img_wrapper">
           <img src="../static/imgs/catalog/product_4.jpg" alt="">

@@ -169,7 +169,7 @@
 	</div>
 
 
-	<div class="burger_wrapper">
+	<div class="burger_wrapper js-menu-toggle">
 		<div class="burger"></div>
 	</div>
 
@@ -194,6 +194,16 @@
 
 			</div>
 
+			<div class="lk_block" style="display: none;">
+
+				<a href="#" class="lk_link">Иван Иванов</a>
+
+				<a href="#" class="lk_link">Выход</a>
+
+				<a href="/wp-content/themes/karat/frontend/lk/lk-index.php" class="btn btn--black">Личный кабинет</a>
+
+			</div>
+
 			<div class="mobile_block">
 				<a href="#" class="link link--basket"><span class="icon icon--basket"></span></a>
 				<a href="#" class="link link--lk"><span class="icon icon--lk"></span></a>
@@ -202,7 +212,7 @@
 		<div class="row">
 
 			<div class="geo_block">
-				<a href="#" class="link link--geo">
+				<a href="#" class="link link--geo js-popup-open" data-popup-name="js-poup-city-select">
 					<span class="icon icon--geo"></span>
 					Краснодар
 				</a>
@@ -301,7 +311,7 @@
 				<p class="popup_subtitle">Зарегистрированный пользователь</p>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
-					<input type="text" class="input_text" placeholder="E-mail">
+					<input type="text" class="input_text js-email-validate" placeholder="E-mail">
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
@@ -350,11 +360,11 @@
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
-					<input type="text" class="input_text" placeholder="E-mail">
+					<input type="text" class="input_text js-email-validate" placeholder="E-mail">
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
-					<input type="text" class="input_text" placeholder="Телефон">
+					<input type="text" class="input_text js-phone-validate" placeholder="Телефон">
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
@@ -383,11 +393,11 @@
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
-					<input type="text" class="input_text" placeholder="E-mail">
+					<input type="text" class="input_text js-email-validate" placeholder="E-mail">
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
-					<input type="text" class="input_text" placeholder="Телефон">
+					<input type="text" class="input_text js-phone-validate" placeholder="Телефон">
 				</div>
 
 				<div class="input_box input_box--square input_box--black input_box--wide">
@@ -420,4 +430,21 @@
 			</div>
 		</div>
 	</form>
+</div>
+
+
+
+<!-- Окно выбора города -->
+<div class="popup_block js-poup-city-select popup_block--wide">
+  <span class="close_btn js-popup-close"></span>
+
+	<p class="popup_title">Выберите ближайший к Вам город:</p>
+
+	<div class="popup_cities">
+		<div class="popup_cities_item active"><span class="icon icon--geo"></span>Краснодар</div>
+		<div class="popup_cities_item">Армавир</div>
+		<div class="popup_cities_item">Симферополь</div>
+		<div class="popup_cities_item">Сочи</div>
+	</div>
+
 </div>

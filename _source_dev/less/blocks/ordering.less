@@ -1,0 +1,134 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/ordering.less';
+
+
+.ordering {
+  padding: 3.6em 0;
+
+  .container {
+    position: relative;
+  }
+
+  .odrer_summary {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    transition: ease .3s;
+
+    .specifications--border-head {
+      width: 100%;
+
+      tbody {
+        width: 100%;
+      }
+
+      td {
+        width: 50% !important;
+      }
+      tr.orange_bgr {
+        background-color: @orange;
+
+        .text {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .row {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3em;
+    margin-bottom: 2em;
+    width: 100%;
+
+    .column {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: column;
+      width: 18%;
+      margin-right: 5%;
+
+      .block {
+        margin-bottom: 2em;
+      }
+
+      .custom_checkbox,
+      .input_box {
+        margin-bottom: 1em;
+      }
+      .custom_checkbox {
+        padding-right: 1.7em;
+      }
+      .custom_checkbox label {
+        width: 100%;
+      }
+    }
+
+    .hidden_block {
+      height: 0;
+      overflow: hidden;
+      transition: .3s;
+    }
+    .hidden_block.visible {
+      height: auto;
+      overflow: visible;
+    }
+  }
+
+
+  .table {
+    width: 75%;
+    margin-bottom: 2em;
+  }
+
+  .btn {
+    margin-bottom: 2rem;
+  }
+
+  .subtitle-mix {
+    margin-bottom: 1.5rem;
+  }
+
+  p.notification {
+    .text-mix;
+    color: #f00;
+    font-weight: bold;
+
+    a {
+      color: @orange;
+      text-decoration: none;
+    }
+  }
+
+
+  &--popup {
+    padding: 0;
+    .row {
+      .column {
+        width: 40%;
+
+        .block {
+          width: 100%;
+        }
+
+        .hidden_block {
+          width: 100%;
+        }
+
+        .custom_checkbox, .input_box { margin-bottom: 0; }
+
+        .block_title {
+          margin-bottom: .5em;
+        }
+        .custom_checkbox {
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+
+}

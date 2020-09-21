@@ -57,8 +57,215 @@
 
 </footer>
 
+<!-- Окно покупки в 1 клик -->
+<div class="popup_block js-popup-one-click-buy">
+  <span class="close_btn js-popup-close"></span>
+
+  <form action="" method="POST">
+    <p class="popup_title">Купить в 1 клик</p>
+
+    <div class="input_box input_box--square input_box--black input_box--narrow">
+      <input type="text" class="input_text" placeholder="Фамилия Имя Отчество">
+    </div>
+    <div class="input_box input_box--square input_box--black input_box--narrow">
+      <input type="text" class="input_text" placeholder="Email">
+    </div>
+    <div class="input_box input_box--square input_box--black input_box--narrow">
+      <input type="text" class="input_text" placeholder="Телефон">
+    </div>
+
+    <div class="input_box input_box--square input_box--black">
+      <textarea name="name" placeholder="Комментарий" rows="5" class="input_text input_text--textarea"></textarea>
+    </div>
+
+    <div class="custom_checkbox custom_checkbox--square custom_checkbox--square-left">
+      <input id="confirmation_buy" type="checkbox">
+      <label for="confirmation_buy" name="confirmation_buy"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
+    </div>
+
+    <input type="submit" name="" value="ОТПРАВИТЬ" class="btn btn--orange">
+  </form>
+
+</div>
+
+
+<!-- Окно оформления предзаказа -->
+<div class="popup_block popup_block--wide js-popup-pre-order">
+  <span class="close_btn js-popup-close"></span>
+
+  <form action="" method="POST" class="ordering ordering--popup">
+    <p class="popup_title">Оформление предзаказа</p>
+
+    <p class="text">Выберите необходимые пункты и заполните пустые поля</p>
+
+    <div class="row">
+      <div class="column">
+        <div class="block">
+          <p class="block_title">Тип плательщика</p>
+
+          <div class="content">
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="order_fiz_type" name="order_type" type="radio" class="checkout_type">
+              <label for="order_fiz_type" name="order_fiz_type"><span>ФИЗИЧЕСКОЕ ЛИЦО</span></label>
+            </div>
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="order_yur_type" name="order_type" type="radio" class="checkout_type">
+              <label for="order_yur_type" name="order_yur_type"><span>ЮРИДИЧЕСКОЕ ЛИЦО</span></label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="block">
+          <p class="block_title">Доставка</p>
+          <div class="content">
+
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="courier_delivery" name="delivery_type" type="radio" class="checkout_type">
+              <label for="courier_delivery" name="courier_delivery"><span>ДОСТАВКА КУРЬЕРОМ</span></label>
+            </div>
+
+            <div class="hidden_block delivery_type" id="content_courier_delivery">
+              <div class="input_box input_box--black input_box--square">
+                <input type="text" class="input_text" placeholder="Введите название Вашего города">
+              </div>
+              <div class="input_box input_box--black input_box--square">
+                <input type="text" class="input_text" placeholder="Индекс">
+              </div>
+              <div class="input_box input_box--black input_box--square">
+                <textarea type="text" class="input_text input_text--textarea" placeholder="Адрес доставки"></textarea>
+              </div>
+
+              <p class="notification">* Бесплатная доставка при закае от 3 000 руб.</p>
+            </div>
+
+
+
+
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="selfcarry_delivery" name="delivery_type" type="radio" class="checkout_type">
+              <label for="selfcarry_delivery" name="selfcarry_delivery"><span>САМОВЫВОЗ</span></label>
+            </div>
+
+
+            <div class="hidden_block delivery_type" id="content_selfcarry_delivery">
+              <div class="select">
+                <input class="select_input" type="hidden" name="" id="">
+                <div class="select_head">Выберите ближайший к Вам филиал</div>
+                <ul class="select_list" style="display: none;">
+                  <li class="select_item" data-value="Краснодар">Краснодар</li>
+                  <li class="select_item" data-value="Симферополь">Симферополь</li>
+                  <li class="select_item" data-value="Армавир">Армавир</li>
+                  <li class="select_item" data-value="Сочи">Сочи</li>
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div class="block">
+          <p class="block_title">Способ оплаты</p>
+
+          <div class="content">
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="payment_cash" name="payment_type" type="radio">
+              <label for="payment_cash" name="payment_cash"><span>НАЛИЧНЫМИ ПРИ ПОЛУЧЕНИИ</span></label>
+            </div>
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="paument_card" name="payment_type" type="radio">
+              <label for="paument_card" name="paument_card"><span>БАНКОВСКОЙ КАРТОЙ</span></label>
+            </div>
+            <div class="custom_checkbox custom_checkbox--square">
+              <input id="payment_checkout" name="payment_type" type="radio">
+              <label for="payment_checkout" name="payment_checkout"><span>ПО СЧЕТУ</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="hidden_block order_type" id="content_order_fiz_type">
+          <p class="block_title">Покупатель</p>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Фамилия Имя Отчество">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Email">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Телефон">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <textarea type="text" class="input_text input_text--textarea" placeholder="Комментарий к заказу"></textarea>
+          </div>
+        </div>
+        <div class="hidden_block order_type" id="content_order_yur_type">
+          <p class="block_title">Покупатель</p>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Название компании">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Юридический адрес">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="ИНН">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="КПП">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Контактное лицо">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Телефон">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <input type="text" class="input_text" placeholder="Email">
+          </div>
+          <div class="input_box input_box--black input_box--square">
+            <textarea type="text" class="input_text input_text--textarea" placeholder="Комментарий к заказу"></textarea>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="custom_checkbox custom_checkbox--square custom_checkbox--square-left">
+      <input id="confirmation_pre_order" type="checkbox">
+      <label for="confirmation_pre_order" name="confirmation_pre_order"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
+    </div>
+
+    <input type="submit" name="" value="ОТПРАВИТЬ" class="btn btn--orange">
+  </form>
+
+</div>
+
+
+<!-- Окно благодарности за подписку -->
+<div class="popup_block js-popup-subsribe popup_block--subsribe popup_block--wide">
+  <span class="close_btn js-popup-close"></span>
+
+  <p class="popup_title">Спасибо за подписку!</p>
+
+  <p class="text bold">Ваш e-mail принят. Теперь вы будете первыми получать информацию о новинках и акциях в наших магазинах!</p>
+</div>
+
 
 <div class="popup_bgr js-popup-close"></div>
+
+
+<!-- Ответ при добавлении в корзину -->
+<div class="info_label_box js-add-to-basket">В списке 10 товаров в <a href="/wp-content/themes/karat/frontend/basket.php" target="_blank">Корзину</a></div>
+
+<!-- Ответ при добавлении в сравнение -->
+<div class="info_label_box js-add-to-compare">В списке 5 товаров <a href="#" target="_blank">Сравнить</a></div>
+
+<!-- Ответ при добавлении в избранное -->
+<div class="info_label_box js-add-to-favorite">В <a href="#" target="_blank">избранном</a> 5 товаров</div>
+
 
 <!-- <script src="/static/js/jquery-3.1.1.js"></script> -->
 <!-- <script src="/static/js/jquery-migrate-1.4.1.min.js"></script> -->

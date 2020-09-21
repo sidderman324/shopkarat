@@ -67,7 +67,7 @@ if (!Object.keys) {
         centered: false,
         resizeToFit: true, // will resize block bigger than the gap
         resizeToFitOptions: {
-            resizeAny: true // will resize any block to fit the gap         
+            resizeAny: true // will resize any block to fit the gap
         },
         animate: true,
         animationOptions: {
@@ -414,7 +414,7 @@ if (!Object.keys) {
             var plateHeight = this.options.plateHeight;
             var currentCount = parseInt($('#platesCount').attr('value'));
 
-            
+
 
             // set container height and width
             // this.box.css('height', this._setHeight($els));
@@ -449,7 +449,7 @@ if (!Object.keys) {
                 $currHeight = $(value['$el']).width();
 
                 value['$el'].attr('data-y', $currTop).attr('data-x', $currLeft);
-                
+
                 //if animate and queue
                 if (animate && queue && ($currLeft != value['x'] || $currTop != value['y'])) {
                     setTimeout(function () {
@@ -529,7 +529,7 @@ if (!Object.keys) {
         },
 
         refresh: function(options) {
-        	
+
         	options = options || this.options;
 
             this.options = $.extend(true, {}, $.Nested.settings, options);
@@ -539,7 +539,7 @@ if (!Object.keys) {
             // build box dimensions
             this._setBoxes();
         },
-        
+
         destroy: function() {
 
            var container = this;
@@ -551,10 +551,10 @@ if (!Object.keys) {
 	        // unbind the resize event
             $els = this.box.find(this.options.selector);
             $($els).removeClass('nested-moved').removeAttr('style data-box data-width data-x data-y').removeData();
-            
+
             this.box.removeAttr("style").removeData();
         }
-        
+
     }
 
 
@@ -585,7 +585,7 @@ $.fn.nested = function (options, e) {
 
   if(methods[options]) {
    return methods[options].apply(this, Array.prototype.slice.call(arguments, 1));
-}        
+}
 
 if (typeof options === 'string') {
     this.each(function () {

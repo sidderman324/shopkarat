@@ -41,8 +41,20 @@
     &--catalog-page {
       width: 74.7%;
 
+      @media (max-width: @screen-sm) {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 1em;
+      }
+
       .catalog_card {
         width: 32.2%;
+        @media (max-width: @screen-sm) {
+          width: 100%;
+        }
       }
     }
     &--popular {

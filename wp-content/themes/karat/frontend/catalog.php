@@ -25,29 +25,27 @@
 
 
         <div class="sorting_block">
-          <p class="sorting_title">СОРТИРОВАТЬ ПО:</p>
+          <div class="select">
+            <input class="select_input" type="hidden" name="" id="">
+            <div class="select_head">Сортировать по:</div>
+            <ul class="select_list" style="display: none;">
+              <li class="select_item" data-value="sort_popular">Популярности</li>
+              <li class="select_item" data-value="sort_name">Наименованию</li>
+              <li class="select_item" data-value="sort_price_desc">Цена выше</li>
+              <li class="select_item" data-value="sort_price_asc">Цена ниже</li>
+            </ul>
+          </div>
 
-          <div class="sort_item">
-            <p class="name">Цене</p>
-            <div class="btn_box"><span class="sort_btn sort_btn--desc"></span><span class="sort_btn sort_btn--acs selected"></span></div>
-          </div>
-          <div class="sort_item">
-            <p class="name">Популярности</p>
-            <div class="btn_box"><span class="sort_btn sort_btn--desc"></span><span class="sort_btn sort_btn--acs"></span></div>
-          </div>
-          <div class="sort_item">
-            <p class="name">Наименованию</p>
-            <div class="btn_box"><span class="sort_btn sort_btn--desc"></span><span class="sort_btn sort_btn--acs"></span></div>
-          </div>
+          <span class="filter_link js-filters-show">Фильтры</span>
         </div>
 
-        <div class="catalog_card">
+        <div class="catalog_card catalog_card--for-order catalog_card--sale-label">
           <a href="catalog_card.php" class="img_wrapper">
             <img src="../static/imgs/catalog/product_1.jpg" alt="">
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
-          <p class="catalog_card_status catalog_card_status--for-order">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -65,7 +63,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -89,7 +86,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Ваза бочонок "Тень" 38 см (4) (YAB-KR-19)</a>
-          <p class="catalog_card_status catalog_card_status--in-stock">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -107,7 +104,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -131,7 +127,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Основание Для кровати (25*28) 900х1900 (Метал + деревянные ламели)</a>
-          <p class="catalog_card_status catalog_card_status--for-order">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -149,7 +145,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -174,7 +169,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
-          <p class="catalog_card_status catalog_card_status--for-order">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -192,7 +187,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -216,7 +210,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Ваза бочонок "Тень" 38 см (4) (YAB-KR-19)</a>
-          <p class="catalog_card_status catalog_card_status--in-stock">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -234,7 +228,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -258,7 +251,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Основание Для кровати (25*28) 900х1900 (Метал + деревянные ламели)</a>
-          <p class="catalog_card_status catalog_card_status--for-order">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -276,7 +269,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -301,7 +293,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
-          <p class="catalog_card_status catalog_card_status--for-order">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -319,7 +311,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -343,7 +334,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Ваза бочонок "Тень" 38 см (4) (YAB-KR-19)</a>
-          <p class="catalog_card_status catalog_card_status--in-stock">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -361,7 +352,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 
@@ -385,7 +375,7 @@
           </a>
 
           <a href="catalog_card.php" class="catalog_card_title">Основание Для кровати (25*28) 900х1900 (Метал + деревянные ламели)</a>
-          <p class="catalog_card_status catalog_card_status--for-order">В наличии</p>
+          <p class="catalog_card_status">В наличии</p>
           <p class="catalog_card_articul">Артикул № 3558</p>
 
           <div class="catalog_card_infoblock">
@@ -403,7 +393,6 @@
 
           <div class="catalog_card_price_block">
             <p class="price">4 507 руб/шт.</p>
-            <p class="price price--old">4 507 руб/шт.</p>
           </div>
 
 

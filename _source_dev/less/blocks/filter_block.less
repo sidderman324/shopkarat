@@ -1,12 +1,67 @@
 // Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/filter_block.less';
 
 
+.filter_block.visible {
+  @media (max-width: @screen-sm) {
+    visibility: visible;
+    right: 0;
+
+    &:after {
+      height: 100vh;
+    }
+  }
+}
 .filter_block {
   width: 24%;
   margin-top: 3.2em;
   padding-top: 1em;
   border-radius: 4px;
   border: 1px solid @black;
+  transition: .3s;
+
+  @media (max-width: @screen-sm) {
+    visibility: hidden;
+    top: -1.6em;
+    position: absolute;
+    width: 100%;
+    right: 100%;
+    margin-top: 0;
+    // top: -1.6em;
+    background-color: #fff;
+    z-index: 999;
+    border: none;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+
+  &:after {
+    @media (max-width: @screen-sm) {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(0,0,0,0.5);
+      background: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.5)), color-stop(100%, rgba(0,0,0,0)));
+      background: -webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      background: -o-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      background: -ms-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      height: 0;
+      transition: .3s;
+    }
+  }
+
+  .close_btn {
+    display: none;
+
+    @media (max-width: @screen-sm) {
+      display: inline-block;
+      top: 1.4em;
+    }
+  }
 
   .title {
     .title-mix;
@@ -14,6 +69,10 @@
     color: @orange;
     position: relative;
     padding-bottom: .35em;
+
+    @media (max-width: @screen-sm) {
+      padding-bottom: .5em;
+    }
 
     &:before {
       content: '';

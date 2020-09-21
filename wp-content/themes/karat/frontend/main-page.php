@@ -78,8 +78,8 @@
 									<span class="rating_star rating_star--empty"></span>
 									<span class="rating_star rating_star--empty"></span>
 								</div>
-								<a href="#" class="link link--compare"><span class="icon icon--compare"></span></a>
-								<a href="#" class="link link--favorite icon_count_box"><span class="icon icon--favorite"></span></a>
+								<a href="#" class="link link--compare js-label-open" data-label-name="js-add-to-compare"><span class="icon icon--compare"></span></a>
+								<a href="#" class="link link--favorite icon_count_box js-label-open" data-label-name="js-add-to-favorite"><span class="icon icon--favorite"></span></a>
 							</div>
 
 
@@ -96,8 +96,8 @@
 
 
 							<div class="catalog_card_btn_block">
-								<a href="#" class="btn btn--orange btn--basket-icon">В корзину</a>
-								<a href="#" class="btn btn--transparent btn--orange-border">Предзаказ</a>
+								<a href="#" class="btn btn--orange btn--basket-icon js-label-open" data-label-name="js-add-to-basket">В корзину</a>
+								<a href="#" class="btn btn--transparent btn--orange-border js-popup-open" data-popup-name="js-popup-pre-order">Предзаказ</a>
 							</div>
 
 
@@ -119,8 +119,8 @@
 									<span class="rating_star rating_star--empty"></span>
 									<span class="rating_star rating_star--empty"></span>
 								</div>
-								<a href="#" class="link link--compare"><span class="icon icon--compare"></span></a>
-								<a href="#" class="link link--favorite icon_count_box"><span class="icon icon--favorite"></span></a>
+								<a href="#" class="link link--compare js-label-open" data-label-name="js-add-to-compare"><span class="icon icon--compare"></span></a>
+								<a href="#" class="link link--favorite icon_count_box js-label-open" data-label-name="js-add-to-favorite"><span class="icon icon--favorite"></span></a>
 							</div>
 
 
@@ -138,8 +138,8 @@
 
 
 							<div class="catalog_card_btn_block">
-								<a href="#" class="btn btn--orange btn--basket-icon">В корзину</a>
-								<a href="#" class="btn btn--transparent btn--orange-border">Предзаказ</a>
+								<a href="#" class="btn btn--orange btn--basket-icon js-label-open" data-label-name="js-add-to-basket">В корзину</a>
+								<a href="#" class="btn btn--transparent btn--orange-border js-popup-open" data-popup-name="js-popup-one-click-buy">Купить в 1 клик</a>
 							</div>
 
 
@@ -161,8 +161,8 @@
 									<span class="rating_star rating_star--empty"></span>
 									<span class="rating_star rating_star--empty"></span>
 								</div>
-								<a href="#" class="link link--compare"><span class="icon icon--compare"></span></a>
-								<a href="#" class="link link--favorite icon_count_box"><span class="icon icon--favorite"></span></a>
+								<a href="#" class="link link--compare js-label-open" data-label-name="js-add-to-compare"><span class="icon icon--compare"></span></a>
+								<a href="#" class="link link--favorite icon_count_box js-label-open" data-label-name="js-add-to-favorite"><span class="icon icon--favorite"></span></a>
 							</div>
 
 
@@ -179,8 +179,8 @@
 
 
 							<div class="catalog_card_btn_block">
-								<a href="#" class="btn btn--orange btn--basket-icon">В корзину</a>
-								<a href="#" class="btn btn--transparent btn--orange-border">Предзаказ</a>
+								<a href="#" class="btn btn--orange btn--basket-icon js-label-open" data-label-name="js-add-to-basket">В корзину</a>
+								<a href="#" class="btn btn--transparent btn--orange-border js-popup-open" data-popup-name="js-popup-pre-order">Предзаказ</a>
 							</div>
 
 
@@ -202,8 +202,8 @@
 									<span class="rating_star rating_star--empty"></span>
 									<span class="rating_star rating_star--empty"></span>
 								</div>
-								<a href="#" class="link link--compare"><span class="icon icon--compare"></span></a>
-								<a href="#" class="link link--favorite icon_count_box"><span class="icon icon--favorite"></span></a>
+								<a href="#" class="link link--compare js-label-open" data-label-name="js-add-to-compare"><span class="icon icon--compare"></span></a>
+								<a href="#" class="link link--favorite icon_count_box js-label-open" data-label-name="js-add-to-favorite"><span class="icon icon--favorite"></span></a>
 							</div>
 
 
@@ -220,8 +220,8 @@
 
 
 							<div class="catalog_card_btn_block">
-								<a href="#" class="btn btn--orange btn--basket-icon">В корзину</a>
-								<a href="#" class="btn btn--transparent btn--orange-border">Предзаказ</a>
+								<a href="#" class="btn btn--orange btn--basket-icon js-label-open" data-label-name="js-add-to-basket">В корзину</a>
+								<a href="#" class="btn btn--transparent btn--orange-border js-popup-open" data-popup-name="js-popup-pre-order">Предзаказ</a>
 							</div>
 
 
