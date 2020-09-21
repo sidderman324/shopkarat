@@ -314,7 +314,10 @@
 				<div class="input_box input_box--square">
 					<input type="text" class="input_text" placeholder="E-mail">
 				</div>
-				<input type="submit" name="" value="Подписаться" class="btn btn--orange btn--orange-border">
+				<!-- <input type="submit" name="" value="Подписаться" class="btn btn--orange btn--orange-border">
+			 -->
+
+			 <button class="btn btn--orange btn--orange-border">Подписаться</button>
 			</form>
 		</div>
 	</section>

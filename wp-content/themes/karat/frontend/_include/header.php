@@ -326,13 +326,13 @@
 					<a href="#" class="link">Забыли пароль?</a>
 				</div>
 
-				<input type="submit" name="" value="Войти" class="btn btn--orange">
+				<button class="btn btn--orange">Войти</button>
 			</div>
 			<div class="column">
 
 				<p class="popup_subtitle">Новый пользователь</p>
 
-				<a href="#" class="btn btn--transparent">Регистрация</a>
+				<a href="#" class="btn btn--transparent js-popup-open" data-popup-name="js-popup-registration">Регистрация</a>
 
 			</div>
 		</div>
@@ -381,7 +381,7 @@
 					<label for="confirmation_fiz" name="confirmation_fiz"><span>Я согласен на <a href="#">обработку персональных данных</a></span></label>
 				</div>
 
-				<input type="submit" name="" value="Зарегистрироваться" class="btn btn--orange">
+				<button class="btn btn--orange">Зарегистрироваться</button>
 			</div>
 			<div class="column">
 
@@ -425,7 +425,7 @@
 					<label for="confirmation_ur" name="confirmation_ur"><span>Я согласен на <a href="#">обработку персональных данных</a></span></label>
 				</div>
 
-				<input type="submit" name="" value="Зарегистрироваться" class="btn btn--transparent">
+				<button class="btn btn--transparent">Зарегистрироваться</button>
 
 			</div>
 		</div>

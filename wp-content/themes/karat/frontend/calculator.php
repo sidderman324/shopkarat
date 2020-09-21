@@ -5,10 +5,7 @@
 	<title>Калькулятор распила</title>
 
 	<link rel="stylesheet" href="../static/css/style.css">
-
-
-	<script src="../static/js/script.min.js"></script>
-
+	<script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script>
 </head>
 <body>
 
@@ -32,16 +29,6 @@
 						<option value="1">ХДФ 2800x2070</option>
 					</select>
 
-					<div class="select">
-						<input class="select_input" type="hidden" name="list_sizes" id="list_sizes" @change="getSourseDetails()">
-						<div class="select_head">Выберите</div>
-						<ul class="select_list" style="display: none;">
-							<li class="select_item" value="0">ЛДСП 2750x1830</li>
-							<li class="select_item" value="1">ЛДСП 2800x2070</li>
-							<li class="select_item" value="2">МДФ 2800x2070</li>
-							<li class="select_item" value="1">ХДФ 2800x2070</li>
-						</ul>
-					</div>
 				</div>
 				<div class="row">
 					<p class="text">Размеры раскроя, мм:</p>
@@ -223,10 +210,10 @@
 			<span class="arrow"></span>
 		</div>
 
-		<div class="plate_item" :style="'height:' + currentState.plateHeight + 'px'">
+		<div class="plate_item grid" :style="'min-height:' + currentState.plateHeight + 'px'">
 
 			<div
-			class="detail_item box"
+			class="detail_item box grid-item"
 			v-for="(detail, index) in detailItemRender"
 			v-if="currentState.arrPlates[index][1] == item"
 			:id="'detail_item_' + detail[3] + '_' + detail[4]"
@@ -259,7 +246,6 @@
 
 
 </div>
-
 
 <script>
 
@@ -325,10 +311,20 @@ var vm = new Vue({
 			if ((value >= min) && (value <= max)) {
 				this.detailItem[index][typeId] = value;
 				$('#'+id).removeClass('warning');
-			} else {
+			} else if ((value <= min) && (value <= max)) {
+
+				toastr.warning('Значение слишком маленькое')
 				this.detailItem[index][typeId] = 'incorrect value';
 				$('#'+id).addClass('warning');
+
+			} else if ((value >= min) && (value > max)) {
+
+				toastr.warning('Значение слишком большое')
+				this.detailItem[index][typeId] = 'incorrect value';
+				$('#'+id).addClass('warning');
+
 			}
+			console.log(this.detailItem[index])
 
 			// Подсчитываем общее количество деталей
 			this.getDetailCount();
@@ -520,8 +516,8 @@ var vm = new Vue({
 
 				margin = 4 * plateWidth / cuttingLength;
 
-				var lengthMod = length * plateWidth / cuttingLength;
-				var widthMod = width * plateHeight / cuttingWidth;
+				var lengthMod = length * plateWidth / cuttingLength * 0.9984984984984985;
+				var widthMod = width * plateHeight / cuttingWidth * 0.9984984984984985;
 
 				// el.css('width',lengthMod+'px');
 				// el.css('height',widthMod+'px');
@@ -530,12 +526,15 @@ var vm = new Vue({
 
 				this.detailItemRender[i][6].push(lengthMod);
 				this.detailItemRender[i][6].push(widthMod);
+
+				el.width(lengthMod);
+				el.height(widthMod);
 			}
 
 
 			this.currentState.detailsMargin = margin;
 
-			setTimeout(this.nested, 10);
+			setTimeout(this.nested, 100);
 		},
 
 		getDetailPosition: function() {
@@ -661,17 +660,26 @@ var vm = new Vue({
 
 		nested: function() {
 			var self = this;
-			$(".plate_item").each(function(){
-				$(this).nested({
-					selector: '.box',
-					resizeToFit: false,
-					minWidth: 10,
-					gutter: 0.14,
-					plateWidth: self.currentState.plateWidth,
-					plateHeight: self.currentState.plateHeight,
-					cuttingSize: self.currentState.cuttingSize,
-				});
-			})
+			// $(".grid").each(function(){
+			// 	$(this).nested({
+			// 		selector: '.box',
+			// 		resizeToFit: false,
+			// 		minWidth: 10,
+			// 		gutter: 0.14,
+			// 		plateWidth: self.currentState.plateWidth,
+			// 		plateHeight: self.currentState.plateHeight,
+			// 		cuttingSize: self.currentState.cuttingSize,
+			// 	});
+			// })
+
+
+			var elem = document.querySelector('.grid');
+			var msnry = new Masonry( elem, {
+			  itemSelector: '.grid-item',
+			  columnWidth: 2.2
+			});
+
+
 
 			// setTimeout(this.checkPlateFit, 100);
 		},
@@ -897,10 +905,34 @@ var vm = new Vue({
 		addDetail: function() {
 			var i = this.detailCounter;
 
-			var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
+			if (i > 0) {
 
-			this.detailItem.push(detail);
-			this.detailCounter ++;
+				if ((this.detailItem[i-1][1] == "") || (this.detailItem[i-1][2] == "")) {
+
+					toastr.error('Размеры детали не заполнены');
+
+				} else if((this.detailItem[i-1][1] == "incorrect value") || (this.detailItem[i-1][2] == "incorrect value")) {
+
+					toastr.error('Размеры детали некооректны');
+
+				} else {
+
+					var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
+
+					this.detailItem.push(detail);
+					this.detailCounter ++;
+
+				}
+
+			} else {
+
+				var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
+
+				this.detailItem.push(detail);
+				this.detailCounter ++;
+
+			}
+
 		},
 
 	},
@@ -923,7 +955,7 @@ var vm = new Vue({
 </div>
 
 
-<?php include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/footer.php');?>
+<?php //include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/footer.php');?>
 
 </body>
 </html>

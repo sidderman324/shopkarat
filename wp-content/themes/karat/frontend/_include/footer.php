@@ -83,7 +83,7 @@
       <label for="confirmation_buy" name="confirmation_buy"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
     </div>
 
-    <input type="submit" name="" value="ОТПРАВИТЬ" class="btn btn--orange">
+    <button class="btn btn--orange">ОТПРАВИТЬ</button>
   </form>
 
 </div>
@@ -238,7 +238,7 @@
       <label for="confirmation_pre_order" name="confirmation_pre_order"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
     </div>
 
-    <input type="submit" name="" value="ОТПРАВИТЬ" class="btn btn--orange">
+    <button class="btn btn--orange">ОТПРАВИТЬ</button>
   </form>
 
 </div>
