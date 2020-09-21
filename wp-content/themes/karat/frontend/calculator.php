@@ -210,7 +210,7 @@
 			<span class="arrow"></span>
 		</div>
 
-		<div class="plate_item grid" :style="'min-height:' + currentState.plateHeight + 'px'">
+		<div class="plate_item grid" :style="'height:' + currentState.plateHeight + 'px'">
 
 			<div
 			class="detail_item box grid-item"

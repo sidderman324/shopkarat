@@ -94,6 +94,30 @@ $(document).ready(function(){
 
 
 
+
+
+  $('.catalog_card_amount_btn').on('click', function(){
+    var input = $(this).parents('.catalog_card_amount_block').find('.amount_input');
+    var current = parseInt(input.val());
+
+    if ($(this).hasClass('catalog_card_amount_btn--minus')) {
+      if (current > 1) {
+        current = current - 1;
+      } else {
+        current = 1;
+      }
+
+    } else if ($(this).hasClass('catalog_card_amount_btn--plus')) {
+      current = current + 1;
+    }
+
+    input.val(current)
+
+  })
+
+
+
+
   // Открытие попап окна
   $('.js-popup-open').on('click',function(e){
     e.preventDefault();
