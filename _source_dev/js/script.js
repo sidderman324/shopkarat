@@ -2,10 +2,9 @@ $(document).ready(function(){
 
 
   // Функция открывания спойлеров в фильтре
-  $('.filter_spoiler_title').on('click', function(){
+  $(document).on('click', '.filter_spoiler_title', function(e) {
     $(this).parents('.filter_spoiler').toggleClass('opened');
   });
-
 
 
   $( function() {
@@ -75,7 +74,7 @@ $(document).ready(function(){
 
 
   // Открытие ярлычка
-  $('.js-label-open').on('click',function(e){
+  $(document).on('click', '.js-label-open', function(e) {
     e.preventDefault();
     var label_class = $(this).attr('data-label-name');
 
@@ -96,7 +95,7 @@ $(document).ready(function(){
 
 
 
-  $('.catalog_card_amount_btn').on('click', function(){
+  $(document).on('click', '.catalog_card_amount_btn', function(e) {
     var input = $(this).parents('.catalog_card_amount_block').find('.amount_input');
     var current = parseInt(input.val());
 
@@ -119,7 +118,7 @@ $(document).ready(function(){
 
 
   // Открытие попап окна
-  $('.js-popup-open').on('click',function(e){
+  $(document).on('click', '.js-popup-open', function(e) {
     e.preventDefault();
 
     var popup_class = $(this).attr('data-popup-name');
@@ -130,7 +129,7 @@ $(document).ready(function(){
   });
 
   // Закрытие попап окна
-  $('.js-popup-close').on('click',function(e){
+  $(document).on('click', '.js-popup-close', function(e) {
     e.preventDefault();
 
     $('.popup_bgr').removeClass('visible');
@@ -139,7 +138,7 @@ $(document).ready(function(){
 
 
   // Закрытие попап окна
-  $('.js-order-more-label').on('click',function(e){
+  $(document).on('click', '.js-order-more-label', function(e) {
     e.preventDefault();
 
     $('.more_info_label').removeClass('visible');
@@ -150,14 +149,14 @@ $(document).ready(function(){
 
   // Открытие меню
 
-  $('.js-show-catalog-menu').on('click',function(e){
+  $(document).on('click', '.js-show-catalog-menu', function(e) {
     e.preventDefault();
 
     $(this).toggleClass('active');
     $('.hover_menu_block').toggleClass('visible');
   });
 
-  $('.bottom_menu_block, .middle_menu_block, section').on('click', function(){
+  $(document).on('click', '.bottom_menu_block, .middle_menu_block, section', function(e) {
     if($('.hover_menu_block').hasClass('visible')) {
       $('.js-show-catalog-menu').removeClass('active');
       $('.hover_menu_block').removeClass('visible');
@@ -170,14 +169,14 @@ $(document).ready(function(){
 
 
   // Открытие попап окна
-  $('.js-filters-show').on('click',function(e){
+  $(document).on('click', '.js-filters-show', function(e) {
     e.preventDefault();
 
     $('.filter_block').addClass('visible');
   });
 
   // Закрытие попап окна
-  $('.js-filters-hide').on('click',function(e){
+  $(document).on('click', '.js-filters-hide', function(e) {
     e.preventDefault();
 
     $('.filter_block').removeClass('visible');
@@ -327,7 +326,7 @@ $(document).ready(function(){
     }
   });
 
-  $('#js-rating-review').on('click', function(){
+  $(document).on('click', '#js-rating-review', function(e) {
     $('#selected_rating').attr('value',stars);
   });
 
@@ -335,7 +334,7 @@ $(document).ready(function(){
 
   // Переключение табов в характеристиках
 
-  $('.tabs_head_item').on('click',function(e){
+  $(document).on('click', '.tabs_head_item', function(e) {
     e.preventDefault();
 
     var index = $(this).index();
@@ -349,14 +348,14 @@ $(document).ready(function(){
 
 
 
-  $('.select').on('click', '.select_head', function () {
+  $('.select').on('click','.select_head', function () {
     $('.select_head').addClass('open');
     $('.select_list').fadeIn(100);
     $(this).addClass('open');
     $(this).next().fadeIn(100);
   });
 
-  $('.select').on('click', '.select_item', function () {
+  $('.select').on('click','.select_item', function () {
     $('.select_head').removeClass('open');
     $(this).parent().fadeOut(100);
     $(this).parent().prev().text($(this).text());
@@ -375,7 +374,7 @@ $(document).ready(function(){
 
 
 
-  $('.js-menu-toggle').on('click',function(e){
+  $(document).on('click', '.js-menu-toggle', function(e) {
     e.preventDefault();
     $('.top_menu_block nav').slideToggle(200);
     $('.top_menu_block nav').toggleClass('opened');
@@ -397,7 +396,7 @@ $(document).ready(function(){
 
 
 
-  $('.menu_section_link').on('click',function(e){
+  $(document).on('click', '.menu_section_link', function(e) {
     winWidth = $(window).width()
 
     if (winWidth < 680) {
