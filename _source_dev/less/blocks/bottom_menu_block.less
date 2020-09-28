@@ -6,6 +6,15 @@
   padding: 1.3em 0 0.8em;
   position: relative;
 
+  > .bottom_menu_block {
+    padding: 0 !important;
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+
   @media (max-width: @screen-sm) {
     display: none;
   }

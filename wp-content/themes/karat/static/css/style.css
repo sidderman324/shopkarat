@@ -3182,7 +3182,7 @@ h1.title {
       justify-content: flex-start;
 }
 .calculator_wrapper .table .table_body .detail_scheme_color {
-  display: inline-block;
+  display: none;
   width: 1.5em;
   height: 1.5em;
   margin: auto;
@@ -3211,6 +3211,7 @@ h1.title {
   width: 5.6em;
   height: 4.5em;
   margin: auto;
+  font-size: 1.2em;
 }
 .calculator_wrapper .detail_square .square {
   position: absolute;
@@ -3225,16 +3226,16 @@ h1.title {
   background-color: #bfbfbf;
 }
 .calculator_wrapper .detail_square .square.position_0 {
-  border-top: 2px solid #F18700;
+  border-top: 2px solid #f00;
 }
 .calculator_wrapper .detail_square .square.position_1 {
-  border-right: 2px solid #F18700;
+  border-right: 2px solid #f00;
 }
 .calculator_wrapper .detail_square .square.position_2 {
-  border-bottom: 2px solid #F18700;
+  border-bottom: 2px solid #f00;
 }
 .calculator_wrapper .detail_square .square.position_3 {
-  border-left: 2px solid #F18700;
+  border-left: 2px solid #f00;
 }
 .calculator_wrapper .detail_square .edge_group {
   position: absolute;
@@ -3252,6 +3253,7 @@ h1.title {
 }
 .calculator_wrapper .detail_square .edge_group span.selected {
   font-weight: bold;
+  color: #f00;
 }
 .calculator_wrapper .detail_square .edge_top {
   top: 0;
@@ -3295,18 +3297,11 @@ h1.title {
   height: 32em;
   width: 100% !important;
   background-color: #E5E5E5;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-align: start;
-      align-items: flex-start;
-  -ms-flex-pack: start;
-      justify-content: flex-start;
   position: relative;
   background-image: url('../imgs/ldsp_bgr.jpg');
   background-size: cover;
   background-position: center;
+  box-sizing: border-box;
 }
 .calculator_wrapper .cutting_block .plate_box .plate_item .detail_group {
   -ms-flex-direction: row;
@@ -3320,8 +3315,22 @@ h1.title {
 }
 .calculator_wrapper .cutting_block .plate_box .plate_item .detail_item {
   display: inline-block;
-  border: 1px solid #000;
+  background-color: rgba(241, 135, 0, 0.5);
   position: absolute;
+  box-sizing: border-box;
+  margin-bottom: 1.95px;
+  margin-right: 1.95px;
+  transition: .3s;
+}
+.calculator_wrapper .cutting_block .plate_box .plate_item .detail_item:before {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #000;
   box-sizing: border-box;
 }
 .calculator_wrapper .cutting_block .plate_box .plate_item .detail_item .height {
@@ -4102,6 +4111,13 @@ h1.title {
   padding: 1.3em 0 0.8em;
   position: relative;
 }
+.bottom_menu_block > .bottom_menu_block {
+  padding: 0 !important;
+}
+.bottom_menu_block > .bottom_menu_block:before,
+.bottom_menu_block > .bottom_menu_block:after {
+  display: none;
+}
 .bottom_menu_block:before,
 .bottom_menu_block:after {
   content: '';
@@ -4416,6 +4432,17 @@ h1.title {
   border: 1px solid #000;
   border-radius: 4px;
   overflow: hidden;
+  height: 19.5em;
+  width: 100%;
+  position: relative;
+}
+.catalog_card .img_wrapper img {
+  max-height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
 }
 .catalog_card .catalog_card_title {
   font-size: 1.125em;
@@ -5142,6 +5169,7 @@ h1.title {
 }
 .product_page .catalog_card--product-page .img_wrapper {
   width: 42%;
+  height: 34em;
 }
 .product_page .catalog_card--product-page .product_block {
   width: 49.3%;
@@ -7123,6 +7151,12 @@ h1.title {
   .container {
     width: 1400px;
     padding: 0 20px;
+  }
+  .ordering .odrer_summary {
+    width: 30%;
+  }
+  .ordering .row .column {
+    width: 26%;
   }
 }
 @media (max-width: 1480px) {

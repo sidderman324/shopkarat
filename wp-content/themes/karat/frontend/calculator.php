@@ -5,9 +5,20 @@
 	<title>Калькулятор распила</title>
 
 	<link rel="stylesheet" href="../static/css/style.css">
-	<script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script>
+	<!-- <script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script> -->
+
+	<script src="/_source_dev/js/jquery-3.1.1.js"></script>
+	<script src="/_source_dev/js/jquery-ui.min.js"></script>
+	<script src="/_source_dev/js/jquery-migrate-1.4.1.min.js"></script>
+	<script src="/_source_dev/js/toastr.min.js"></script>
+	<script src="/_source_dev/js/isotope.pkgd.js"></script>
+	<script src="/_source_dev/js/vue.js"></script>
+	<script src="/_source_dev/js/swiper.js"></script>
+	<script src="/_source_dev/js/script.js"></script>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script> -->
 </head>
-<body>
+<body style="overflow: hidden;">
 
 	<?php include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/header.php');?>
 
@@ -16,12 +27,12 @@
 
 		<div class="calculator_wrapper" id="calculatorBox">
 
-			<h1>Заказ карты раскроя, распила ДВП, ДСП, ЛДСП, МДФ с поклейкой кромки</h1>
+			<h1>Заказать карту раскроя и распила ЛДСП, МДФ, ХДВ с поклейкой кромки</h1>
 
 
 			<div class="settings_block">
 				<div class="row">
-					<p class="text">Тип и размер листа, см:</p>
+					<p class="text">Тип и размер листа, мм:</p>
 					<select name="list_sizes" id="list_sizes" @change="getSourseDetails()">
 						<option value="0">ЛДСП 2750x1830</option>
 						<option value="1">ЛДСП 2800x2070</option>
@@ -75,7 +86,7 @@
 		</div>
 		<div class="row">
 			<p class="text">Площадь деталей:</p>
-			<p class="text">{{currentState.totalDetailSquare}}</p>
+			<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare / 1000000}} м2</div></p>
 		</div>
 		<div class="row">
 			<p class="text">Длина пропила:</p>
@@ -84,9 +95,9 @@
 		<div class="row list_row">
 			<p class="text">Длина кромки:</p>
 			<ul class="list">
-				<li><p class="text">толщиной 0,4 мм - </p><p class="text">{{currentState.edgeLength_1}}</p></li>
-				<li><p class="text">толщиной 1 мм - </p><p class="text">{{currentState.edgeLength_2}}</p></li>
-				<li><p class="text">толщиной 2 мм - </p><p class="text">{{currentState.edgeLength_3}}</p></li>
+				<li><p class="text">толщиной 0,4 мм - </p><p class="text" v-if="isAN(currentState.edgeLength_1)">{{currentState.edgeLength_1 * 1.2}}</p></li>
+				<li><p class="text">толщиной 1 мм - </p><p class="text" v-if="isAN(currentState.edgeLength_2)">{{currentState.edgeLength_2 * 1.2}}</p></li>
+				<li><p class="text">толщиной 2 мм - </p><p class="text" v-if="isAN(currentState.edgeLength_3)">{{currentState.edgeLength_3 * 1.2}}</p></li>
 			</ul>
 		</div>
 
@@ -117,7 +128,7 @@
 							type="number"
 							:id="'detail_length_'+index"
 							data-type="length"
-							data-min="10"
+							data-min="1"
 							:data-max="currentState.cuttingSize[0]"
 							@input="validateSizes"
 							class="input_text"
@@ -130,7 +141,7 @@
 							type="number"
 							:id="'detail_width_'+index"
 							data-type="width"
-							data-min="10"
+							data-min="1"
 							:data-max="currentState.cuttingSize[1]"
 							@input="validateSizes"
 							class="input_text"
@@ -193,44 +204,45 @@
 
 
 
+<br>
+{{currentState.cuttingPlates}}
 
+<button @click="masonry()">бля</button>
 
 <div class="cutting_block">
-	<input type="hidden" id="platesCount" v-model="currentState.cuttingPlates" @change="platesChange()">
+	<input type="text" id="platesCount" data-value="1">
 	<div class="plate_box" v-for="item in currentState.cuttingPlates">
 		<p class="text">Лист {{item}}</p>
 
 		<div class="size_length">
-			<span class="text">{{currentState.cuttingSize[0] / 10}}</span>
+			<span class="text">{{currentState.cuttingSize[0]}}</span>
 			<span class="arrow"></span>
 		</div>
 
 		<div class="size_width">
-			<span class="text">{{currentState.cuttingSize[1] / 10}}</span>
+			<span class="text">{{currentState.cuttingSize[1]}}</span>
 			<span class="arrow"></span>
 		</div>
 
-		<div class="plate_item grid" :style="'height:' + currentState.plateHeight + 'px'">
+		<div class="plate_item grid" :class="'grid_'+item" :style="'height:' + currentState.plateHeight + 'px'">
 
 			<div
 			class="detail_item box grid-item"
+			:id="'detail_' + detail[3] + '_' + detail[4]"
 			v-for="(detail, index) in detailItemRender"
 			v-if="currentState.arrPlates[index][1] == item"
-			:id="'detail_item_' + detail[3] + '_' + detail[4]"
-			:data-px-length="detail[6][0]"
-			:data-px-width="detail[6][1]"
-			:data-detail-length="detail[1]"
-			:data-detail-width="detail[2]"
 			:data-border-top="detail[4][0]"
 			:data-border-right="detail[4][1]"
 			:data-border-bottom="detail[4][2]"
 			:data-border-left="detail[4][3]"
 			>
-			<span class="width" v-if="detail[1] >= 2000">{{detail[1]}}</span>
-			<span class="height" v-if="detail[2] >= 2000">{{detail[2]}}</span>
+			<p>{{currentState.arrPlates[index][1]}}</p>
+			<span class="width" v-if="detail[1] >= 200">{{detail[1]}}</span>
+			<span class="height" v-if="detail[2] >= 200">{{detail[2]}}</span>
 
 			<span class="rotateBtn" v-if="detailRotate" @click="getDetailRotate(detail[3], detail[4])"></span>
 		</div>
+
 
 	</div>
 
@@ -240,7 +252,7 @@
 
 <pre>
 	<!-- {{detailItem}} -->
-	<!-- {{detailItemRender}} -->
+	{{currentState.arrPlates}}
 	<!-- {{currentState}} -->
 </pre>
 
@@ -252,9 +264,12 @@
 var vm = new Vue({
 	el: '#calculatorBox',
 	data: {
+		timer: 0,
 		sourceDetails: [],
-		cuttingSizes: ['27500x18300','28000x20700','28000x20700','28000x20700'],
+		plates: 1,
+		cuttingSizes: ['2750x1830','2800x2070','2800x2070','2800x2070'],
 		currentState: {
+			mansoryFlag: true,
 			selectedDetailType: '',
 			selectedDetailTypeID: '',
 			cuttingPlates: 1,
@@ -264,13 +279,16 @@ var vm = new Vue({
 			detailsMargin: 0,
 			nextPlateItem: [0],
 			arrPlates: [],
+			arrPlatesTemp: [],
 		},
 		detailItem: [],
 		detailRotate: true,
 		detailCounter: 0,
-		colorHash: ['#f18700','#07bd04','#f10000','#0300d8','#ffd400','#00ffdc'],
+		colorHash: ['rgba(241, 135, 0, .5)','#07bd04','#f10000','#0300d8','#ffd400','#00ffdc'],
 
 		detailItemRender: [],
+		detailsId: [],
+
 	},
 	methods: {
 		// Получение материалов в data
@@ -313,7 +331,7 @@ var vm = new Vue({
 				$('#'+id).removeClass('warning');
 			} else if ((value <= min) && (value <= max)) {
 
-				toastr.warning('Значение слишком маленькое')
+				// toastr.warning('Значение слишком маленькое')
 				this.detailItem[index][typeId] = 'incorrect value';
 				$('#'+id).addClass('warning');
 
@@ -324,7 +342,7 @@ var vm = new Vue({
 				$('#'+id).addClass('warning');
 
 			}
-			console.log(this.detailItem[index])
+			// console.log(this.detailItem[index])
 
 			// Подсчитываем общее количество деталей
 			this.getDetailCount();
@@ -341,9 +359,33 @@ var vm = new Vue({
 		},
 
 
-		platesChange: function() {
-			console.log(111111111)
-		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		// Подсчитываем общее количество деталей
@@ -376,6 +418,12 @@ var vm = new Vue({
 
 				totalDetailSquare = totalDetailSquare + itemSquare;
 				totalDetailPerimeter = totalDetailPerimeter + itemPerimetr;
+			}
+
+			var min_totalDetailPerimeter = (this.currentState.cuttingSize[0] * 2) + (this.currentState.cuttingSize[1] * 2);
+
+			if(totalDetailPerimeter <= min_totalDetailPerimeter) {
+				totalDetailPerimeter = min_totalDetailPerimeter;
 			}
 
 			if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; }
@@ -485,13 +533,14 @@ var vm = new Vue({
 		},
 
 
-		getDetailOnPlate: function() {
+		getDetailOnPlate: function(flag) {
+			var self = this;
 			var cuttingSize = this.currentState.cuttingSize;
 			var margin = 0;
 			var details = this.detailItemRender;
 
 			for (var i = 0; i < details.length; i++) {
-				var el = $('#detail_item_' + details[i][3] + '_' + details[i][4]);
+				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
 
 				var indexG = details[3];
 
@@ -522,7 +571,8 @@ var vm = new Vue({
 				// el.css('width',lengthMod+'px');
 				// el.css('height',widthMod+'px');
 				// el.css('margin',margin+'px');
-				el.css('background-color',this.colorHash[details[i][3]]);
+				// el.css('background-color','rgba(241, 135, 0, .5)');
+				// this.colorHash[details[i][3]]
 
 				this.detailItemRender[i][6].push(lengthMod);
 				this.detailItemRender[i][6].push(widthMod);
@@ -534,189 +584,151 @@ var vm = new Vue({
 
 			this.currentState.detailsMargin = margin;
 
-			setTimeout(this.nested, 100);
+			// setTimeout(function() {
+			self.masonry(flag);
+			// }, 200)
 		},
 
-		getDetailPosition: function() {
-			var details = this.detailItemRender;
-			var margin = this.currentState.detailsMargin;
-			var plateWidth = this.currentState.plateWidth;
-			var plateHeight = this.currentState.plateHeight;
 
 
 
-			// Стартово положение top и left равняется расстоянию между деталями
-			var posX = margin;
-			var posY = margin;
-			var startItem = 0;
-
-			var probCoord = [];
-
-			var id = details.length - 1;
-
-
-			for (var id = startItem; id < details.length; id++) {
-
-				var fitFlag = false;
-				var plateWidthFlag = false;
-				var plateHeightFlag = true;
-				var interSectFlag = true;
-
-				// Если деталь первая
-				if (id == 0) {
-					// this.detailItemRender[id][6].push(posX);
-					// this.detailItemRender[id][6].push(posY);
-					// this.detailItemRender[id][6].push(true);
-				}
-				// Если деталь не первая
-				if (id > 0) {
-
-					// Верняя правая координата предыдущей детали
-					var prevX_tR = details[id-1][6][2] + details[id-1][6][0];
-					var prevY_tR = details[id-1][6][3];
-
-					// Нижняя левая координата предыдущей детали
-					var prevX_bL = details[id-1][6][2] + details[id-1][6][0];
-					var prevY_bL = details[id-1][6][3] + details[id-1][6][1];
-
-					// Проверка на попадание в ширину
-					if ((prevX_tR + details[id][6][0] + margin) < plateWidth) {
-
-						// Добавление в тот же ряд
-						plateWidthFlag = true;
-						posX = prevX_tR + margin;
-						posY = prevY_tR;
-
-					} else {
-						var prodItem = [];
-						for (var i = details.length - 2; i >= 0; i--) {
-							if(details[i][6][4]) {
-
-								// Добавление в массив нижних левых коорд
-								prevX_bL = details[i][6][2];
-								prevY_bL = details[i][6][3] + details[i][6][1];
-								prodItem.push([prevX_bL,prevY_bL]);
-
-							}
-						}
-						var result = this.getMinTopLeft(prodItem);
-
-						plateWidthFlag = true;
-						posX = result[0];
-						posY = result[1] + margin;
-
-						console.log(result);
-					}
 
 
 
-					// Проверка попадает ли след деталь в оставшуюся ширину + Проверка, попадает ли деталь в высоту.
 
 
-					// Проверка, попадает ли деталь в оставшуюсь ширину, если отступить высоту одной из деталей
+		masonry: function(flag) {
+			var self = this;
 
-
-					// Проверка, попадает ли в ширину, если взять от left 0
-
-
-					// Проверка,
-
-				}
-
-				if (plateWidthFlag && plateHeightFlag && interSectFlag) {
-					fitFlag = true;
-				}
-
-				if (fitFlag) {
-					// this.detailItemRender[id][6].push(posX);
-					// this.detailItemRender[id][6].push(posY);
-					// this.detailItemRender[id][6].push(true);
-				}
+			if(typeof flag == 'undefined') {
+				flag = false;
 			}
 
+			for (var i = 1; i < this.currentState.cuttingPlates + 1; i++) {
+				var elem = document.querySelector('.grid_' + i);
+				// console.log($('.grid_' + i)[0].children.length)
+				var childs = $('.grid_' + i)[0].children.length;
 
+				if (childs > 0) {
 
+					var msnry = new Masonry( elem, {
+						itemSelector: '.grid-item',
+						columnWidth: 2,
+						gutter: 0,
+						lastCall: flag,
+						plate: i,
+						totalPlates: self.currentState.cuttingPlates,
+						plateHeight: self.currentState.plateHeight,
+						detailsList: self.detailsId,
+					})
+				}
 
-
-
-			// При добавлении детали необходимо провододить сканирование нижней левой и верхней правой точки каждой детали как стартовые координаты сканирования, естественно с прибавлением к ним отступа margin.
-
-			// Сканирование начинаешь с с правой верхней точки. Далее прибавляешь к координатам ширину новой детали, проверяешь влезает ли в лист, если ок - то ок. Верхие точки проверяются в порядке возрастания id детали.
-
-			// Если не влезает - начинаешь проверять нижние левые точки, добавляя подходящий top и left в двумерный массив. Далее выбираешь группу с минимальным top и записываешь это в detailItemRender детали и переходишь к следующей детали.
-
-			// Так же на каждом из этапов необходимо добавить проверку по общей высоте листа.
-
-			// Т.Е. необходимо брать координаты x и y, проверять, нет ли под ними детали, далее прибавлять к ним ширину и высоту новой детали и так же проверять. Надо проводить проверку во всех 4-х точках.
-
-			// Проверка подходящего места для детали основывается также на переборе заполненных массивов с деталями и сравнения (x + width + margin) и (y + height + margin) новой детали с информацией записанной в массиве.
-
-			// Т.О. Тебе необходимо сравнить координаты нижнего левого, нижнего правого и верхнего правого угла новой детали с положением деталей на листе.
-
-			// this.nested();
-
-
+			}
 		},
 
-		nested: function() {
+
+		platesChange: function(count) {
+			this.currentState.cuttingPlates = count;
+		},
+
+
+		catchPlateData: function(arr) {
 			var self = this;
-			// $(".grid").each(function(){
-			// 	$(this).nested({
-			// 		selector: '.box',
-			// 		resizeToFit: false,
-			// 		minWidth: 10,
-			// 		gutter: 0.14,
-			// 		plateWidth: self.currentState.plateWidth,
-			// 		plateHeight: self.currentState.plateHeight,
-			// 		cuttingSize: self.currentState.cuttingSize,
-			// 	});
-			// })
+			this.currentState.arrPlates = arr;
 
-
-			var elem = document.querySelector('.grid');
-			var msnry = new Masonry( elem, {
-			  itemSelector: '.grid-item',
-			  columnWidth: 2.2
-			});
-
-
-
-			// setTimeout(this.checkPlateFit, 100);
-		},
-
-
-		checkPlateFit: function() {
 			var details = this.detailItemRender;
-			var plates = this.currentState.cuttingPlates;
-			var plateHeight = this.currentState.plateHeight;
-			var margin = this.currentState.detailsMargin;
-			var topArr = [];
-			var plateArr = this.currentState.arrPlates;
-
-			// var lastID = details.length - 1;
-
 
 			for (var i = 0; i < details.length; i++) {
-				var el = $('#detail_item_' + details[i][3] + '_' + details[i][4]);
-				var elBottom = parseInt(details[i][6][1]) + parseInt(el.css('top')) + margin;
-				console.log(elBottom);
 
-				if (elBottom < plateHeight * plates) {
-					console.log('first plate');
+				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
 
-					// this.currentState.arrPlates[i].push(1);
-				} else if (elBottom >= plateHeight * plates) {
-					console.log('new plate');
-					plates = 2
-					plateArr[i][1] = 2;
+				el.width(details[i][6][0]);
+				el.height(details[i][6][1]);
+
+			}
+
+			setTimeout(function() {
+				self.getDetailOnPlate(true);
+			}, 100);
+
+		},
+
+
+		arrayFunc: function(arr) {
+			var self = this;
+			var tmp = this.currentState.arrPlatesTemp;
+			var totalCount = this.currentState.totalDetailCount;
+
+			// tmp = $.merge(this.currentState.arrPlatesTemp, arr);
+
+			// if(tmp.length == 0) {
+				tmp = $.merge(this.currentState.arrPlatesTemp, arr);
+			// } else {
+				// tmp = tmp.concat(arr);
+			// }
+
+
+			console.log(tmp)
+
+			var plates = [];
+			var tmpC = [];
+			var tmpU = [];
+
+			for (var i = 0; i < tmp.length; i++) {
+				plates.push(tmp[i][1]);
+			}
+
+			var maxPlate = Math.max.apply( Math, plates );
+
+
+			uniq = function(items, key) {
+				var set = {};
+				return items.filter(function(item) {
+					var k = key ? key.apply(item) : item;
+					return k in set ? false : set[k] = true;
+				})
+			}
+
+			tmpC = uniq(tmp, [].join)
+
+			for (var i = 0; i <= totalCount - 1; i++) {
+				// console.log(tmpC[i])
+				for (var k = 0; k < tmpC.length; k++) {
+					if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] == tmpC[i][1]))  {
+						tmpU.push(tmpC[k]);
+					} else if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] > tmpC[i][1]))  {
+
+						tmpU[i][1] = tmpC[k][1];
+
+					}
 				}
 			}
 
-			console.log(plateArr)
 
-			this.currentState.cuttingPlates = plates;
-			this.currentState.arrPlates = plateArr;
+			// console.log(maxPlate)
+			// this.currentState.cuttingPlates = maxPlate;
+
+			// console.log(tmpU)
+
+			this.currentState.arrPlatesTemp = tmpC;
+			// this.currentState.arrPlates = uniqueCoords;
+
+			// $('.platesCount').attr('data-value', maxPlate)
+
+			setTimeout(function() {
+				self.platesChange(maxPlate);
+				self.catchPlateData(tmpU);
+			}, 100);
+
 		},
+
+
+
+
+
+
+
+
 
 
 
@@ -726,6 +738,7 @@ var vm = new Vue({
 			var arrPlates = []
 			var startPlate = this.currentState.nextPlateItem;
 			var arr = this.currentState.arrPlates;
+			var idArr = [];
 
 			for (var i = 0; i < details.length; i++) {
 				var count = details[i][3];
@@ -741,18 +754,23 @@ var vm = new Vue({
 						}
 					}
 					var detailItemPlate = [j, 1];
-					var itemArr = [details[i][0], details[i][1], details[i][2], i, j, details[i][4], [], 1]
+					var itemArr = [details[i][0] + '_' + j, details[i][1], details[i][2], i, j, details[i][4], []]
 					arrRender.push(itemArr);
 					arrPlates.push(detailItemPlate);
+					idArr.push(details[i][0] + '_' + j);
 				}
 			}
 
 			this.detailItemRender = arrRender;
+			this.detailsId = idArr;
 			this.currentState.arrPlates = arrPlates;
 
 			setTimeout(this.getDetailOnPlate, 10);
-			// setTimeout(this.nested, 100);
+			// setTimeout(this.masonry, 100);
 		},
+
+
+
 
 		// Функция вращения
 		getDetailRotate: function(group, item) {
@@ -939,6 +957,9 @@ var vm = new Vue({
 	watch:{
 		'currentState.nextPlateItem'(){
 			this.getDetailsItemArray();
+		},
+		'plates'(){
+			this.platesChange();
 		}
 	},
 	mounted() {
