@@ -105,12 +105,12 @@
 
           <div class="content">
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="order_fiz_type" name="order_type" type="radio" class="checkout_type">
-              <label for="order_fiz_type" name="order_fiz_type"><span>ФИЗИЧЕСКОЕ ЛИЦО</span></label>
+              <input id="order_fiz_type_pre" name="order_type" type="radio" class="checkout_type">
+              <label for="order_fiz_type_pre" name="order_fiz_type_pre"><span>ФИЗИЧЕСКОЕ ЛИЦО</span></label>
             </div>
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="order_yur_type" name="order_type" type="radio" class="checkout_type">
-              <label for="order_yur_type" name="order_yur_type"><span>ЮРИДИЧЕСКОЕ ЛИЦО</span></label>
+              <input id="order_yur_type_pre" name="order_type" type="radio" class="checkout_type">
+              <label for="order_yur_type_pre" name="order_yur_type_pre"><span>ЮРИДИЧЕСКОЕ ЛИЦО</span></label>
             </div>
           </div>
 
@@ -121,11 +121,11 @@
           <div class="content">
 
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="courier_delivery" name="delivery_type" type="radio" class="checkout_type">
-              <label for="courier_delivery" name="courier_delivery"><span>ДОСТАВКА КУРЬЕРОМ</span></label>
+              <input id="courier_delivery_pre" name="delivery_type" type="radio" class="checkout_type">
+              <label for="courier_delivery_pre" name="courier_delivery_pre"><span>ДОСТАВКА КУРЬЕРОМ</span></label>
             </div>
 
-            <div class="hidden_block delivery_type" id="content_courier_delivery">
+            <div class="hidden_block delivery_type" id="content_courier_delivery_pre">
               <div class="input_box input_box--black input_box--square">
                 <input type="text" class="input_text" placeholder="Введите название Вашего города">
               </div>
@@ -143,12 +143,12 @@
 
 
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="selfcarry_delivery" name="delivery_type" type="radio" class="checkout_type">
-              <label for="selfcarry_delivery" name="selfcarry_delivery"><span>САМОВЫВОЗ</span></label>
+              <input id="selfcarry_delivery_pre" name="delivery_type" type="radio" class="checkout_type">
+              <label for="selfcarry_delivery_pre" name="selfcarry_delivery_pre"><span>САМОВЫВОЗ</span></label>
             </div>
 
 
-            <div class="hidden_block delivery_type" id="content_selfcarry_delivery">
+            <div class="hidden_block delivery_type" id="content_selfcarry_delivery_pre">
               <div class="select">
                 <input class="select_input" type="hidden" name="" id="">
                 <div class="select_head">Выберите ближайший к Вам филиал</div>
@@ -171,22 +171,22 @@
 
           <div class="content">
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="payment_cash" name="payment_type" type="radio">
-              <label for="payment_cash" name="payment_cash"><span>НАЛИЧНЫМИ ПРИ ПОЛУЧЕНИИ</span></label>
+              <input id="payment_cash_pre" name="payment_type" type="radio">
+              <label for="payment_cash_pre" name="payment_cash_pre"><span>НАЛИЧНЫМИ ПРИ ПОЛУЧЕНИИ</span></label>
             </div>
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="paument_card" name="payment_type" type="radio">
-              <label for="paument_card" name="paument_card"><span>БАНКОВСКОЙ КАРТОЙ</span></label>
+              <input id="paument_card_pre" name="payment_type" type="radio">
+              <label for="paument_card_pre" name="paument_card_pre"><span>БАНКОВСКОЙ КАРТОЙ</span></label>
             </div>
             <div class="custom_checkbox custom_checkbox--square">
-              <input id="payment_checkout" name="payment_type" type="radio">
-              <label for="payment_checkout" name="payment_checkout"><span>ПО СЧЕТУ</span></label>
+              <input id="payment_checko_preut" name="payment_type" type="radio">
+              <label for="payment_checko_preut" name="payment_checkout_pre"><span>ПО СЧЕТУ</span></label>
             </div>
           </div>
         </div>
       </div>
       <div class="column">
-        <div class="hidden_block order_type" id="content_order_fiz_type">
+        <div class="hidden_block order_type" id="content_order_fiz_type_pre">
           <p class="block_title">Покупатель</p>
           <div class="input_box input_box--black input_box--square">
             <input type="text" class="input_text" placeholder="Фамилия Имя Отчество">
@@ -201,7 +201,7 @@
             <textarea type="text" class="input_text input_text--textarea" placeholder="Комментарий к заказу"></textarea>
           </div>
         </div>
-        <div class="hidden_block order_type" id="content_order_yur_type">
+        <div class="hidden_block order_type" id="content_order_yur_type_pre">
           <p class="block_title">Покупатель</p>
           <div class="input_box input_box--black input_box--square">
             <input type="text" class="input_text" placeholder="Название компании">

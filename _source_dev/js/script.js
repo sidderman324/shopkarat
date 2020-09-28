@@ -184,6 +184,22 @@ $(document).ready(function(){
 
 
 
+  function disabledInputs() {
+    if($('.ordering')) {
+
+      $('.input_text').each(function(){
+        $(this).attr('disabled',true)
+
+        var parent = $(this).parents('.hidden_block');
+        if(parent.hasClass('visible')) {
+          $(this).removeAttr('disabled');
+        }
+      })
+    }
+  }
+
+  disabledInputs();
+
 
 
   $(".checkout_type").on('change', function(){
@@ -197,6 +213,8 @@ $(document).ready(function(){
       $('.delivery_type').removeClass('visible');
       $('#content_'+id).addClass('visible');
     }
+
+    disabledInputs();
   });
 
 
