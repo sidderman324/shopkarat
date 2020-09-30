@@ -133,6 +133,7 @@ gulp.task('js', function () {
       dirs.source + '/js/jquery-ui.min.js',
       dirs.source + '/js/toastr.min.js',
       dirs.source + '/js/vue.js',
+      dirs.source + '/js/html2pdf.bundle.js',
       dirs.source + '/js/simplebar.min.js',
       dirs.source + '/js/swiper.js',
       dirs.source + '/js/script.js',

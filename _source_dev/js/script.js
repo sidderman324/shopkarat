@@ -198,7 +198,7 @@ $(document).ready(function(){
     }
   }
 
-  disabledInputs();
+  // disabledInputs();
 
 
 

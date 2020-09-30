@@ -156,7 +156,7 @@
 				<li><a href="#">Акции</a></li>
 				<li><a href="#">Услуги</a></li>
 				<li><a href="/wp-content/themes/karat/frontend/calculator.php">Калькулятор распила</a></li>
-				<li><a href="#">Конструктор кухни</a></li>
+				<li><a href="/wp-content/themes/karat/frontend/constructor.php">Конструктор кухни</a></li>
 				<li><a href="/wp-content/themes/karat/frontend/about_company.php">О компании</a></li>
 				<li><a href="#">Контакты</a></li>
 

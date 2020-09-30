@@ -4,19 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Калькулятор распила</title>
 
-	<link rel="stylesheet" href="../static/css/style.css">
-	<!-- <script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script> -->
+	<link rel="stylesheet" href="../static/css/style.css?v=<?php echo time(); ?>">
+	<script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script>
 
-	<script src="/_source_dev/js/jquery-3.1.1.js"></script>
-	<script src="/_source_dev/js/jquery-ui.min.js"></script>
-	<script src="/_source_dev/js/jquery-migrate-1.4.1.min.js"></script>
-	<script src="/_source_dev/js/toastr.min.js"></script>
-	<script src="/_source_dev/js/isotope.pkgd.js"></script>
-	<script src="/_source_dev/js/vue.js"></script>
-	<script src="/_source_dev/js/swiper.js"></script>
-	<script src="/_source_dev/js/script.js"></script>
+	<!-- <script src="/_source_dev/js/jquery-3.1.1.js"></script> -->
+	<!-- <script src="/_source_dev/js/jquery-ui.min.js"></script> -->
+	<!-- <script src="/_source_dev/js/jquery-migrate-1.4.1.min.js"></script> -->
+	<!-- <script src="/_source_dev/js/toastr.min.js"></script> -->
+	<!-- <script src="/_source_dev/js/isotope.pkgd.js"></script> -->
+	<!-- <script src="/_source_dev/js/vue.js"></script> -->
+	<!-- <script src="/_source_dev/js/swiper.js"></script> -->
+	<!-- <script src="/_source_dev/js/script.js"></script> -->
+	<!-- <script src="/_source_dev/js/html2pdf.bundle.js"></script> -->
 
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script> -->
 </head>
 <body style="overflow: hidden;">
 
@@ -45,7 +45,7 @@
 					<p class="text">Размеры раскроя, мм:</p>
 					<p class="text">{{cuttingSizes[this.currentState.selectedDetailTypeID]}}</p>
 				</div>
-				<div class="row">
+				<div class="row avoid-all">
 					<div class="custom_checkbox">
 						<input id="detail_rotate" type="checkbox" checked v-model="detailRotate">
 						<label for="detail_rotate" name="detail_rotate"><span>Вращение деталей:</span></label>
@@ -86,23 +86,37 @@
 		</div>
 		<div class="row">
 			<p class="text">Площадь деталей:</p>
-			<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare / 1000000}} м2</div></p>
+			<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare / 1000000}} м<sup>2</sup></div></p>
 		</div>
 		<div class="row">
 			<p class="text">Длина пропила:</p>
-			<p class="text">{{currentState.totalDetailPerimeter}}</p>
+			<p class="text"><div v-if="currentState.totalDetailPerimeter">{{currentState.totalDetailPerimeter}} м</div></p>
 		</div>
 		<div class="row list_row">
 			<p class="text">Длина кромки:</p>
 			<ul class="list">
-				<li><p class="text">толщиной 0,4 мм - </p><p class="text" v-if="isAN(currentState.edgeLength_1)">{{currentState.edgeLength_1 * 1.2}}</p></li>
-				<li><p class="text">толщиной 1 мм - </p><p class="text" v-if="isAN(currentState.edgeLength_2)">{{currentState.edgeLength_2 * 1.2}}</p></li>
-				<li><p class="text">толщиной 2 мм - </p><p class="text" v-if="isAN(currentState.edgeLength_3)">{{currentState.edgeLength_3 * 1.2}}</p></li>
+				<li>
+					<div v-if="currentState.edgeLength_1">
+						<p class="text">толщиной 0,4 мм</p>
+						<p class="text" v-if="isAN(currentState.edgeLength_1)">{{(currentState.edgeLength_1 * 1.2).toFixed(1)}} м</p>
+					</div>
+				</li>
+				<li>
+					<div v-if="currentState.edgeLength_2">
+						<p class="text">толщиной 1 мм</p>
+						<p class="text" v-if="isAN(currentState.edgeLength_2)">{{(currentState.edgeLength_2 * 1.2).toFixed(1)}} м</p>
+					</div>
+				</li>
+				<li>
+					<div v-if="currentState.edgeLength_3">
+						<p class="text">толщиной 2 мм</p>
+						<p class="text" v-if="isAN(currentState.edgeLength_3)">{{(currentState.edgeLength_3 * 1.2).toFixed(1)}} м</p>
+					</div>
+				</li>
 			</ul>
 		</div>
-
-		<button class="btn btn--orange">Отправить</button>
-		<button class="btn btn--transparent">Скачать pdf</button>
+		<button class="btn btn--orange" @click="showPopup()">Отправить</button>
+		<button class="btn btn--transparent" @click="generatePDF()">Скачать pdf</button>
 	</div>
 
 
@@ -190,7 +204,8 @@
 
 					</div>
 					<div class="cell">
-						<div class="detail_scheme_color"></div>
+						<!-- <div class="detail_scheme_color"></div> -->
+						<span class="close_btn" @click="removeGroup(index)"></span>
 					</div>
 				</div>
 			</div>
@@ -204,13 +219,9 @@
 
 
 
-<br>
-{{currentState.cuttingPlates}}
-
-<button @click="masonry()">бля</button>
 
 <div class="cutting_block">
-	<input type="text" id="platesCount" data-value="1">
+	<!-- <input type="text" id="platesCount" data-value="1"> -->
 	<div class="plate_box" v-for="item in currentState.cuttingPlates">
 		<p class="text">Лист {{item}}</p>
 
@@ -224,7 +235,7 @@
 			<span class="arrow"></span>
 		</div>
 
-		<div class="plate_item grid" :class="'grid_'+item" :style="'height:' + currentState.plateHeight + 'px'">
+		<div class="plate_item grid" :class="'grid_'+item" :style="'height:' + currentState.plateHeight + 'px; width:' + currentState.plateWidth + 'px'">
 
 			<div
 			class="detail_item box grid-item"
@@ -236,7 +247,6 @@
 			:data-border-bottom="detail[4][2]"
 			:data-border-left="detail[4][3]"
 			>
-			<p>{{currentState.arrPlates[index][1]}}</p>
 			<span class="width" v-if="detail[1] >= 200">{{detail[1]}}</span>
 			<span class="height" v-if="detail[2] >= 200">{{detail[2]}}</span>
 
@@ -250,9 +260,52 @@
 </div>
 
 
+<!-- Окно оформления предзаказа -->
+<div class="popup_block popup_block--calc" :class="{ visible: popupVisible }">
+	<span class="close_btn js-popup-close" @click="hidePoup()"></span>
+
+	<form action="" method="POST" class="ordering ordering--popup">
+		<p class="popup_title">Отправка заказа</p>
+
+		<div class="input_box input_box--square input_box--black input_box--narrow">
+			<input type="text" class="input_text" name="calc_name" placeholder="Фамилия Имя Отчество">
+		</div>
+		<div class="input_box input_box--square input_box--black input_box--narrow">
+			<input type="text" class="input_text" name="calc_email" placeholder="Email">
+		</div>
+		<div class="input_box input_box--square input_box--black input_box--narrow">
+			<input type="text" class="input_text" name="calc_phone" placeholder="Телефон" required>
+		</div>
+		<div class="input_box input_box--square input_box--black">
+			<textarea name="name" placeholder="Комментарий" name="calc_message" rows="5" class="input_text input_text--textarea"></textarea>
+		</div>
+
+		<div class="select">
+			<input class="select_input" type="hidden" name="calc_select_input" id="calc_select_input">
+			<div class="select_head">Выберите ближайший к Вам филиал</div>
+			<ul class="select_list" style="display: none;">
+				<li class="select_item" data-value="Краснодар">Краснодар</li>
+				<li class="select_item" data-value="Симферополь">Симферополь</li>
+			</ul>
+		</div>
+
+
+		<div class="custom_checkbox custom_checkbox--square custom_checkbox--square-left">
+			<input id="calc_confirmation_pre_order" type="checkbox">
+			<label for="calc_confirmation_pre_order" name="calc_confirmation_pre_order"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
+		</div>
+
+		<button class="btn btn--orange">ОТПРАВИТЬ</button>
+	</form>
+
+</div>
+
+<div class="popup_bgr js-popup-close" :class="{ visible: popupVisible }" @click="hidePoup()"></div>
+
+
 <pre>
 	<!-- {{detailItem}} -->
-	{{currentState.arrPlates}}
+	<!-- {{currentState.arrPlates}} -->
 	<!-- {{currentState}} -->
 </pre>
 
@@ -265,6 +318,7 @@ var vm = new Vue({
 	el: '#calculatorBox',
 	data: {
 		timer: 0,
+		popupVisible: false,
 		sourceDetails: [],
 		plates: 1,
 		cuttingSizes: ['2750x1830','2800x2070','2800x2070','2800x2070'],
@@ -362,6 +416,13 @@ var vm = new Vue({
 
 
 
+		removeGroup: function(index) {
+
+			this.detailItem.splice(index, 1);
+			this.textFieldUpdate();
+			this.getDetailsItemArray();
+
+		},
 
 
 
@@ -377,6 +438,31 @@ var vm = new Vue({
 
 
 
+		generatePDF: function() {
+			// Get the element.
+			var element = document.getElementById('calculatorBox');
+
+
+			// Generate the PDF.
+			html2pdf().from(element).set({
+				margin: 50,
+				pagebreak: { before: '.beforeClass', after: ['#after1', '#after2'], avoid: 'div' },
+				filename: 'test.pdf',
+				html2canvas: { scale: 1 },
+				jsPDF: {orientation: 'portrait', unit: 'px', format: [ 1470,  2797], compressPDF: true}
+			}).save();
+		},
+
+
+
+
+
+		showPopup: function() {
+			this.popupVisible = true;
+		},
+		hidePoup: function() {
+			this.popupVisible = false;
+		},
 
 
 
@@ -429,7 +515,7 @@ var vm = new Vue({
 			if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; }
 			else { this.currentState.totalDetailSquare = '-'; }
 
-			if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter; }
+			if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter / 1000; }
 			else { this.currentState.totalDetailPerimeter = '-'; }
 		},
 
@@ -491,13 +577,13 @@ var vm = new Vue({
 				edgeLength_3 = edgeLength_3 * detailCount;
 			}
 
-			if (this.isAN(edgeLength_1)) { this.currentState.edgeLength_1 = edgeLength_1; }
+			if (this.isAN(edgeLength_1)) { this.currentState.edgeLength_1 = edgeLength_1 / 1000; }
 			else { this.currentState.edgeLength_1 = '-'; }
 
-			if (this.isAN(edgeLength_2)) { this.currentState.edgeLength_2 = edgeLength_2; }
+			if (this.isAN(edgeLength_2)) { this.currentState.edgeLength_2 = edgeLength_2 / 1000; }
 			else { this.currentState.edgeLength_2 = '-'; }
 
-			if (this.isAN(edgeLength_3)) { this.currentState.edgeLength_3 = edgeLength_3; }
+			if (this.isAN(edgeLength_3)) { this.currentState.edgeLength_3 = edgeLength_3 / 1000; }
 			else { this.currentState.edgeLength_3 = '-'; }
 		},
 
@@ -661,18 +747,16 @@ var vm = new Vue({
 
 			// tmp = $.merge(this.currentState.arrPlatesTemp, arr);
 
-			// if(tmp.length == 0) {
+			if(tmp.length == 0) {
 				tmp = $.merge(this.currentState.arrPlatesTemp, arr);
-			// } else {
-				// tmp = tmp.concat(arr);
-			// }
-
-
-			console.log(tmp)
+			} else {
+				tmp = tmp.concat(arr);
+			}
 
 			var plates = [];
 			var tmpC = [];
 			var tmpU = [];
+
 
 			for (var i = 0; i < tmp.length; i++) {
 				plates.push(tmp[i][1]);
@@ -738,7 +822,6 @@ var vm = new Vue({
 			var arrPlates = []
 			var startPlate = this.currentState.nextPlateItem;
 			var arr = this.currentState.arrPlates;
-			var idArr = [];
 
 			for (var i = 0; i < details.length; i++) {
 				var count = details[i][3];
@@ -757,12 +840,10 @@ var vm = new Vue({
 					var itemArr = [details[i][0] + '_' + j, details[i][1], details[i][2], i, j, details[i][4], []]
 					arrRender.push(itemArr);
 					arrPlates.push(detailItemPlate);
-					idArr.push(details[i][0] + '_' + j);
 				}
 			}
 
 			this.detailItemRender = arrRender;
-			this.detailsId = idArr;
 			this.currentState.arrPlates = arrPlates;
 
 			setTimeout(this.getDetailOnPlate, 10);
@@ -964,6 +1045,8 @@ var vm = new Vue({
 	},
 	mounted() {
 		this.getSourseDetails();
+		this.textFieldUpdate();
+		this.getDetailsItemArray();
 	},
 
 });
@@ -975,7 +1058,64 @@ var vm = new Vue({
 
 </div>
 
+<footer class="page-footer">
 
+	<div class="container">
+		<div class="footer_menu_block">
+			<div class="footer_menu_block_item">
+				<p class="title">КАТАЛОГ</p>
+				<ul class="footer_menu_block_list">
+					<li><a href="#">Декоры мебельные</a></li>
+					<li><a href="#">Кромочные материалы</a></li>
+					<li><a href="#">Мойки и смесители</a></li>
+					<li><a href="#">Мебельная фурнитура</a></li>
+					<li><a href="#">Плитные материалы</a></li>
+					<li><a href="#">Шкафы-купе</a></li>
+					<li><a href="#">Фасады</a></li>
+				</ul>
+			</div>
+			<div class="footer_menu_block_item">
+				<p class="title">УСЛУГИ</p>
+				<ul class="footer_menu_block_list">
+					<li><a href="#">Распил и кромление</a></li>
+					<li><a href="#">Присадка</a></li>
+					<li><a href="#">Фрезеровка</a></li>
+					<li><a href="#">Мебельное производство</a></li>
+					<li><a href="#">Производство фасадов</a></li>
+				</ul>
+			</div>
+			<div class="footer_menu_block_item">
+				<p class="title">УСЛОВИЯ</p>
+				<ul class="footer_menu_block_list">
+					<li><a href="payment_delivery.php">Доставка</a></li>
+					<li><a href="payment_delivery.php">Оплата</a></li>
+					<li><a href="payment_delivery.php">Гарантия</a></li>
+					<li><a href="payment_delivery.php">Помощь</a></li>
+				</ul>
+			</div>
+			<div class="footer_menu_block_item">
+				<p class="title">ФИЛИАЛЫ</p>
+				<ul class="footer_menu_block_list">
+					<li><a href="#">Армавир</a></li>
+					<li><a href="#">Симферополь</a></li>
+					<li><a href="#">Сочи</a></li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="footer_bottom_block">
+			<div class="logo_wrapper"><img src="/wp-content/themes/karat/static/imgs/main_logo_orange.svg" alt=""></div>
+
+			<div class="phonebox">
+				<a href="tel:+78612050519" class="phone_header">8(861)205-05-19</a>
+				<a href="tel:+78612050592" class="phone_header">8(861)205-05-92</a>
+			</div>
+		</div>
+
+	</div>
+
+</footer>
 <?php //include ($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/karat/frontend/_include/footer.php');?>
 
 </body>

@@ -2484,18 +2484,19 @@
 
   proto._getContainerSize = function() {
 
-    var arr = [];
-    var arr_test = [];
 
     this.maxY = Math.max.apply( Math, this.colYs );
-
-    var counter = 1;
-    // var counter = parseInt($('.platesCount').attr('data-value'))
-
     var size = {
       height: this.maxY
     };
-    console.log('this.options.plate', this.options.plate)
+
+
+    var arr = [];
+    var counter = 1;
+    // var counter = parseInt($('.platesCount').attr('data-value'))
+
+
+    // console.log('this.options.plate', this.options.plate)
 
     var amount = this.items.length;
     // Перебор деталей
@@ -2523,6 +2524,8 @@
       arrN = [item.element.id, item.plate];
       arr.push(arrN);
     });
+
+    // console.log(this.items)
 
 
     if ((!this.options.lastCall) || (counter > this.options.totalPlates)) {
