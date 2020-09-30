@@ -52,262 +52,250 @@
 					</div>
 					<p class="text"></p>
 				</div>
-				<!-- 			<div class="row">
-				<p class="text">ФИО:</p>
-				<div class="input_box">
-				<input type="text" name="client_name" id="client_name" placeholder="Иванов Иван Иванович">
 			</div>
-		</div>
-		<div class="row">
-		<p class="text">Email:</p>
-		<div class="input_box">
-		<input type="text" name="client_email" id="client_email" placeholder="example@shopkarat.ru">
-	</div>
-</div>
-<div class="row">
-<p class="text">Телефон:</p>
-<div class="input_box">
-<input type="text" name="client_phone" id="client_phone" placeholder="+7 (___) __-__-___">
-</div>
-</div> -->
-</div>
 
 
-<div class="control_block">
+			<div class="control_block">
 
-	<div class="left">
-		<div class="row">
-			<p class="text">Листов в раскрое:</p>
-			<p class="text">{{currentState.cuttingPlates}}</p>
-		</div>
-		<div class="row">
-			<p class="text">Всего деталей:</p>
-			<p class="text">{{currentState.totalDetailCount}}</p>
-		</div>
-		<div class="row">
-			<p class="text">Площадь деталей:</p>
-			<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare / 1000000}} м<sup>2</sup></div></p>
-		</div>
-		<div class="row">
-			<p class="text">Длина пропила:</p>
-			<p class="text"><div v-if="currentState.totalDetailPerimeter">{{currentState.totalDetailPerimeter}} м</div></p>
-		</div>
-		<div class="row list_row">
-			<p class="text">Длина кромки:</p>
-			<ul class="list">
-				<li>
-					<div v-if="currentState.edgeLength_1">
-						<p class="text">толщиной 0,4 мм</p>
-						<p class="text" v-if="isAN(currentState.edgeLength_1)">{{(currentState.edgeLength_1 * 1.2).toFixed(1)}} м</p>
+				<div class="left">
+					<div class="row">
+						<p class="text">Листов в раскрое:</p>
+						<p class="text">{{currentState.cuttingPlates}}</p>
 					</div>
-				</li>
-				<li>
-					<div v-if="currentState.edgeLength_2">
-						<p class="text">толщиной 1 мм</p>
-						<p class="text" v-if="isAN(currentState.edgeLength_2)">{{(currentState.edgeLength_2 * 1.2).toFixed(1)}} м</p>
+					<div class="row">
+						<p class="text">Всего деталей:</p>
+						<p class="text">{{currentState.totalDetailCount}}</p>
 					</div>
-				</li>
-				<li>
-					<div v-if="currentState.edgeLength_3">
-						<p class="text">толщиной 2 мм</p>
-						<p class="text" v-if="isAN(currentState.edgeLength_3)">{{(currentState.edgeLength_3 * 1.2).toFixed(1)}} м</p>
+					<div class="row">
+						<p class="text">Площадь деталей:</p>
+						<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare / 1000000}} м<sup>2</sup></div></p>
 					</div>
-				</li>
-			</ul>
-		</div>
-		<button class="btn btn--orange" @click="showPopup()">Отправить</button>
-		<button class="btn btn--transparent" @click="generatePDF()">Скачать pdf</button>
-	</div>
-
-
-	<div class="right">
-		<h2>Параметры деталей</h2>
-
-
-		<div class="table">
-			<div class="table_head">
-				<div class="table_row">
-					<div class="cell">Длина, мм</div>
-					<div class="cell">Ширина, мм</div>
-					<div class="cell">Количество, шт</div>
-					<div class="cell">Кромка, мм</div>
-					<div class="cell"></div>
+					<div class="row">
+						<p class="text">Длина пропила:</p>
+						<p class="text"><div v-if="currentState.totalDetailPerimeter">{{currentState.totalDetailPerimeter}} м</div></p>
+					</div>
+					<div class="row list_row">
+						<p class="text">Длина кромки:</p>
+						<ul class="list">
+							<li>
+								<div v-if="currentState.edgeLength_1">
+									<p class="text">толщиной 0,4 мм</p>
+									<p class="text" v-if="isAN(currentState.edgeLength_1)">{{(currentState.edgeLength_1 * 1.2).toFixed(1)}} м</p>
+								</div>
+							</li>
+							<li>
+								<div v-if="currentState.edgeLength_2">
+									<p class="text">толщиной 1 мм</p>
+									<p class="text" v-if="isAN(currentState.edgeLength_2)">{{(currentState.edgeLength_2 * 1.2).toFixed(1)}} м</p>
+								</div>
+							</li>
+							<li>
+								<div v-if="currentState.edgeLength_3">
+									<p class="text">толщиной 2 мм</p>
+									<p class="text" v-if="isAN(currentState.edgeLength_3)">{{(currentState.edgeLength_3 * 1.2).toFixed(1)}} м</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<button class="btn btn--orange" @click="showPopup()">Отправить</button>
+					<button class="btn btn--transparent" @click="generatePDF()">Скачать pdf</button>
 				</div>
-			</div>
-			<div class="table_body">
-				<div class="table_row" v-for="(detail, index) in detailItem">
-					<div class="cell">
-						<div class="input_box">
-							<input
-							type="number"
-							:id="'detail_length_'+index"
-							data-type="length"
-							data-min="1"
-							:data-max="currentState.cuttingSize[0]"
-							@input="validateSizes"
-							class="input_text"
-							>
-						</div>
-					</div>
-					<div class="cell">
-						<div class="input_box">
-							<input
-							type="number"
-							:id="'detail_width_'+index"
-							data-type="width"
-							data-min="1"
-							:data-max="currentState.cuttingSize[1]"
-							@input="validateSizes"
-							class="input_text"
-							>
-						</div>
-					</div>
-					<div class="cell">
-						<div class="input_box">
-							<input
-							type="number"
-							:id="'detail_count_'+index"
-							data-type="count"
-							data-min="1"
-							data-max="999999999999"
-							@input="validateSizes"
-							class="input_text"
-							value="1"
-							>
-						</div>
-					</div>
-					<div class="cell">
 
-						<div class="detail_square">
-							<span class="square"></span>
-							<div class="edge_group edge_top" data-position="top">
-								<span class="width_0.4" @click="getEdgeType(index,1,0)">0.4</span>
-								<span class="width_1" @click="getEdgeType(index,2,0)">1.0</span>
-								<span class="width_2" @click="getEdgeType(index,3,0)">2.0</span>
-							</div>
-							<div class="edge_group edge_right" data-position="right">
-								<span class="width_0.4" @click="getEdgeType(index,1,1)">0.4</span>
-								<span class="width_1" @click="getEdgeType(index,2,1)">1.0</span>
-								<span class="width_2" @click="getEdgeType(index,3,1)">2.0</span>
-							</div>
-							<div class="edge_group edge_bottom" data-position="bottom">
-								<span class="width_0.4" @click="getEdgeType(index,1,2)">0.4</span>
-								<span class="width_1" @click="getEdgeType(index,2,2)">1.0</span>
-								<span class="width_2" @click="getEdgeType(index,3,2)">2.0</span>
-							</div>
-							<div class="edge_group edge_left" data-position="left">
-								<span class="width_0.4" @click="getEdgeType(index,1,3)">0.4</span>
-								<span class="width_1" @click="getEdgeType(index,2,3)">1.0</span>
-								<span class="width_2" @click="getEdgeType(index,3,3)">2.0</span>
+
+				<div class="right">
+					<h2>Параметры деталей</h2>
+
+
+					<div class="table">
+						<div class="table_head">
+							<div class="table_row">
+								<div class="cell">Длина, мм</div>
+								<div class="cell">Ширина, мм</div>
+								<div class="cell">Количество, шт</div>
+								<div class="cell">Кромка, мм</div>
+								<div class="cell"></div>
 							</div>
 						</div>
+						<div class="table_body">
+							<div class="table_row" v-for="(detail, index) in detailItem">
+								<div class="cell">
+									<div class="input_box">
+										<input
+										type="number"
+										:id="'detail_length_'+index"
+										data-type="length"
+										data-min="1"
+										:data-max="currentState.cuttingSize[0]"
+										@input="validateSizes"
+										class="input_text"
+										>
+									</div>
+								</div>
+								<div class="cell">
+									<div class="input_box">
+										<input
+										type="number"
+										:id="'detail_width_'+index"
+										data-type="width"
+										data-min="1"
+										:data-max="currentState.cuttingSize[1]"
+										@input="validateSizes"
+										class="input_text"
+										>
+									</div>
+								</div>
+								<div class="cell">
+									<div class="input_box">
+										<input
+										type="number"
+										:id="'detail_count_'+index"
+										data-type="count"
+										data-min="1"
+										data-max="999999999999"
+										@input="validateSizes"
+										class="input_text"
+										value="1"
+										>
+									</div>
+								</div>
+								<div class="cell">
 
+									<div class="detail_square">
+										<span class="square"></span>
+										<div class="edge_group edge_top" data-position="top">
+											<span class="width_0.4" @click="getEdgeType(index,1,0)">0.4</span>
+											<span class="width_1" @click="getEdgeType(index,2,0)">1.0</span>
+											<span class="width_2" @click="getEdgeType(index,3,0)">2.0</span>
+										</div>
+										<div class="edge_group edge_right" data-position="right">
+											<span class="width_0.4" @click="getEdgeType(index,1,1)">0.4</span>
+											<span class="width_1" @click="getEdgeType(index,2,1)">1.0</span>
+											<span class="width_2" @click="getEdgeType(index,3,1)">2.0</span>
+										</div>
+										<div class="edge_group edge_bottom" data-position="bottom">
+											<span class="width_0.4" @click="getEdgeType(index,1,2)">0.4</span>
+											<span class="width_1" @click="getEdgeType(index,2,2)">1.0</span>
+											<span class="width_2" @click="getEdgeType(index,3,2)">2.0</span>
+										</div>
+										<div class="edge_group edge_left" data-position="left">
+											<span class="width_0.4" @click="getEdgeType(index,1,3)">0.4</span>
+											<span class="width_1" @click="getEdgeType(index,2,3)">1.0</span>
+											<span class="width_2" @click="getEdgeType(index,3,3)">2.0</span>
+										</div>
+									</div>
+
+								</div>
+								<div class="cell">
+									<!-- <div class="detail_scheme_color"></div> -->
+									<span class="close_btn" @click="removeGroup(index)"></span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="cell">
-						<!-- <div class="detail_scheme_color"></div> -->
-						<span class="close_btn" @click="removeGroup(index)"></span>
-					</div>
+
+
+					<button class="btn btn--orange btn--icon btn--icon-plus" @click="addDetail()">Добавить деталь</button>
 				</div>
+
+			</div>
+
+
+
+
+			<div class="cutting_block">
+				<!-- <input type="text" id="platesCount" data-value="1"> -->
+				<div class="plate_box" v-for="item in currentState.cuttingPlates">
+					<p class="text">Лист {{item}}</p>
+
+					<div class="size_length">
+						<span class="text">{{currentState.cuttingSize[0]}}</span>
+						<span class="arrow"></span>
+					</div>
+
+					<div class="size_width">
+						<span class="text">{{currentState.cuttingSize[1]}}</span>
+						<span class="arrow"></span>
+					</div>
+
+					<div class="plate_item grid" :class="'grid_'+item" :style="'height:' + currentState.plateHeight + 'px; width:' + currentState.plateWidth + 'px'">
+
+						<div
+						class="detail_item box grid-item"
+						:id="'detail_' + detail[3] + '_' + detail[4]"
+						v-for="(detail, index) in detailItemRender"
+						v-if="currentState.arrPlates[index][1] == item"
+						:data-border-top="detail[4][0]"
+						:data-border-right="detail[4][1]"
+						:data-border-bottom="detail[4][2]"
+						:data-border-left="detail[4][3]"
+						>
+						<span class="width" v-if="detail[1] >= 200">{{detail[1]}}</span>
+						<span class="height" v-if="detail[2] >= 200">{{detail[2]}}</span>
+
+						<span class="rotateBtn" v-if="detailRotate" @click="getDetailRotate(detail[3], detail[4])"></span>
+					</div>
+
+
+				</div>
+
 			</div>
 		</div>
 
 
-		<button class="btn btn--orange btn--icon btn--icon-plus" @click="addDetail()">Добавить деталь</button>
+		<!-- Окно оформления предзаказа -->
+		<div class="popup_block popup_block--calc" :class="{ visible: popupVisible }" v-if="!popupRemove">
+			<span class="close_btn js-popup-close" @click="hidePoup()"></span>
+
+			<form
+			action="/wp-content/themes/karat/frontend/sendmail.php"
+			method="POST"
+			class="ordering ordering--popup"
+			v-on:submit="mailGenerate()"
+			enctype="multipart/form-data">
+
+			<p class="popup_title">Отправка заказа</p>
+
+			<div class="input_box input_box--square input_box--black input_box--narrow">
+				<input type="text" class="input_text js-calc-input" name="calc_name" placeholder="Фамилия Имя Отчество">
+			</div>
+			<div class="input_box input_box--square input_box--black input_box--narrow">
+				<input type="text" class="input_text js-calc-input js-email-validate" name="calc_email" placeholder="Email">
+			</div>
+			<div class="input_box input_box--square input_box--black input_box--narrow">
+				<input type="text" class="input_text js-calc-input js-phone-validate" name="calc_phone" placeholder="Телефон" required>
+			</div>
+			<div class="input_box input_box--square input_box--black">
+				<textarea name="name" placeholder="Комментарий" name="calc_message" rows="5" class="input_text input_text--textarea"></textarea>
+			</div>
+
+			<div class="select">
+				<input class="select_input js-calc-input" type="hidden" name="calc_select_input" id="calc_select_input">
+				<div class="select_head">Выберите ближайший к Вам филиал</div>
+				<ul class="select_list" style="display: none;">
+					<li class="select_item" data-value="Краснодар">Краснодар</li>
+					<li class="select_item" data-value="Симферополь">Симферополь</li>
+				</ul>
+			</div>
+
+
+			<div class="custom_checkbox custom_checkbox--square custom_checkbox--square-left">
+				<input id="calc_confirmation_pre_order" type="checkbox">
+				<label for="calc_confirmation_pre_order" name="calc_confirmation_pre_order"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
+			</div>
+
+			<button class="btn btn--orange">ОТПРАВИТЬ</button>
+		</form>
+
 	</div>
 
-</div>
+	<div class="popup_bgr js-popup-close" :class="{ visible: popupVisible }" @click="hidePoup()" v-if="!popupRemove"></div>
 
 
-
-
-<div class="cutting_block">
-	<!-- <input type="text" id="platesCount" data-value="1"> -->
-	<div class="plate_box" v-for="item in currentState.cuttingPlates">
-		<p class="text">Лист {{item}}</p>
-
-		<div class="size_length">
-			<span class="text">{{currentState.cuttingSize[0]}}</span>
-			<span class="arrow"></span>
-		</div>
-
-		<div class="size_width">
-			<span class="text">{{currentState.cuttingSize[1]}}</span>
-			<span class="arrow"></span>
-		</div>
-
-		<div class="plate_item grid" :class="'grid_'+item" :style="'height:' + currentState.plateHeight + 'px; width:' + currentState.plateWidth + 'px'">
-
-			<div
-			class="detail_item box grid-item"
-			:id="'detail_' + detail[3] + '_' + detail[4]"
-			v-for="(detail, index) in detailItemRender"
-			v-if="currentState.arrPlates[index][1] == item"
-			:data-border-top="detail[4][0]"
-			:data-border-right="detail[4][1]"
-			:data-border-bottom="detail[4][2]"
-			:data-border-left="detail[4][3]"
-			>
-			<span class="width" v-if="detail[1] >= 200">{{detail[1]}}</span>
-			<span class="height" v-if="detail[2] >= 200">{{detail[2]}}</span>
-
-			<span class="rotateBtn" v-if="detailRotate" @click="getDetailRotate(detail[3], detail[4])"></span>
-		</div>
-
-
-	</div>
-
-</div>
-</div>
-
-
-<!-- Окно оформления предзаказа -->
-<div class="popup_block popup_block--calc" :class="{ visible: popupVisible }">
-	<span class="close_btn js-popup-close" @click="hidePoup()"></span>
-
-	<form action="" method="POST" class="ordering ordering--popup">
-		<p class="popup_title">Отправка заказа</p>
-
-		<div class="input_box input_box--square input_box--black input_box--narrow">
-			<input type="text" class="input_text" name="calc_name" placeholder="Фамилия Имя Отчество">
-		</div>
-		<div class="input_box input_box--square input_box--black input_box--narrow">
-			<input type="text" class="input_text" name="calc_email" placeholder="Email">
-		</div>
-		<div class="input_box input_box--square input_box--black input_box--narrow">
-			<input type="text" class="input_text" name="calc_phone" placeholder="Телефон" required>
-		</div>
-		<div class="input_box input_box--square input_box--black">
-			<textarea name="name" placeholder="Комментарий" name="calc_message" rows="5" class="input_text input_text--textarea"></textarea>
-		</div>
-
-		<div class="select">
-			<input class="select_input" type="hidden" name="calc_select_input" id="calc_select_input">
-			<div class="select_head">Выберите ближайший к Вам филиал</div>
-			<ul class="select_list" style="display: none;">
-				<li class="select_item" data-value="Краснодар">Краснодар</li>
-				<li class="select_item" data-value="Симферополь">Симферополь</li>
-			</ul>
-		</div>
-
-
-		<div class="custom_checkbox custom_checkbox--square custom_checkbox--square-left">
-			<input id="calc_confirmation_pre_order" type="checkbox">
-			<label for="calc_confirmation_pre_order" name="calc_confirmation_pre_order"><span>Я согласен на <a href="#"> обработку персональных данных</a></span></label>
-		</div>
-
-		<button class="btn btn--orange">ОТПРАВИТЬ</button>
-	</form>
-
-</div>
-
-<div class="popup_bgr js-popup-close" :class="{ visible: popupVisible }" @click="hidePoup()"></div>
-
-
-<pre>
-	<!-- {{detailItem}} -->
-	<!-- {{currentState.arrPlates}} -->
-	<!-- {{currentState}} -->
-</pre>
+	<pre>
+		<!-- {{detailItem}} -->
+		<!-- {{currentState.arrPlates}} -->
+		<!-- {{currentState}} -->
+	</pre>
 
 
 </div>
@@ -319,6 +307,7 @@ var vm = new Vue({
 	data: {
 		timer: 0,
 		popupVisible: false,
+		popupRemove: false,
 		sourceDetails: [],
 		plates: 1,
 		cuttingSizes: ['2750x1830','2800x2070','2800x2070','2800x2070'],
@@ -462,6 +451,87 @@ var vm = new Vue({
 		},
 		hidePoup: function() {
 			this.popupVisible = false;
+		},
+
+
+		mailGenerate: function() {
+
+			var self = this;
+
+			self.popupVisible = false;
+			toastr.success('Ваша заявка отправляется');
+
+			var formData = new FormData();
+
+
+
+			$('body').on('submit','form',function(e){
+				e.preventDefault();
+
+				// Get the element.
+				var element = document.getElementById('calculatorBox');
+				var pdf_data = null;
+
+				setTimeout(function() {
+					// Generate the PDF.
+					html2pdf().from(element).set({
+						margin: 50,
+						pagebreak: { before: '.beforeClass', after: ['#after1', '#after2'], avoid: 'div' },
+						filename: 'test.pdf',
+						html2canvas: { scale: 1 },
+						jsPDF: {orientation: 'portrait', unit: 'px', format: [ 1470,  2797], compressPDF: true}
+					}).output('datauristring').then(function( pdfAsString ) {
+						pdf_data = {
+							'fileDataURI': pdfAsString,
+						};
+					});
+				}, 300);
+
+
+
+				$('.js-calc-input').each(function(){
+					var name = $(this).attr('name');
+					var value = $(this).attr('value');
+					formData.append(name, value);
+				});
+
+				setTimeout(function() {
+
+					formData.append('pdf_file', pdf_data.fileDataURI);
+
+					return formData;
+
+				}, 3000);
+
+			});
+
+			setTimeout(function() {
+
+				self.sentData(formData);
+
+			}, 4000);
+
+
+		},
+
+		sentData: function(formData) {
+			var m_method = 'POST';
+			var m_action = '/wp-content/themes/karat/frontend/sendmail.php';
+
+			$.ajax({
+				type: m_method,
+				url: m_action,
+				data: formData,
+				dataType: 'json',
+				contentType: false,
+				processData: false,
+			})
+			.done(function() {
+				toastr.success('Ваше письмо успешно отправлено!');
+			})
+			.fail(function() {
+				toastr.erroe('Письмо не отправлено!');
+			});
 		},
 
 

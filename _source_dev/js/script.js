@@ -235,8 +235,6 @@ $(document).ready(function(){
     var parent = $(this).parents('.input_box');
     var re = /^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}$/gm;
 
-    console.log(re.test(phone));
-
     if(!re.test(phone)) {
       parent.addClass('warning');
     } if (re.test(phone)) {
@@ -251,7 +249,6 @@ $(document).ready(function(){
   $('.js-email-validate').on('input', function() {
 
     var mail = $(this).val();
-    console.log(mail)
 
     if(mail.length > 5) {
       var parent = $(this).parents('.input_box');
