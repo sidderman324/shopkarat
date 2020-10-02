@@ -221,9 +221,26 @@
 			<div class="search_block">
 				<div class="input_box input_box--search">
 					<input type="text" class="input_text" placeholder="Я хочу купить...">
-					<a href="#" class="link link--search">
+					<a href="/wp-content/themes/karat/frontend/search-page.php" class="link link--search">
 						<span class="icon icon--search"></span>
 					</a>
+
+					<div class="search_results">
+						<a href="#" class="result_item">
+							<span class="img_wrapper">
+		            <img src="../static/imgs/catalog/product_1.jpg" alt="">
+		          </span>
+							<span class="item_name">Опора регулируемая D=6 подпятник вкручиваемый</span>
+						</a>
+						<a href="#" class="result_item">
+							<span class="img_wrapper">
+		            <img src="../static/imgs/catalog/product_1.jpg" alt="">
+		          </span>
+							<span class="item_name">Опора регулируемая D=6 подпятник вкручиваемый</span>
+						</a>
+
+						<a href="/wp-content/themes/karat/frontend/search-page.php" class="results_link">Все результаты <span class="icon icon--arrow"></span></a>
+					</div>
 				</div>
 			</div>
 

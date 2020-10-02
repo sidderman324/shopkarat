@@ -34,6 +34,7 @@ if($person_phone != '') {
 	$mail->setFrom('s.i.sidorovkrd@yandex.ru');
 
 	$mail->addAddress('syd.phoenix@gmail.com');
+	$mail->addAddress('om_karat@mebelfur.ru');
 
 	$mail->isHTML(true);
 	$mail->Subject = 'Новая заявка ShopKarat';
