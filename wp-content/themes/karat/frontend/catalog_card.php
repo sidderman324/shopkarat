@@ -38,8 +38,25 @@
               <span class="rating_star rating_star--empty"></span>
               <span class="rating_star rating_star--empty"></span>
             </div>
-            <a href="#" class="link link--compare"><span class="icon icon--compare"></span></a>
-            <a href="#" class="link link--favorite icon_count_box"><span class="icon icon--favorite"></span></a>
+            <!-- Добавить в сравнение -->
+            <a href="#" class="link link--compare js-label-open" data-label-name="js-add-to-compare">
+              <span class="icon icon--compare"></span>
+            </a>
+
+            <!-- Товар в сравнении -->
+            <a href="#" class="link link--compare js-label-open" data-label-name="js-add-to-compare">
+              <span class="icon icon--compare--active"></span>
+            </a>
+
+            <!-- Добавить в избранное -->
+            <a href="#" class="link link--favorite icon_count_box js-label-open" data-label-name="js-add-to-favorite">
+              <span class="icon icon--favorite"></span>
+            </a>
+
+            <!-- Товар в избранном -->
+            <a href="#" class="link link--favorite icon_count_box js-label-open" data-label-name="js-add-to-favorite">
+              <span class="icon icon--favorite--active"></span>
+            </a>
           </div>
 
           <div class="catalog_card_price_block">
