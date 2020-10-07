@@ -5857,6 +5857,7 @@ h1.title {
 }
 .table .table_cell:nth-child(2) {
   width: 22.8%;
+  width: 50%;
 }
 .table .table_cell:nth-child(3) {
   width: 17.1%;
@@ -5868,7 +5869,7 @@ h1.title {
   width: 11.7%;
 }
 .table .table_cell:nth-child(6) {
-  width: 12%;
+  width: 20%;
 }
 .table .table_cell:nth-child(7) {
   width: 9.6%;
@@ -5912,6 +5913,10 @@ h1.title {
   display: inline-block;
   width: 5.3145em;
   text-align: center;
+}
+.table .table_body .table_cell:nth-child(6) .text {
+  font-weight: bold;
+  white-space: nowrap;
 }
 .table .table_body .table_cell:nth-child(3),
 .table .table_body .table_cell:nth-child(4),
@@ -6800,6 +6805,41 @@ h1.title {
   .popup_block .popup_title {
     font-size: 2.5em;
   }
+  .basket .tabs .summary {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .basket .tabs .price,
+  .basket .tabs .total_price,
+  .basket .tabs .sale {
+    font-size: 1em;
+  }
+  .basket .total_summary {
+    padding-left: 1.6em;
+    padding-right: 1.6em;
+  }
+  .basket .total_summary .text {
+    width: 33%;
+  }
+  .basket .total_summary .basket_total_price {
+    font-size: 1.125em;
+  }
+  .basket .total_summary--aside {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .basket .total_summary--aside .basket_total_price {
+    text-align: right;
+  }
+  .table .table_head .table_cell {
+    padding-left: 0;
+  }
+  .table .table_body .table_cell {
+    padding-left: 0;
+  }
+  .table .table_body .table_cell .img_wrapper {
+    width: 6em;
+  }
   .textpage .container .text_block {
     width: 100%;
   }
@@ -6970,6 +7010,22 @@ h1.title {
   }
   .bottom_menu_block {
     display: none;
+  }
+  .icon--aside {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 1em;
+    margin-left: auto;
+  }
+  .icon--move-basket {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 1em;
+    margin-left: auto;
+  }
+  .icon--remove {
+    width: 1em;
+    height: 1em;
   }
   .promo_slider {
     height: 26em !important;
@@ -7325,6 +7381,82 @@ h1.title {
   }
   .popup_block .popup_title {
     font-size: 2em;
+  }
+  .basket .tabs .tabs_head .tabs_head_item {
+    font-size: 1.2em;
+  }
+  .basket .total_summary {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 1em;
+  }
+  .basket .total_summary .text {
+    width: 100%;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+  .basket .total_summary .basket_total_price {
+    margin-left: 0;
+    margin-top: .3em;
+    font-size: 1.875em;
+  }
+  .table .table_head {
+    display: none;
+  }
+  .table .table_cell:nth-child(1) {
+    width: 40%;
+  }
+  .table .table_cell:nth-child(4) {
+    width: 31%;
+    padding-left: 1em !important;
+  }
+  .table .table_cell:nth-child(5) {
+    display: none !important;
+  }
+  .table .table_cell:nth-child(6) {
+    width: 33%;
+  }
+  .table .table_cell:nth-child(7) {
+    width: 13.6%;
+    margin-left: 1em;
+  }
+  .table .table_body .table_row {
+    padding: 1em 0;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+  .table .table_body .table_row:first-of-type {
+    border-top: 1px solid #C4C4C4;
+  }
+  .table .table_body .table_cell {
+    padding: 0.5em 0;
+  }
+  .table .table_body .table_cell .img_wrapper {
+    width: 100%;
+  }
+  .table .table_body .table_cell:nth-child(3) .catalog_card_amount_block {
+    display: -ms-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    left: auto;
+    bottom: auto;
+  }
+  .table .table_body .table_cell:nth-child(3) span {
+    display: none;
+  }
+  .table .table_body .table_cell:nth-child(4) .text:before {
+    content: 'Скидка:';
+    margin-right: 1em;
+  }
+  .table .table_body .table_cell:nth-child(6) .text:before {
+    content: 'Сумма:';
+    margin-right: 1em;
   }
   .hover_menu_block.visible {
     height: auto;

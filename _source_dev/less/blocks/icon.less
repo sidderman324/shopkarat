@@ -99,6 +99,13 @@
     width: 1.5em;
     height: 1.5em;
     margin-right: 2em;
+
+    @media (max-width: @screen-sm) {
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: 1em;
+      margin-left: auto;
+    }
   }
   &--aside-active {
     background-image: url('../imgs/icons/icon_aside_active.svg');
@@ -108,6 +115,13 @@
     width: 1.5em;
     height: 1.5em;
     margin-right: 2em;
+
+    @media (max-width: @screen-sm) {
+      width: 1.2em;
+      height: 1.2em;
+      margin-right: 1em;
+      margin-left: auto;
+    }
   }
   &--move-basket-active,
   &--move-basket:hover {
@@ -117,6 +131,11 @@
     background-image: url('../imgs/icons/icon_cross.svg');
     width: 1.2em;
     height: 1.2em;
+
+    @media (max-width: @screen-sm) {
+      width: 1em;
+      height: 1em;
+    }
   }
   &--remove-active {
     background-image: url('../imgs/icons/icon_cross_active.svg');

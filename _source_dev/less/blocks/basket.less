@@ -12,7 +12,13 @@
     padding-top: .8em;
 
     .tabs_head { border-top: none; }
-    .tabs_head .tabs_head_item { padding-bottom: .8em; }
+    .tabs_head .tabs_head_item {
+      padding-bottom: .8em;
+
+      @media (max-width: @screen-sm) {
+        font-size: 1.2em;
+      }
+    }
     .tabs_head .tabs_head_item:after { bottom: .5em; }
     .tabs_body .tabs_body_item {
       padding-right: 0;
@@ -33,6 +39,11 @@
       display: inline-block;
       margin-left: auto;
       margin-right: 10.9em;
+
+      @media (max-width: @screen-md) {
+        margin-left: 0;
+        margin-right: 0;
+      }
 
       span {
         display: inline-block;
@@ -55,6 +66,10 @@
     .total_price,
     .sale {
       font-size: 1.125em;
+
+      @media (max-width: @screen-md) {
+        font-size: 1em;
+      }
     }
   }
 
@@ -71,7 +86,29 @@
     padding: 1.3em 2.6em 1.3em 2.6em;
     width: 100%;
 
-    .text { margin-right: .9em; }
+    @media (max-width: @screen-md) {
+      padding-left: 1.6em;
+      padding-right: 1.6em;
+    }
+
+    @media (max-width: @screen-sm) {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 1em;
+    }
+
+    .text {
+      margin-right: .9em;
+
+      @media (max-width: @screen-md) { width: 33%; }
+      @media (max-width: @screen-sm) {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: 1em;
+      }
+
+    }
 
     .input_box {
       width: 9.8em;
@@ -83,6 +120,15 @@
       font-weight: bold;
       color: @orange;
 
+      @media (max-width: @screen-md) {
+        font-size: 1.125em;
+      }
+      @media (max-width: @screen-sm) {
+        margin-left: 0;
+        margin-top: .3em;
+        font-size: 1.875em;
+      }
+
       span {
         display: inline-block;
         margin-left: 2em;
@@ -93,9 +139,18 @@
       border: none;
       border-bottom: 1px solid #c4c4c4;
 
+      @media (max-width: @screen-md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
       .basket_total_price {
         font-size: 1.125em;
         color: @black;
+
+        @media (max-width: @screen-md) {
+          text-align: right;
+        }
       }
     }
   }
@@ -143,27 +198,54 @@
     display: flex;
     flex-direction: row;
   }
+  .table_head {
+    @media (max-width: @screen-sm) {
+      display: none;
+    }
+  }
 
   .table_cell:nth-child(1) {
     width: 14.7%;
+
+    @media (max-width: @screen-sm) {
+      width: 40%;
+    }
   }
   .table_cell:nth-child(2) {
     width: 22.8%;
+    width: 50%;
   }
   .table_cell:nth-child(3) {
     width: 17.1%;
   }
   .table_cell:nth-child(4) {
     width: 12.2%;
+
+    @media (max-width: @screen-sm) {
+      width: 31%;
+      padding-left: 1em !important;
+    }
   }
   .table_cell:nth-child(5) {
     width: 11.7%;
+    @media (max-width: @screen-sm) {
+      display: none !important;
+    }
   }
   .table_cell:nth-child(6) {
-    width: 12%;
+    width: 20%;
+
+    @media (max-width: @screen-sm) {
+      width: 33%;
+    }
   }
   .table_cell:nth-child(7) {
     width: 9.6%;
+
+    @media (max-width: @screen-sm) {
+      width: 13.6%;
+      margin-left: 1em;
+    }
   }
 
   .table_head {
@@ -175,20 +257,50 @@
       padding: 0.35em 0 0.35em 2.3em;
       font-size: 1.125em;
       font-weight: bold;
+
+      @media (max-width: @screen-md) {
+        padding-left: 0;
+      }
     }
   }
   .table_body {
     .table_row {
       border-bottom: 1px solid #C4C4C4;
+
+      @media (max-width: @screen-sm) {
+        padding: 1em 0;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      &:first-of-type {
+        @media (max-width: @screen-sm) {
+          border-top: 1px solid #C4C4C4;
+        }
+      }
     }
     .table_cell {
       padding: 1.9em 0 1.9em 2.5em;
+
+      @media (max-width: @screen-md) {
+        padding-left: 0;
+      }
+      @media (max-width: @screen-sm) {
+        padding: 0.5em 0;
+      }
 
       .img_wrapper {
         width: 8.4em;
         border: 1px solid @black;
         border-radius: 4px;
         overflow: hidden;
+
+        @media (max-width: @screen-md) {
+          width: 6em;
+        }
+        @media (max-width: @screen-sm) {
+          width: 100%;
+        }
       }
     }
     .table_cell:nth-child(2) {
@@ -202,11 +314,44 @@
       margin-bottom: 0;
       .catalog_card_amount_block {
         margin: .3em 0;
+
+        @media (max-width: @screen-sm) {
+          display: -webkit-flex;
+          display: -ms-flex;
+          display: flex;
+          position: relative;
+          left: auto;
+          bottom: auto;
+        }
       }
       span {
         display: inline-block;
         width: 5.3145em;
         text-align: center;
+
+        @media (max-width: @screen-sm) {
+          display: none;
+        }
+      }
+    }
+    .table_cell:nth-child(4) {
+      .text:before {
+        @media (max-width: @screen-sm) {
+          content: 'Скидка:';
+          margin-right: 1em;
+        }
+      }
+    }
+    .table_cell:nth-child(6) {
+      .text {
+        font-weight: bold;
+        white-space: nowrap;
+      }
+      .text:before {
+        @media (max-width: @screen-sm) {
+          content: 'Сумма:';
+          margin-right: 1em;
+        }
       }
     }
     .table_cell:nth-child(3),
