@@ -48,6 +48,11 @@
   align-items: center;
   margin-left: 10.3em;
 
+  @media (max-width: @screen-md) {
+    margin-left: 1.5em;
+    flex-direction: column;
+  }
+
   @media (max-width: @screen-sm) {
     margin-left: 0;
     flex-direction: column;
@@ -55,7 +60,7 @@
   }
 
   .icon {
-    @media (max-width: @screen-sm) {
+    @media (max-width: @screen-md) {
       display: none;
     }
   }
@@ -64,6 +69,12 @@
     font-size: 1.125em;
     font-weight: bold;
     margin: 0 4em 0 1.2em;
+
+    @media (max-width: @screen-md) {
+      margin-left: 1em;
+      margin-right: 1em;
+      margin-bottom: .5em;
+    }
 
     @media (max-width: @screen-sm) {
       font-size: .9em;
@@ -121,6 +132,11 @@
 
 .link {
   display: inline-block;
+  transition: .3s;
+
+  &:hover {
+    color: @orange;
+  }
 
   &--basket {
     display: -webkit-inline-flex;
@@ -129,7 +145,11 @@
     flex-direction: row;
     align-items: center;
 
+    &:hover .icon--basket { background-image: url('../imgs/icons/icon_basket_active.svg'); }
+
     > span { margin-right: .5em; }
+
+
   }
   &--favorite,
   &--compare {

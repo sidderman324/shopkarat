@@ -1,5 +1,17 @@
 // Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/calculator_wrapper.less';
 
+.calculator_wrapper.simple_view {
+  .table .table_row .cell {
+    width: 25%;
+  }
+  .table .table_row .cell .input_box .input_text {
+    border: none;
+    border-radius: 0;
+  }
+  .settings_block .row:first-of-type {
+    display: none;
+  }
+}
 
 .calculator_wrapper {
   padding-top: 4em;

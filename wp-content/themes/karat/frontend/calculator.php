@@ -25,7 +25,7 @@
 	<div class="container">
 
 
-		<div class="calculator_wrapper" id="calculatorBox">
+		<div class="calculator_wrapper" :class="{ simple_view: pdfScanFlag }" id="calculatorBox">
 
 			<h1>Заказать карту раскроя и распила ЛДСП, МДФ, ХДВ с поклейкой кромки</h1>
 
@@ -41,16 +41,20 @@
 					</select>
 
 				</div>
-				<div class="row">
+				<div class="row" v-if="!pdfScanFlag">
 					<p class="text">Размеры раскроя, мм:</p>
 					<p class="text">{{cuttingSizes[this.currentState.selectedDetailTypeID]}}</p>
 				</div>
-				<div class="row avoid-all">
+				<div class="row avoid-all" v-if="!pdfScanFlag">
 					<div class="custom_checkbox">
 						<input id="detail_rotate" type="checkbox" checked v-model="detailRotate">
 						<label for="detail_rotate" name="detail_rotate"><span>Вращение деталей:</span></label>
 					</div>
 					<p class="text"></p>
+				</div>
+				<div class="row" v-if="pdfScanFlag">
+					<p class="text">Выбранный лист:</p>
+					<p class="text">{{currentState.selectedDetailType}}</p>
 				</div>
 			</div>
 
@@ -97,8 +101,8 @@
 							</li>
 						</ul>
 					</div>
-					<button class="btn btn--orange" @click="showPopup()">Отправить</button>
-					<button class="btn btn--transparent" @click="generatePDF()">Скачать pdf</button>
+					<button class="btn btn--orange" @click="showPopup()" v-if="!pdfScanFlag">Отправить</button>
+					<button class="btn btn--transparent" @click="generatePDF()" v-if="!pdfScanFlag">Скачать pdf</button>
 				</div>
 
 
@@ -113,7 +117,7 @@
 								<div class="cell">Ширина, мм</div>
 								<div class="cell">Количество, шт</div>
 								<div class="cell">Кромка, мм</div>
-								<div class="cell"></div>
+								<div class="cell" v-if="!pdfScanFlag"></div>
 							</div>
 						</div>
 						<div class="table_body">
@@ -185,7 +189,7 @@
 									</div>
 
 								</div>
-								<div class="cell">
+								<div class="cell" v-if="!pdfScanFlag">
 									<!-- <div class="detail_scheme_color"></div> -->
 									<span class="close_btn" @click="removeGroup(index)"></span>
 								</div>
@@ -194,7 +198,7 @@
 					</div>
 
 
-					<button class="btn btn--orange btn--icon btn--icon-plus" @click="addDetail()">Добавить деталь</button>
+					<button class="btn btn--orange btn--icon btn--icon-plus" @click="addDetail()" v-if="!pdfScanFlag">Добавить деталь</button>
 				</div>
 
 			</div>
@@ -291,10 +295,13 @@
 	<div class="popup_bgr js-popup-close" :class="{ visible: popupVisible }" @click="hidePoup()" v-if="!popupRemove"></div>
 
 
+
+
 	<pre>
-		<!-- {{detailItem}} -->
-		<!-- {{currentState.arrPlates}} -->
+		<!-- {{detailItemRender}} -->
 		<!-- {{currentState}} -->
+		<!-- {{sourceDetails}} -->
+		<!-- {{currentState.arrPlates}} -->
 	</pre>
 
 
@@ -308,6 +315,7 @@ var vm = new Vue({
 		timer: 0,
 		popupVisible: false,
 		popupRemove: false,
+		pdfScanFlag: false,
 		sourceDetails: [],
 		plates: 1,
 		cuttingSizes: ['2750x1830','2800x2070','2800x2070','2800x2070'],
@@ -428,18 +436,27 @@ var vm = new Vue({
 
 
 		generatePDF: function() {
+			var self = this;
+			self.pdfScanFlag = true;
+			toastr.success('Создание pdf файла с вашим заказом');
 			// Get the element.
 			var element = document.getElementById('calculatorBox');
 
+			setTimeout(function() {
+				// Generate the PDF.
+				html2pdf().from(element).set({
+					margin: 50,
+					pagebreak: { before: '.beforeClass', after: ['#after1', '#after2'], avoid: 'div' },
+					filename: 'test.pdf',
+					html2canvas: { scale: 1 },
+					jsPDF: {orientation: 'portrait', unit: 'px', format: [ 1470,  2797], compressPDF: true}
+				}).save();
+			}, 300);
 
-			// Generate the PDF.
-			html2pdf().from(element).set({
-				margin: 50,
-				pagebreak: { before: '.beforeClass', after: ['#after1', '#after2'], avoid: 'div' },
-				filename: 'test.pdf',
-				html2canvas: { scale: 1 },
-				jsPDF: {orientation: 'portrait', unit: 'px', format: [ 1470,  2797], compressPDF: true}
-			}).save();
+			setTimeout(function() {
+				self.pdfScanFlag = false;
+			}, 5000);
+
 		},
 
 
@@ -459,6 +476,7 @@ var vm = new Vue({
 			var self = this;
 
 			self.popupVisible = false;
+			self.pdfScanFlag = true;
 			toastr.success('Ваша заявка отправляется');
 
 			var formData = new FormData();
@@ -511,6 +529,10 @@ var vm = new Vue({
 
 			}, 4000);
 
+			setTimeout(function() {
+				self.pdfScanFlag = false;
+			}, 5000);
+
 
 		},
 
@@ -530,7 +552,7 @@ var vm = new Vue({
 				toastr.success('Ваше письмо успешно отправлено!');
 			})
 			.fail(function() {
-				toastr.erroe('Письмо не отправлено!');
+				toastr.error('Письмо не отправлено!');
 			});
 		},
 
@@ -694,6 +716,8 @@ var vm = new Vue({
 			var cuttingSize = this.currentState.cuttingSize;
 			var margin = 0;
 			var details = this.detailItemRender;
+			var plateWidth = this.currentState.plateWidth;
+			var plateHeight = this.currentState.plateHeight;
 
 			for (var i = 0; i < details.length; i++) {
 				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
@@ -704,9 +728,6 @@ var vm = new Vue({
 				el.removeClass('bd-right');
 				el.removeClass('bd-bottom');
 				el.removeClass('bd-left');
-
-				var plateWidth = $('.plate_item').width();
-				var plateHeight = $('.plate_item').height();
 
 				var cuttingLength = parseInt(cuttingSize[0]);
 				var cuttingWidth = parseInt(cuttingSize[1]);
@@ -724,25 +745,35 @@ var vm = new Vue({
 				var lengthMod = length * plateWidth / cuttingLength * 0.9984984984984985;
 				var widthMod = width * plateHeight / cuttingWidth * 0.9984984984984985;
 
-				// el.css('width',lengthMod+'px');
-				// el.css('height',widthMod+'px');
-				// el.css('margin',margin+'px');
-				// el.css('background-color','rgba(241, 135, 0, .5)');
-				// this.colorHash[details[i][3]]
-
-				this.detailItemRender[i][6].push(lengthMod);
-				this.detailItemRender[i][6].push(widthMod);
+				this.detailItemRender[i][6].splice(0, 1, lengthMod);
+				this.detailItemRender[i][6].splice(1, 1, widthMod);
 
 				el.width(lengthMod);
 				el.height(widthMod);
+
+				var plate = details[i][7];
+
+				var bottom = el.position().top + el.height();
+
+				if (bottom > plateHeight * plate) {
+					plate = plate + 1;
+
+					this.currentState.cuttingPlates = plate;
+
+				}
+				this.currentState.arrPlates[i].splice(1,1,plate);
+				this.detailItemRender[i].splice(7,1,plate);
+
+
 			}
 
+			setTimeout(function() {
+				self.masonry();
+			}, 100)
+			setTimeout(function() {
+				self.checkPlateFit(flag);
+			}, 200)
 
-			this.currentState.detailsMargin = margin;
-
-			// setTimeout(function() {
-			self.masonry(flag);
-			// }, 200)
 		},
 
 
@@ -753,16 +784,71 @@ var vm = new Vue({
 
 
 
-		masonry: function(flag) {
+
+
+
+
+
+		checkPlateFit: function(flag) {
+			var details = this.detailItemRender;
 			var self = this;
+			var plateHeight = this.currentState.plateHeight;
 
 			if(typeof flag == 'undefined') {
 				flag = false;
 			}
 
+			for (var i = 0; i < details.length; i++) {
+				var plate = details[i][7];
+				var el = $('#'+details[i][0])
+				el.width(details[i][6][0]);
+				el.height(details[i][6][1]);
+
+				// var bottom = el.position().top + el.height();
+				var bottom = el.css('top') + el.height();
+
+				if (bottom > plateHeight * plate) {
+					plate = plate + 1;
+				}
+				this.currentState.arrPlates[i].splice(1,1,plate);
+				this.detailItemRender[i].splice(7,1,plate);
+
+				this.currentState.cuttingPlates = plate;
+
+				if(!flag) {
+					this.getDetailOnPlate(true);
+				}
+
+			}
+
+			setTimeout(function() {
+				self.masonry();
+			}, 200)
+
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		masonry: function() {
+			var self = this;
+
 			for (var i = 1; i < this.currentState.cuttingPlates + 1; i++) {
 				var elem = document.querySelector('.grid_' + i);
-				// console.log($('.grid_' + i)[0].children.length)
+
 				var childs = $('.grid_' + i)[0].children.length;
 
 				if (childs > 0) {
@@ -771,112 +857,111 @@ var vm = new Vue({
 						itemSelector: '.grid-item',
 						columnWidth: 2,
 						gutter: 0,
-						lastCall: flag,
-						plate: i,
-						totalPlates: self.currentState.cuttingPlates,
-						plateHeight: self.currentState.plateHeight,
-						detailsList: self.detailsId,
 					})
 				}
 
+				// this.getDetailOnPlate(true);
 			}
 		},
 
-
-		platesChange: function(count) {
-			this.currentState.cuttingPlates = count;
-		},
-
-
-		catchPlateData: function(arr) {
-			var self = this;
-			this.currentState.arrPlates = arr;
-
-			var details = this.detailItemRender;
-
-			for (var i = 0; i < details.length; i++) {
-
-				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
-
-				el.width(details[i][6][0]);
-				el.height(details[i][6][1]);
-
-			}
-
-			setTimeout(function() {
-				self.getDetailOnPlate(true);
-			}, 100);
-
-		},
-
-
-		arrayFunc: function(arr) {
-			var self = this;
-			var tmp = this.currentState.arrPlatesTemp;
-			var totalCount = this.currentState.totalDetailCount;
-
-			// tmp = $.merge(this.currentState.arrPlatesTemp, arr);
-
-			if(tmp.length == 0) {
-				tmp = $.merge(this.currentState.arrPlatesTemp, arr);
-			} else {
-				tmp = tmp.concat(arr);
-			}
-
-			var plates = [];
-			var tmpC = [];
-			var tmpU = [];
-
-
-			for (var i = 0; i < tmp.length; i++) {
-				plates.push(tmp[i][1]);
-			}
-
-			var maxPlate = Math.max.apply( Math, plates );
-
-
-			uniq = function(items, key) {
-				var set = {};
-				return items.filter(function(item) {
-					var k = key ? key.apply(item) : item;
-					return k in set ? false : set[k] = true;
-				})
-			}
-
-			tmpC = uniq(tmp, [].join)
-
-			for (var i = 0; i <= totalCount - 1; i++) {
-				// console.log(tmpC[i])
-				for (var k = 0; k < tmpC.length; k++) {
-					if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] == tmpC[i][1]))  {
-						tmpU.push(tmpC[k]);
-					} else if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] > tmpC[i][1]))  {
-
-						tmpU[i][1] = tmpC[k][1];
-
-					}
-				}
-			}
-
-
-			// console.log(maxPlate)
-			// this.currentState.cuttingPlates = maxPlate;
-
-			// console.log(tmpU)
-
-			this.currentState.arrPlatesTemp = tmpC;
-			// this.currentState.arrPlates = uniqueCoords;
-
-			// $('.platesCount').attr('data-value', maxPlate)
-
-			setTimeout(function() {
-				self.platesChange(maxPlate);
-				self.catchPlateData(tmpU);
-			}, 100);
-
-		},
-
-
+		//
+		//
+		//
+		//
+		// platesChange: function(count) {
+		// 	this.currentState.cuttingPlates = count;
+		// },
+		//
+		//
+		// catchPlateData: function(arr) {
+		// 	var self = this;
+		// 	this.currentState.arrPlates = arr;
+		//
+		// 	var details = this.detailItemRender;
+		//
+		// 	for (var i = 0; i < details.length; i++) {
+		//
+		// 		var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
+		//
+		// 		el.width(details[i][6][0]);
+		// 		el.height(details[i][6][1]);
+		//
+		// 	}
+		//
+		// 	setTimeout(function() {
+		// 		self.getDetailOnPlate(true);
+		// 	}, 100);
+		//
+		// },
+		//
+		//
+		// arrayFunc: function(arr) {
+		// 	var self = this;
+		// 	var tmp = this.currentState.arrPlatesTemp;
+		// 	var totalCount = this.currentState.totalDetailCount;
+		//
+		// 	// tmp = $.merge(this.currentState.arrPlatesTemp, arr);
+		//
+		// 	if(tmp.length == 0) {
+		// 		tmp = $.merge(this.currentState.arrPlatesTemp, arr);
+		// 	} else {
+		// 		tmp = tmp.concat(arr);
+		// 	}
+		//
+		// 	var plates = [];
+		// 	var tmpC = [];
+		// 	var tmpU = [];
+		//
+		//
+		// 	for (var i = 0; i < tmp.length; i++) {
+		// 		plates.push(tmp[i][1]);
+		// 	}
+		//
+		// 	var maxPlate = Math.max.apply( Math, plates );
+		//
+		//
+		// 	uniq = function(items, key) {
+		// 		var set = {};
+		// 		return items.filter(function(item) {
+		// 			var k = key ? key.apply(item) : item;
+		// 			return k in set ? false : set[k] = true;
+		// 		})
+		// 	}
+		//
+		// 	tmpC = uniq(tmp, [].join)
+		//
+		// 	for (var i = 0; i <= totalCount - 1; i++) {
+		// 		// console.log(tmpC[i])
+		// 		for (var k = 0; k < tmpC.length; k++) {
+		// 			if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] == tmpC[i][1]))  {
+		// 				tmpU.push(tmpC[k]);
+		// 			} else if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] > tmpC[i][1]))  {
+		//
+		// 				tmpU[i][1] = tmpC[k][1];
+		//
+		// 			}
+		// 		}
+		// 	}
+		//
+		//
+		// 	// console.log(maxPlate)
+		// 	// this.currentState.cuttingPlates = maxPlate;
+		//
+		// 	// console.log(tmpU)
+		//
+		// 	this.currentState.arrPlatesTemp = tmpC;
+		// 	// this.currentState.arrPlates = uniqueCoords;
+		//
+		// 	// $('.platesCount').attr('data-value', maxPlate)
+		//
+		// 	setTimeout(function() {
+		// 		self.platesChange(maxPlate);
+		// 		self.catchPlateData(tmpU);
+		// 	}, 100);
+		//
+		// },
+		//
+		//
 
 
 
@@ -906,8 +991,8 @@ var vm = new Vue({
 							plate = k + 1;
 						}
 					}
-					var detailItemPlate = [j, 1];
-					var itemArr = [details[i][0] + '_' + j, details[i][1], details[i][2], i, j, details[i][4], []]
+					var detailItemPlate = [details[i][0] + '_' + j, 1];
+					var itemArr = [details[i][0] + '_' + j, details[i][1], details[i][2], i, j, details[i][4], [], 1]
 					arrRender.push(itemArr);
 					arrPlates.push(detailItemPlate);
 				}

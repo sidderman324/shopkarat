@@ -158,7 +158,7 @@
 				<li><a href="/wp-content/themes/karat/frontend/calculator.php">Калькулятор распила</a></li>
 				<li><a href="/wp-content/themes/karat/frontend/constructor.php">Конструктор кухни</a></li>
 				<li><a href="/wp-content/themes/karat/frontend/about_company.php">О компании</a></li>
-				<li><a href="#">Контакты</a></li>
+				<li><a href="/wp-content/themes/karat/frontend/contacts.php">Контакты</a></li>
 
 				<li class="mobile"><a href="#" class="link link--compare"><span class="icon icon--compare"></span>Сравнить товары</a></li>
 				<li class="mobile"><a href="#" class="link link--favorite icon_count_box"><span class="icon icon--favorite"></span>Избранные товары</a></li>
@@ -184,6 +184,7 @@
 				<a href="tel:+78612050592" class="phone_header">8(861)205-05-92</a>
 			</div>
 
+			<!-- Незалогиненый вариант -->
 			<div class="lk_block">
 
 				<a href="#" class="lk_link js-popup-open" data-popup-name="js-popup-registration">Регистрация</a>
@@ -194,6 +195,7 @@
 
 			</div>
 
+			<!-- Залогиненый вариант -->
 			<div class="lk_block" style="display: none;">
 
 				<a href="#" class="lk_link">Иван Иванов</a>
@@ -245,20 +247,48 @@
 			</div>
 
 			<div class="link_block">
-				<a href="#" class="link link--compare">
+
+				<!-- Пустое сравнение -->
+				<!-- <a href="#" class="link link--compare">
 					<span class="icon icon--compare"></span>
+				</a> -->
+
+				<!-- Сравнение с товарами -->
+				<a href="#" class="link link--compare icon_count_box">
+					<span class="icon icon--compare--active"></span>
+					<span class="count">10</span>
 				</a>
-				<a href="#" class="link link--favorite icon_count_box">
+
+				<!-- Пустое избранное -->
+				<!-- <a href="#" class="link link--favorite icon_count_box">
 					<span class="icon icon--favorite"></span>
-					<span class="count">1</span>
+				</a> -->
+
+				<!-- Избранное с товарами -->
+				<a href="#" class="link link--favorite icon_count_box">
+					<span class="icon icon--favorite--active"></span>
+					<span class="count">4</span>
 				</a>
-				<a href="basket.php" class="link link--basket">
+
+				<!-- Пустая корзина -->
+				<!-- <a href="basket.php" class="link link--basket">
 					<span>Корзина</span>
 					<span class="icon_count_box">
 						<span class="icon icon--basket"></span>
+					</span>
+				</a> -->
+
+
+				<!-- Корзина с товарами -->
+				<a href="basket.php" class="link link--basket link--basket-active">
+					<span>Корзина</span>
+					<span class="icon_count_box">
+						<span class="icon icon--basket--active"></span>
 						<span class="count">1</span>
 					</span>
 				</a>
+
+
 			</div>
 
 		</div>

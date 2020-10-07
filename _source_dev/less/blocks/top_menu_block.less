@@ -67,6 +67,10 @@
     align-items: baseline;
     justify-content: space-between;
 
+    @media (max-width: @screen-md) {
+      flex-wrap: wrap;
+    }
+
     @media (max-width: @screen-sm) {
       display: -webkit-flex;
       display: -ms-flex;
@@ -127,6 +131,13 @@
 
     li {
       list-style-type: none;
+
+      @media (max-width: @screen-md) {
+        width: 25%;
+      }
+      @media (max-width: @screen-sm) {
+        width: auto;
+      }
       a {
         display: inline-block;
         text-decoration: none;

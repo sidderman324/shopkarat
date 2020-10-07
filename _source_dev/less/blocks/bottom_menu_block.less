@@ -62,6 +62,9 @@
         font-size: 1em;
         padding-left: 2.7em;
       }
+      @media (max-width: @screen-md) {
+        padding-left: 0 !important;
+      }
 
       .icon {
         width: 4.2em;
@@ -74,6 +77,9 @@
         @media(max-width: @screen-xd) {
           width: 2.2em;
           height: 2.2em;
+        }
+        @media (max-width: @screen-md) {
+          display: none;
         }
 
         &--furniture {

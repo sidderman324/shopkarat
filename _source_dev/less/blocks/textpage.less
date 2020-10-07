@@ -20,10 +20,18 @@
 
     .text_block {
       width: 47.7%;
+
+      @media (max-width: @screen-md) {
+        width: 100%;
+      }
     }
     .img_wrapper {
       width: 40.6%;
       margin-top: 1em;
+
+      @media (max-width: @screen-md) {
+        display: none;
+      }
     }
 
     .separator {

@@ -29,12 +29,12 @@ if($person_phone != '') {
 	$mail->Port = 465;
 
 
-	$mail->addStringAttachment($decoded_pdf, "123.pdf");
+	$mail->addStringAttachment($decoded_pdf, "Карта раскроя и распила ЛДСП, МДФ, ХДВ.pdf");
 
 	$mail->setFrom('s.i.sidorovkrd@yandex.ru');
 
 	$mail->addAddress('syd.phoenix@gmail.com');
-	$mail->addAddress('om_karat@mebelfur.ru');
+	// $mail->addAddress('om_karat@mebelfur.ru');
 
 	$mail->isHTML(true);
 	$mail->Subject = 'Новая заявка ShopKarat';

@@ -2491,26 +2491,26 @@
     };
 
 
-    var arr = [];
-    var counter = 1;
+    // var arr = [];
+    // var counter = 1;
     // var counter = parseInt($('.platesCount').attr('data-value'))
 
 
     // console.log('this.options.plate', this.options.plate)
 
-    var amount = this.items.length;
+    // var amount = this.items.length;
     // Перебор деталей
-    for (var i = 0; i < amount; i++) {
-
-      if((this.items[i].size.height + this.items[i].position.y) < this.options.plateHeight) {
-        counter = this.options.plate;
-        this.items[i].plate = counter;
-      }
-      else {
-        counter = this.options.plate + 1;
-        this.items[i].plate = counter;
-      }
-    }
+    // for (var i = 0; i < amount; i++) {
+    //
+    //   if((this.items[i].size.height + this.items[i].position.y) < this.options.plateHeight) {
+    //     counter = this.options.plate;
+    //     this.items[i].plate = counter;
+    //   }
+    //   else {
+    //     counter = this.options.plate + 1;
+    //     this.items[i].plate = counter;
+    //   }
+    // }
 
     // console.log(counter)
 
@@ -2519,41 +2519,41 @@
     // console.log(this.options.detailsList);
 
 
-    this.items.forEach(function(item)
-    {
-      arrN = [item.element.id, item.plate];
-      arr.push(arrN);
-    });
+    // this.items.forEach(function(item)
+    // {
+    //   arrN = [item.element.id, item.plate];
+    //   arr.push(arrN);
+    // });
 
     // console.log(this.items)
 
 
-    if ((!this.options.lastCall) || (counter > this.options.totalPlates)) {
+    // if ((!this.options.lastCall) || (counter > this.options.totalPlates)) {
 
-      setTimeout(function() {
+      // setTimeout(function() {
         // vm.platesChange(arr[arr.length-1][1]);
         // console.log('arr[arr.length-1][1] __ ', arr[arr.length-1][1])
-      }, 10);
+      // }, 10);
 
-      setTimeout(function() {
-        vm.arrayFunc(arr);
+      // setTimeout(function() {
+        // vm.arrayFunc(arr);
         // $('.platesCount').attr('data-value', counter)
         // vm.catchPlateData(arr);
-      }, 50);
+      // }, 50);
+      if ( this._getOption('fitWidth') ) {
+        size.width = this._getContainerFitWidth();
+      }
+
+      return size;
+
+    };
 
 
-    }
 
 
 
 
-
-    if ( this._getOption('fitWidth') ) {
-      size.width = this._getContainerFitWidth();
-    }
-
-    return size;
-  };
+  // });
 
 
 

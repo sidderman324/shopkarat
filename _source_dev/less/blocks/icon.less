@@ -14,6 +14,11 @@
   }
   &--compare {
     background-image: url('../imgs/icons/icon_compare.svg');
+
+    &:hover,
+    &--active {
+      background-image: url('../imgs/icons/icon_compare_active.svg');
+    }
   }
   &--basket {
     background-image: url('../imgs/icons/icon_basket.svg');
@@ -27,6 +32,11 @@
   }
   &--favorite {
     background-image: url('../imgs/icons/icon_favorite.svg');
+
+    &:hover,
+    &--active {
+      background-image: url('../imgs/icons/icon_favorite_active.svg');
+    }
   }
   &--search {
     background-image: url('../imgs/icons/icon_search.svg');
@@ -99,7 +109,8 @@
     height: 1.5em;
     margin-right: 2em;
   }
-  &--move-basket-active {
+  &--move-basket-active,
+  &--move-basket:hover {
     background-image: url('../imgs/icons/icon_basket_active.svg');
   }
   &--remove {
