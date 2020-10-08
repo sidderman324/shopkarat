@@ -297,27 +297,29 @@
 
 			<div class="search_block">
 				<div class="input_box input_box--search">
-					<input type="text" class="input_text" placeholder="Я хочу купить...">
-					<a href="/wp-content/themes/karat/frontend/search-page.php" class="link link--search">
-						<span class="icon icon--search"></span>
-					</a>
-
-					<div class="search_results">
-						<a href="#" class="result_item">
-							<span class="img_wrapper">
-		            <img src="../static/imgs/catalog/product_1.jpg" alt="">
-		          </span>
-							<span class="item_name">Опора регулируемая D=6 подпятник вкручиваемый</span>
-						</a>
-						<a href="#" class="result_item">
-							<span class="img_wrapper">
-		            <img src="../static/imgs/catalog/product_1.jpg" alt="">
-		          </span>
-							<span class="item_name">Опора регулируемая D=6 подпятник вкручиваемый</span>
+					<form action="">
+						<input type="text" class="input_text" placeholder="Я хочу купить...">
+						<a href="/wp-content/themes/karat/frontend/search-page.php" class="link link--search">
+							<span class="icon icon--search"></span>
 						</a>
 
-						<a href="/wp-content/themes/karat/frontend/search-page.php" class="results_link">Все результаты <span class="icon icon--arrow"></span></a>
-					</div>
+						<div class="search_results">
+							<a href="#" class="result_item">
+								<span class="img_wrapper">
+									<img src="../static/imgs/catalog/product_1.jpg" alt="">
+								</span>
+								<span class="item_name">Опора регулируемая D=6 подпятник вкручиваемый</span>
+							</a>
+							<a href="#" class="result_item">
+								<span class="img_wrapper">
+									<img src="../static/imgs/catalog/product_1.jpg" alt="">
+								</span>
+								<span class="item_name">Опора регулируемая D=6 подпятник вкручиваемый</span>
+							</a>
+
+							<a href="/wp-content/themes/karat/frontend/search-page.php" class="results_link">Все результаты <span class="icon icon--arrow"></span></a>
+						</div>
+					</form>
 				</div>
 			</div>
 
@@ -325,97 +327,97 @@
 
 				<!-- Пустое сравнение -->
 				<!-- <a href="#" class="link link--compare">
-					<span class="icon icon--compare"></span>
-				</a> -->
+				<span class="icon icon--compare"></span>
+			</a> -->
 
-				<!-- Сравнение с товарами -->
-				<a href="#" class="link link--compare icon_count_box">
-					<span class="icon icon--compare--active"></span>
-					<span class="count">10</span>
-				</a>
+			<!-- Сравнение с товарами -->
+			<a href="/wp-content/themes/karat/frontend/comparing.php" class="link link--compare icon_count_box">
+				<span class="icon icon--compare--active"></span>
+				<span class="count">10</span>
+			</a>
 
-				<!-- Пустое избранное -->
-				<!-- <a href="#" class="link link--favorite icon_count_box">
-					<span class="icon icon--favorite"></span>
-				</a> -->
+			<!-- Пустое избранное -->
+			<!-- <a href="#" class="link link--favorite icon_count_box">
+			<span class="icon icon--favorite"></span>
+		</a> -->
 
-				<!-- Избранное с товарами -->
-				<a href="#" class="link link--favorite icon_count_box">
-					<span class="icon icon--favorite--active"></span>
-					<span class="count">4</span>
-				</a>
+		<!-- Избранное с товарами -->
+		<a href="#" class="link link--favorite icon_count_box">
+			<span class="icon icon--favorite--active"></span>
+			<span class="count">4</span>
+		</a>
 
-				<!-- Пустая корзина -->
-				<!-- <a href="basket.php" class="link link--basket">
-					<span>Корзина</span>
-					<span class="icon_count_box">
-						<span class="icon icon--basket"></span>
-					</span>
-				</a> -->
-
-
-				<!-- Корзина с товарами -->
-				<a href="basket.php" class="link link--basket link--basket-active">
-					<span>Корзина</span>
-					<span class="icon_count_box">
-						<span class="icon icon--basket--active"></span>
-						<span class="count">1</span>
-					</span>
-				</a>
+		<!-- Пустая корзина -->
+		<!-- <a href="basket.php" class="link link--basket">
+		<span>Корзина</span>
+		<span class="icon_count_box">
+		<span class="icon icon--basket"></span>
+	</span>
+</a> -->
 
 
-			</div>
+<!-- Корзина с товарами -->
+<a href="basket.php" class="link link--basket link--basket-active">
+	<span>Корзина</span>
+	<span class="icon_count_box">
+		<span class="icon icon--basket--active"></span>
+		<span class="count">1</span>
+	</span>
+</a>
 
-		</div>
-	</div>
+
+</div>
+
+</div>
+</div>
 
 
-	<div class="bottom_menu_block">
-		<ul class="icon_menu">
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--decor"></span>
-					<span>ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
-				</a>
-			</li>
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--edge"></span>
-					<span>КРОМОЧНЫЕ МАТЕРИАЛЫ</span>
-				</a>
-			</li>
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--sink"></span>
-					<span>МОЙКИ И СМЕСИТЕЛИ</span>
-				</a>
-			</li>
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--furniture"></span>
-					<span>МЕБЕЛЬНАЯ ФУРНИТУРА</span>
-				</a>
-			</li>
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--plates"></span>
-					<span>ПЛИТНЫЕ МАТЕРИАЛЫ</span>
-				</a>
-			</li>
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--shkaf"></span>
-					<span>ПРОФИЛЬ ДЛЯ ШКАФОВ-КУПЕ</span>
-				</a>
-			</li>
-			<li>
-				<a href="catalog.php">
-					<span class="icon icon--facade"></span>
-					<span>ФАСАДЫ</span>
-				</a>
-			</li>
-		</ul>
-	</div>
+<div class="bottom_menu_block">
+	<ul class="icon_menu">
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--decor"></span>
+				<span>ДЕКОРЫ МЕБЕЛЬНЫЕ</span>
+			</a>
+		</li>
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--edge"></span>
+				<span>КРОМОЧНЫЕ МАТЕРИАЛЫ</span>
+			</a>
+		</li>
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--sink"></span>
+				<span>МОЙКИ И СМЕСИТЕЛИ</span>
+			</a>
+		</li>
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--furniture"></span>
+				<span>МЕБЕЛЬНАЯ ФУРНИТУРА</span>
+			</a>
+		</li>
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--plates"></span>
+				<span>ПЛИТНЫЕ МАТЕРИАЛЫ</span>
+			</a>
+		</li>
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--shkaf"></span>
+				<span>ПРОФИЛЬ ДЛЯ ШКАФОВ-КУПЕ</span>
+			</a>
+		</li>
+		<li>
+			<a href="catalog.php">
+				<span class="icon icon--facade"></span>
+				<span>ФАСАДЫ</span>
+			</a>
+		</li>
+	</ul>
+</div>
 </div>
 </header>
 
@@ -558,7 +560,7 @@
 
 <!-- Окно выбора города -->
 <div class="popup_block js-poup-city-select popup_block--wide">
-  <span class="close_btn js-popup-close"></span>
+	<span class="close_btn js-popup-close"></span>
 
 	<p class="popup_title">Выберите ближайший к Вам город:</p>
 

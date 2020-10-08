@@ -6763,6 +6763,130 @@ h1.title {
   font-weight: bold;
   color: #F18700;
 }
+.catalog--comparing .row {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  width: 100%;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.catalog--comparing .scroll_block {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  width: 100%;
+  overflow-x: hidden;
+}
+.catalog--comparing .comparing_tabs {
+  width: 100%;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin-top: 3em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_head {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  border-bottom: 2px solid #F18700;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_head .comparing_tabs_head_item {
+  font-size: 1.125em;
+  margin-right: 5em;
+  padding: .5em 0;
+  cursor: pointer;
+  transition: .3s;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_head .comparing_tabs_head_item:hover {
+  color: #F18700;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_head .comparing_tabs_head_item .count {
+  right: -1em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_head .comparing_tabs_head_item.active {
+  color: #F18700;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item {
+  display: none;
+  padding: 2em 0;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .left_block {
+  width: 17em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .specifications_list_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .specifications_list_item {
+  font-weight: bold;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .specifications_list_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .specifications_list_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .product_specifications_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .product_specifications_item {
+  font-size: 1.125em;
+  height: 3.5em;
+  display: -moz-box;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  box-orient: vertical;
+  padding: .5em;
+  padding-right: 1.5em;
+  border-top: 1px solid #E5E5E5;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .specifications_list_item:last-of-type,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .specifications_list_item:last-of-type,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .product_specifications_item:last-of-type,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .product_specifications_item:last-of-type {
+  border-bottom: 1px solid #E5E5E5;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .settings_block,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_info {
+  height: 26em;
+  padding-right: 2em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item {
+  width: 17em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper {
+  height: 10.7em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .custom_checkbox {
+  margin-bottom: 2em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .custom_checkbox span {
+  font-size: 1.125em;
+  font-weight: bold;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item.active {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+}
 @media all and (min-width: 241px) and (max-width: 480px) {
   #toast-container > div {
     width: 18em;

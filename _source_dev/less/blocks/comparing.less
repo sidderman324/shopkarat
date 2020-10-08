@@ -1,0 +1,129 @@
+// Для импорта в диспетчер подключений: @import './../_source_dev/less/blocks/comparing.less';
+
+
+.catalog--comparing {
+  .row {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .scroll_block {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .comparing_tabs {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3em;
+
+    .comparing_tabs_head {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 2px solid @orange;
+
+      .comparing_tabs_head_item {
+        font-size: 1.125em;
+        margin-right: 5em;
+        padding: .5em 0;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+          color: @orange;
+        }
+
+        .count {
+          right: -1em;
+        }
+      }
+      .comparing_tabs_head_item.active {
+        color: @orange;
+      }
+    }
+
+    .comparing_tabs_body {
+      .comparing_tabs_body_item {
+        display: none;
+        padding: 2em 0;
+
+        .left_block {
+          width: 17em;
+        }
+        .specifications_list,
+        .product_specifications_list {
+          display: -webkit-flex;
+          display: -ms-flex;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          .specifications_list_item {
+            font-weight: bold;
+          }
+
+          .specifications_list_item,
+          .product_specifications_item {
+            font-size: 1.125em;
+            height: 3.5em;
+            display: -moz-box;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            box-orient: vertical;
+            padding: .5em;
+            padding-right: 1.5em;
+            border-top: 1px solid @gray;
+
+            &:last-of-type {
+              border-bottom: 1px solid @gray;
+            }
+          }
+        }
+        .settings_block,
+        .product_info {
+          height: 26em;
+          padding-right: 2em;
+        }
+        .product_item {
+          width: 17em;
+
+          .img_wrapper {
+            height: 10.7em;
+          }
+        }
+
+        .custom_checkbox {
+          margin-bottom: 2em;
+          span {
+            font-size: 1.125em;
+            font-weight: bold;
+          }
+        }
+      }
+      .comparing_tabs_body_item.active {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}
