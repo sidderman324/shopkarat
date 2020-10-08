@@ -137,6 +137,19 @@
       height: 1em;
     }
   }
+  &--remove-black {
+    background-image: url('../imgs/icons/icon_cross_black.svg');
+    width: 1.2em;
+    height: 1.2em;
+
+    @media (max-width: @screen-sm) {
+      width: 1em;
+      height: 1em;
+    }
+    &:hover {
+      background-image: url('../imgs/icons/icon_cross_active.svg');
+    }
+  }
   &--remove-active {
     background-image: url('../imgs/icons/icon_cross_active.svg');
   }

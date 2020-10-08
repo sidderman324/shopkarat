@@ -59,7 +59,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -94,7 +94,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -129,7 +129,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -164,7 +164,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -230,7 +230,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -265,7 +265,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -300,7 +300,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -335,7 +335,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -370,7 +370,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -405,7 +405,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -440,7 +440,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -475,7 +475,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -510,7 +510,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -545,7 +545,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -580,7 +580,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -615,7 +615,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -650,7 +650,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -720,7 +720,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>
@@ -755,7 +755,7 @@
                         <img src="../static/imgs/catalog/product_1.jpg" alt="">
                       </a>
 
-                      <span class="icon icon--remove"></span>
+                      <span class="icon icon--remove-black"></span>
                       <span class="icon icon--move-basket js-label-open" data-label-name="js-add-to-basket"></span>
                     </div>
                     <a href="catalog_card.php" class="catalog_card_title">Опора регулируемая D=6 подпятник вкручиваемый</a>

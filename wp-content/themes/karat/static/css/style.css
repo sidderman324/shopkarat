@@ -4423,6 +4423,14 @@ h1.title {
   width: 1.2em;
   height: 1.2em;
 }
+.icon--remove-black {
+  background-image: url('../imgs/icons/icon_cross_black.svg');
+  width: 1.2em;
+  height: 1.2em;
+}
+.icon--remove-black:hover {
+  background-image: url('../imgs/icons/icon_cross_active.svg');
+}
 .icon--remove-active {
   background-image: url('../imgs/icons/icon_cross_active.svg');
 }
@@ -6872,6 +6880,41 @@ h1.title {
 }
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper {
   height: 10.7em;
+  position: relative;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper:hover:before {
+  opacity: .6;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper:hover .icon {
+  opacity: 1;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper:before {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  transition: .3s;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper .icon {
+  z-index: 999;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: .3s;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper .icon--remove-black {
+  right: 55%;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_item .img_wrapper .icon--move-basket {
+  left: 55%;
 }
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .custom_checkbox {
   margin-bottom: 2em;
@@ -7280,6 +7323,10 @@ h1.title {
     margin-left: auto;
   }
   .icon--remove {
+    width: 1em;
+    height: 1em;
+  }
+  .icon--remove-black {
     width: 1em;
     height: 1em;
   }
