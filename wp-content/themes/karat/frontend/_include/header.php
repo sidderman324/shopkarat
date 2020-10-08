@@ -20,15 +20,92 @@
 
 									<ul>
 										<li><a href="#" class="menu_item_link">Амортизаторы мебельные</a></li>
-										<li><a href="#" class="menu_item_link">Восстановительные материалы</a></li>
-										<li><a href="#" class="menu_item_link">Заглушки, подкладки</a></li>
+										<li>
+											<a href="#" class="menu_item_link">Восстановительные материалы</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Воск</a></li>
+												<li><a href="#" class="menu_item_link">Карандаш</a></li>
+												<li><a href="#" class="menu_item_link">Ретуширующий фломастер</a></li>
+												<li><a href="#" class="menu_item_link">Штрих мебельный</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#" class="menu_item_link">Заглушки, подкладки</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Для кабель-каналов</a></li>
+												<li><a href="#" class="menu_item_link">Для евровинта и эксцентрика</a></li>
+												<li><a href="#" class="menu_item_link">Самоклеющиеся заглушки и подкладки</a></li>
+											</ul>
+										</li>
 										<li><a href="#" class="menu_item_link">Замки и магниты</a></li>
-										<li><a href="#" class="menu_item_link">Ручной инструмент</a></li>
-										<li><a href="#" class="menu_item_link">Клейкие ленты</a></li>
+										<li>
+											<a href="#" class="menu_item_link">Ручной инструмент</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Инструменты</a></li>
+												<li><a href="#" class="menu_item_link">Насадки</a></li>
+												<li><a href="#" class="menu_item_link">Пилки для лобзика</a></li>
+												<li><a href="#" class="menu_item_link">Сверла</a></li>
+												<li><a href="#" class="menu_item_link">Фрезы</a></li>
+												<li><a href="#" class="menu_item_link">Шаблоны</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#" class="menu_item_link">Клейкие ленты</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Противоосколочная пленка для зеркал</a></li>
+												<li><a href="#" class="menu_item_link">Лента самоклеющаяся SALMAN</a></li>
+												<li><a href="#" class="menu_item_link">Скотч 2-х сторонний</a></li>
+												<li><a href="#" class="menu_item_link">Упаковочные материалы</a></li>
+											</ul>
+										</li>
 										<li><a href="#" class="menu_item_link">Клей, герметик, растворитель</a></li>
-										<li><a href="#" class="menu_item_link">Комплектующие для мягкой мебели</a></li>
-										<li><a href="#" class="menu_item_link">Крепежная фурнитура</a></li>
-										<li><a href="#" class="menu_item_link">Кронштейны</a></li>
+										<li>
+											<a href="#" class="menu_item_link">Комплектующие для мягкой мебели</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Зацепы, фиксаторы</a></li>
+												<li><a href="#" class="menu_item_link">Матрасы</a></li>
+												<li><a href="#" class="menu_item_link">Механизмы трансформации</a></li>
+												<li><a href="#" class="menu_item_link">Опоры</a></li>
+												<li><a href="#" class="menu_item_link">Основания для кровати</a></li>
+												<li><a href="#" class="menu_item_link">Петли</a></li>
+												<li><a href="#" class="menu_item_link">Ролики</a></li>
+												<li><a href="#" class="menu_item_link">Стяжки</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#" class="menu_item_link">Крепежная фурнитура</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Крепеж</a></li>
+												<li><a href="#" class="menu_item_link">Стяжки</a></li>
+												<li><a href="#" class="menu_item_link">Уголки металлические</a></li>
+												<li><a href="#" class="menu_item_link">Уголки пластиковые</a></li>
+												<li><a href="#" class="menu_item_link">Уголки металлические с пластиковой крышкой</a></li>
+											</ul>
+										</li>
+										<li>
+											<a href="#" class="menu_item_link">Кронштейны</a>
+											<span class="spoiler_arrow desktop js-submenu-toggle"><span class="icon icon--spoiler-arrow"></span></span>
+
+											<ul class="spoiler_level">
+												<li><a href="#" class="menu_item_link">Барный</a></li>
+												<li><a href="#" class="menu_item_link">Газовый</a></li>
+												<li><a href="#" class="menu_item_link">Металлический</a></li>
+												<li><a href="#" class="menu_item_link">Металлический с пластиковой накладкой</a></li>
+												<li><a href="#" class="menu_item_link">Металлический с ребром жесткости</a></li>
+											</ul>
+										</li>
 										<li><a href="#" class="menu_item_link">Крючки мебельные</a></li>
 										<li><a href="#" class="menu_item_link">Кухонные аксессуары</a></li>
 										<li><a href="#" class="menu_item_link">Механизмы для раздвижных столов</a></li>
@@ -186,25 +263,23 @@
 
 			<!-- Незалогиненый вариант -->
 			<div class="lk_block">
-
 				<a href="#" class="lk_link js-popup-open" data-popup-name="js-popup-registration">Регистрация</a>
 
 				<a href="#" class="lk_link js-popup-open" data-popup-name="js-popup-login">Вход</a>
 
 				<a href="/wp-content/themes/karat/frontend/lk/lk-index.php" class="btn btn--black">Личный кабинет</a>
-
 			</div>
 
 			<!-- Залогиненый вариант -->
 			<div class="lk_block" style="display: none;">
-
 				<a href="#" class="lk_link">Иван Иванов</a>
 
 				<a href="#" class="lk_link">Выход</a>
 
 				<a href="/wp-content/themes/karat/frontend/lk/lk-index.php" class="btn btn--black">Личный кабинет</a>
-
 			</div>
+
+
 
 			<div class="mobile_block">
 				<a href="#" class="link link--basket"><span class="icon icon--basket"></span></a>

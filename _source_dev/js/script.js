@@ -156,6 +156,14 @@ $(document).ready(function(){
     $('.hover_menu_block').toggleClass('visible');
   });
 
+
+  $(document).on('click', '.js-submenu-toggle', function(e) {
+    e.preventDefault();
+
+    $(this).toggleClass('active');
+    $(this).parents('li').find('.spoiler_level').toggleClass('visible');
+  });
+
   $(document).on('click', '.bottom_menu_block, .middle_menu_block, section', function(e) {
     if($('.hover_menu_block').hasClass('visible')) {
       $('.js-show-catalog-menu').removeClass('active');
@@ -447,6 +455,8 @@ $(document).ready(function(){
     loop: true,
     spaceBetween: 20,
     speed: 300,
+    touchEventsTarget: false,
+    allowTouchMove: false,
 
     navigation: {
       nextEl: '.catalogPopularSlider-next',
@@ -454,6 +464,10 @@ $(document).ready(function(){
     },
 
     breakpoints: {
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
       680: {
         slidesPerView: 1,
         spaceBetween: 20
@@ -476,6 +490,10 @@ $(document).ready(function(){
     },
 
     breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
       680: {
         slidesPerView: 2,
         spaceBetween: 20
@@ -499,6 +517,14 @@ $(document).ready(function(){
     breakpoints: {
       1480: {
         slidesPerView: 6,
+        spaceBetween: 20
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      680: {
+        slidesPerView: 2,
         spaceBetween: 20
       }
     }

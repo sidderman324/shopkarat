@@ -380,6 +380,7 @@ var vm = new Vue({
 			if ((value >= min) && (value <= max)) {
 				this.detailItem[index][typeId] = value;
 				$('#'+id).removeClass('warning');
+
 			} else if ((value <= min) && (value <= max)) {
 
 				// toastr.warning('Значение слишком маленькое')
@@ -393,20 +394,21 @@ var vm = new Vue({
 				$('#'+id).addClass('warning');
 
 			}
-			// console.log(this.detailItem[index])
 
-			// Подсчитываем общее количество деталей
-			this.getDetailCount();
-			// Подсчитываем площадь и периметр деталей
-			this.getDetailSizes();
-			// Подсчитываем длину кромки
-			this.getEdgeLength();
+			if((this.detailItem[index][1] > 10) && (this.detailItem[index][2] > 10)) {
+				// Подсчитываем общее количество деталей
+				this.getDetailCount();
+				// Подсчитываем площадь и периметр деталей
+				this.getDetailSizes();
+				// Подсчитываем длину кромки
+				this.getEdgeLength();
 
-			// Пересобираем детали в новый массив
-			this.getDetailsItemArray();
+				// Пересобираем детали в новый массив
+				this.getDetailsItemArray();
 
 
-			this.$forceUpdate();
+				this.$forceUpdate();
+			}
 		},
 
 

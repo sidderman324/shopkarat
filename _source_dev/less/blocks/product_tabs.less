@@ -11,7 +11,7 @@
     flex-direction: row;
     border-top: 1px solid #C4C4C4;
 
-    @media (max-width: @screen-sm) {
+    @media (max-width: @screen-md) {
       justify-content: space-between;
     }
 
@@ -23,6 +23,10 @@
       padding: 1.4em 0;
       margin-right: 4.7em;
       cursor: pointer;
+
+      @media (max-width: @screen-md) {
+        margin-right: 0;
+      }
 
       @media (max-width: @screen-sm) {
         margin-right: 0;
@@ -56,6 +60,9 @@
 
       @media (max-width: @screen-xd) {
         padding-right: 50%;
+      }
+      @media (max-width: @screen-md) {
+        padding-right: 30% !important;
       }
       @media (max-width: @screen-sm) {
         padding-right: 0 !important;
@@ -92,6 +99,9 @@
     display: inline-block;
     width: 100%;
     border-bottom: 1px solid @black;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
 
     &:last-child {
       border: none;

@@ -19,6 +19,10 @@
   border: 1px solid @black;
   transition: .3s;
 
+  @media (max-width: @screen-md) {
+    width: 32%;
+  }
+
   @media (max-width: @screen-sm) {
     visibility: hidden;
     top: -1.6em;
@@ -112,6 +116,8 @@
       overflow: hidden;
       height: 0;
       transition: .3s;
+      margin-top: 0;
+      margin-bottom: 0;
     }
     .link_list {
       display: -webkit-flex;
@@ -243,6 +249,7 @@
     .filter_spoiler_inner {
       height: auto;
       padding-bottom: 1em;
+      margin: .5em 2.6em;
     }
   }
 }

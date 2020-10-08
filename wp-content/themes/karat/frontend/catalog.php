@@ -369,7 +369,7 @@
 
 
         </div>
-        <div class="catalog_card">
+        <!-- <div class="catalog_card">
           <a href="catalog_card.php" class="img_wrapper">
             <img src="../static/imgs/catalog/product_3.jpg" alt="">
           </a>
@@ -409,7 +409,7 @@
           </div>
 
 
-        </div>
+        </div> -->
 
 
 
