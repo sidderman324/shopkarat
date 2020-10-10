@@ -291,18 +291,12 @@ $(document).ready(function(){
         delta = 0;
       }
 
-      $('.odrer_summary').css('transform','translateY('+ delta +'px)');
 
-      //
-      // var fixed_point = $('.calc_block').offset().top + $('.calc_block').height();
-      // if(winwidth < 900) {
-      //
-      //   if((scroll + winheight) > fixed_point) {
-      //     $('.odrer_summary').removeClass('fixed');
-      //   } else {
-      //     $('.odrer_summary').addClass('fixed');
-      //   }
-      // }
+      if(winwidth < 680) {
+
+      } else {
+        // $('.odrer_summary').css('transform','translateY('+ delta +'px)');
+      }
 
     }
   }

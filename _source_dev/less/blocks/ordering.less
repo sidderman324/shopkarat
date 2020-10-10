@@ -11,12 +11,17 @@
   .odrer_summary {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 20px;
     width: 20%;
     transition: ease .3s;
 
     @media (max-width: @screen-lg) {
       width: 30%;
+    }
+    @media (max-width: @screen-md) {
+      width: 100% !important;
+      position: relative;
+      right: auto;
     }
 
     .specifications--border-head {
@@ -59,6 +64,9 @@
       @media (max-width: @screen-lg) {
         width: 26%;
       }
+      @media (max-width: @screen-md) {
+        width: 46% !important;
+      }
 
       .block {
         margin-bottom: 2em;
@@ -91,6 +99,15 @@
   .table {
     width: 75%;
     margin-bottom: 2em;
+
+    @media (max-width: @screen-md) {
+      width: 100%;
+    }
+    .table .table_cell:nth-child(2) {
+      @media (max-width: @screen-md) {
+        width: 30%;
+      }
+    }
   }
 
   .btn {

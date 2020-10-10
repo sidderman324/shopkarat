@@ -7,18 +7,52 @@
   border-radius: 4px;
   padding: 2.9em 2.9em 4.6em 2.1em;
 
+  @media (max-width: @screen-md) {
+    width: 100%;
+    order: 2;
+    padding: 1.9em;
+    margin-bottom: 2em;
+  }
+  @media (max-width: @screen-sm) {
+    padding: 1em;
+  }
+
   .block_title {
     margin-bottom: .9em;
+    @media (max-width: @screen-sm) {
+      margin-bottom: .3em;
+    }
   }
 
   .sidebar_menu_list {
+    @media (max-width: @screen-md) {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     li {
       margin-bottom: 3em;
       margin-top: 2.3em;
+      @media (max-width: @screen-md) {
+        width: 30%;
+        margin: 1.5em 0;
+      }
+      @media (max-width: @screen-sm) {
+        width: 48%;
+      }
       a {
         padding-left: 5.3em;
         position: relative;
         display: inline-block;
+
+        @media (max-width: @screen-sm) {
+          padding-left: 4em;
+        }
 
         .icon {
           left: 0;
@@ -28,6 +62,10 @@
           width: 5em;
           height: 3.1em;
           background-position: left center;
+
+          @media (max-width: @screen-sm) {
+            font-size: .8em;
+          }
         }
       }
       a.active {
@@ -46,6 +84,12 @@
 
     margin-top: 3em;
 
+    @media (max-width: @screen-sm) {
+      order: 2;
+      padding: 1.9em 1.9em 2.6em 1.9em;
+      margin-top: .5em;
+    }
+
     .sidebar_menu_list {
       display: -webkit-flex;
       display: -ms-flex;
@@ -61,6 +105,16 @@
         background-color: #fff;
         width: 30%;
 
+        @media (max-width: @screen-md) {
+          width: 47%;
+        }
+        @media (max-width: @screen-sm) {
+          width: 47%;
+          height: 12em;
+          margin-bottom: 1em;
+          margin-top: 0.3em;
+        }
+
         a {
           padding-left: 0;
           position: relative;
@@ -70,6 +124,10 @@
           font-size: 1.125em;
           padding: 11.5em 0 2em;
 
+          @media (max-width: @screen-sm) {
+            padding: 7.5em 0 1em;
+          }
+
           .icon {
             top: 2em;
             transform: translateX(-50%);
@@ -77,6 +135,13 @@
             height: 7.8em;
             background-position: center;
             left: 50%;
+
+            @media (max-width: @screen-sm) {
+              width: 11em;
+              height: 4.8em;
+              top: 1em;
+              font-size: 1em;
+            }
           }
         }
       }

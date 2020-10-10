@@ -7,7 +7,17 @@
   h1.title {
     text-align: left;
   }
-
+  .table .table_cell:nth-child(2) {
+    @media (max-width: @screen-md) and (min-width: @screen-sm) {
+      width: 30%;
+    }
+  }
+  .table .table_cell:nth-child(5),
+  .table .table_cell:nth-child(6) {
+    @media (max-width: @screen-md) and (min-width: @screen-sm) {
+      width: 12%;
+    }
+  }
   .tabs {
     padding-top: .8em;
 
@@ -21,7 +31,7 @@
     }
     .tabs_head .tabs_head_item:after { bottom: .5em; }
     .tabs_body .tabs_body_item {
-      padding-right: 0;
+      padding-right: 0 !important;
 
       display: none;
       flex-direction: column;
@@ -212,7 +222,7 @@
     }
   }
   .table_cell:nth-child(2) {
-    width: 22.8%;
+    // width: 22.8%;
     width: 50%;
   }
   .table_cell:nth-child(3) {
