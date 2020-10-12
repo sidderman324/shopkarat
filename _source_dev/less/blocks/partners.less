@@ -6,6 +6,7 @@
 
   .swiper-container {
     padding-top: 4em;
+    height: 12em;
 
     @media (max-width: @screen-sm) {
       margin-left: 2em;
@@ -14,11 +15,20 @@
 
     .swiper-wrapper {
       align-items: center;
+      height: 100%;
+
+      .swiper-slide {
+        height: 100%;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        align-items: center;
+      }
     }
   }
 
   .swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
-    top: 10em;
+    top: 11.5em;
 
     @media (max-width: @screen-sm) {
       top: 6.8em;

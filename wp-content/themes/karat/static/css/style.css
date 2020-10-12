@@ -2843,6 +2843,17 @@ h1.title {
 .text--bold {
   font-weight: bold;
 }
+body > p {
+  min-height: 50vh;
+  padding-top: 2em;
+  text-align: center;
+  font-size: 2em;
+  color: #000;
+  font-weight: bold;
+}
+body > p font.notetext {
+  color: #000;
+}
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev,
 .swiper-button-prev,
@@ -4912,8 +4923,18 @@ h1.title {
 }
 .partners .swiper-container {
   padding-top: 4em;
+  height: 12em;
 }
 .partners .swiper-container .swiper-wrapper {
+  -ms-flex-align: center;
+      align-items: center;
+  height: 100%;
+}
+.partners .swiper-container .swiper-wrapper .swiper-slide {
+  height: 100%;
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-align: center;
       align-items: center;
 }
@@ -4921,7 +4942,7 @@ h1.title {
 .partners .swiper-container-rtl .swiper-button-prev,
 .partners .swiper-button-prev,
 .partners .swiper-container-rtl .swiper-button-next {
-  top: 10em;
+  top: 11.5em;
 }
 .subscribe_block {
   margin-top: 3.2em;

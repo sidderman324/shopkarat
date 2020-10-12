@@ -528,85 +528,91 @@ $(document).ready(function(){
 
 
 
-  if($('section').hasClass('contacts')) {
+  function getMapsContacts() {
+    if($('section').hasClass('contacts')) {
 
-    // Карта
-    ymaps.ready(function()
-    {
-      var center = [45.070708, 38.918971];
-      var map = new ymaps.Map('krasnodar_map', {
-        center: center,
-        zoom: 15,
-        controls: ['zoomControl', 'typeSelector'],
-      }, {
-        suppressMapOpenBlock: true,
+      // Карта
+      ymaps.ready(function()
+      {
+        var center = [45.070708, 38.918971];
+        var map = new ymaps.Map('krasnodar_map', {
+          center: center,
+          zoom: 15,
+          controls: ['zoomControl', 'typeSelector'],
+        }, {
+          suppressMapOpenBlock: true,
+        });
+
+        map.behaviors.disable('scrollZoom');
+
+        map.geoObjects.add(new ymaps.Placemark(center, {}, {
+          iconLayout: 'default#image',
+        }));
       });
 
-      map.behaviors.disable('scrollZoom');
 
-      map.geoObjects.add(new ymaps.Placemark(center, {}, {
-        iconLayout: 'default#image',
-      }));
-    });
+      ymaps.ready(function()
+      {
+        var center = [44.989949, 41.110087];
+        var map = new ymaps.Map('armavir_map', {
+          center: center,
+          zoom: 15,
+          controls: ['zoomControl', 'typeSelector'],
+        }, {
+          suppressMapOpenBlock: true,
+        });
 
+        map.behaviors.disable('scrollZoom');
 
-    ymaps.ready(function()
-    {
-      var center = [44.989949, 41.110087];
-      var map = new ymaps.Map('armavir_map', {
-        center: center,
-        zoom: 15,
-        controls: ['zoomControl', 'typeSelector'],
-      }, {
-        suppressMapOpenBlock: true,
+        map.geoObjects.add(new ymaps.Placemark(center, {}, {
+          iconLayout: 'default#image',
+        }));
       });
 
-      map.behaviors.disable('scrollZoom');
 
-      map.geoObjects.add(new ymaps.Placemark(center, {}, {
-        iconLayout: 'default#image',
-      }));
-    });
+      ymaps.ready(function()
+      {
+        var center = [43.602024, 39.736698];
+        var map = new ymaps.Map('sochi_map', {
+          center: center,
+          zoom: 15,
+          controls: ['zoomControl', 'typeSelector'],
+        }, {
+          suppressMapOpenBlock: true,
+        });
 
+        map.behaviors.disable('scrollZoom');
 
-    ymaps.ready(function()
-    {
-      var center = [43.602024, 39.736698];
-      var map = new ymaps.Map('sochi_map', {
-        center: center,
-        zoom: 15,
-        controls: ['zoomControl', 'typeSelector'],
-      }, {
-        suppressMapOpenBlock: true,
+        map.geoObjects.add(new ymaps.Placemark(center, {}, {
+          iconLayout: 'default#image',
+        }));
       });
 
-      map.behaviors.disable('scrollZoom');
 
-      map.geoObjects.add(new ymaps.Placemark(center, {}, {
-        iconLayout: 'default#image',
-      }));
-    });
+      ymaps.ready(function()
+      {
+        var center = [44.959240, 34.131166];
+        var map = new ymaps.Map('simferopol_map', {
+          center: center,
+          zoom: 15,
+          controls: ['zoomControl', 'typeSelector'],
+        }, {
+          suppressMapOpenBlock: true,
+        });
 
+        map.behaviors.disable('scrollZoom');
 
-    ymaps.ready(function()
-    {
-      var center = [44.959240, 34.131166];
-      var map = new ymaps.Map('simferopol_map', {
-        center: center,
-        zoom: 15,
-        controls: ['zoomControl', 'typeSelector'],
-      }, {
-        suppressMapOpenBlock: true,
+        map.geoObjects.add(new ymaps.Placemark(center, {}, {
+          iconLayout: 'default#image',
+        }));
       });
 
-      map.behaviors.disable('scrollZoom');
-
-      map.geoObjects.add(new ymaps.Placemark(center, {}, {
-        iconLayout: 'default#image',
-      }));
-    });
-
+    }
   }
+
+
+  getMapsContacts();
+
 
 
 });
