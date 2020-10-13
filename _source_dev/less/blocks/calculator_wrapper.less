@@ -17,6 +17,42 @@
   padding-top: 4em;
   padding-bottom: 4em;
 
+  .head {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 3em;
+
+    .contacts_block {
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      flex-direction: row;
+
+      .item {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 19em;
+        margin-left: 2em;
+
+        p.block_title {
+          margin-bottom: .5em;
+        }
+
+        a, p {
+          font-size: 1em;
+          margin-bottom: .3em;
+        }
+      }
+    }
+  }
+
   .select {
     width: 15em;
   }
@@ -333,15 +369,15 @@
           .height {
             font-size: .8em;
             position: absolute;
-            left: -0.5em;
-            bottom: 1em;
+            left: 0em;
+            bottom: 0.8em;
             transform: rotate(-90deg);
           }
           .width {
             font-size: .8em;
             position: absolute;
             top: 0.2em;
-            right: 0.3em;
+            right: 0.5em;
           }
         }
 

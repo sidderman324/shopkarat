@@ -29,7 +29,7 @@ if($person_phone != '') {
 	$mail->Port = 465;
 
 
-	$mail->addStringAttachment($decoded_pdf, "Карта раскроя и распила ЛДСП, МДФ, ХДВ.pdf");
+	$mail->addStringAttachment($decoded_pdf, "Заказ на распил.pdf");
 
 	$mail->setFrom('s.i.sidorovkrd@yandex.ru');
 

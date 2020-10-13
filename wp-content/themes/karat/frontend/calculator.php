@@ -8,14 +8,14 @@
 	<script src="/wp-content/themes/karat/static/js/script.min.js?v=<?php echo time(); ?>"></script>
 
 	<!-- <script src="/_source_dev/js/jquery-3.1.1.js"></script> -->
-	<!-- <script src="/_source_dev/js/jquery-ui.min.js"></script> -->
-	<!-- <script src="/_source_dev/js/jquery-migrate-1.4.1.min.js"></script> -->
-	<!-- <script src="/_source_dev/js/toastr.min.js"></script> -->
-	<!-- <script src="/_source_dev/js/isotope.pkgd.js"></script> -->
-	<!-- <script src="/_source_dev/js/vue.js"></script> -->
-	<!-- <script src="/_source_dev/js/swiper.js"></script> -->
-	<!-- <script src="/_source_dev/js/script.js"></script> -->
-	<!-- <script src="/_source_dev/js/html2pdf.bundle.js"></script> -->
+
+	<script src="/_source_dev/js/isotope.pkgd.js"></script>
+	<script src="/_source_dev/js/vue.js"></script>
+	<script src="/_source_dev/js/html2pdf.bundle.js"></script>
+
+	<!-- <script src="/wp-content/themes/karat/static/js/isotope.pkgd.js"></script> -->
+	<!-- <script src="/wp-content/themes/karat/static/js/vue.js"></script> -->
+	<!-- <script src="/wp-content/themes/karat/static/js/html2pdf.bundle.js"></script> -->
 
 </head>
 <body style="overflow: hidden;">
@@ -26,6 +26,26 @@
 
 
 		<div class="calculator_wrapper" :class="{ simple_view: pdfScanFlag }" id="calculatorBox">
+
+			<div class="head" v-if="pdfScanFlag">
+				<div class="logo_wrapper"><img src="/wp-content/themes/karat/static/imgs/main_logo_orange.svg" alt=""></div>
+
+				<div class="contacts_block">
+					<div class="item">
+						<p class="block_title">Краснодар</p>
+						<a href="tel:+78612050519" class="phone_header">8(861)205-05-19</a>
+						<a href="tel:+78612050592" class="phone_header">8(861)205-05-92</a>
+						<p class="text">г. Краснодар, ул. Круговая 24/10</p>
+					</div>
+
+					<div class="item">
+						<p class="block_title">Симферополь</p>
+						<a href="tel:+78612050519" class="phone_header">8(978)874-81-40</a>
+						<a href="tel:+78612050592" class="phone_header">8(978)896-22-40</a>
+						<p class="text">Республика Крым, г. Симферополь, ул. Буденного, 32</p>
+					</div>
+				</div>
+			</div>
 
 			<h1>Заказать карту раскроя и распила ЛДСП, МДФ, ХДВ с поклейкой кромки</h1>
 
@@ -89,13 +109,13 @@
 							</li>
 							<li>
 								<div v-if="currentState.edgeLength_2">
-									<p class="text">толщиной 1 мм</p>
+									<p class="text">толщиной 1,0 мм</p>
 									<p class="text" v-if="isAN(currentState.edgeLength_2)">{{(currentState.edgeLength_2 * 1.2).toFixed(1)}} м</p>
 								</div>
 							</li>
 							<li>
 								<div v-if="currentState.edgeLength_3">
-									<p class="text">толщиной 2 мм</p>
+									<p class="text">толщиной 2,0 мм</p>
 									<p class="text" v-if="isAN(currentState.edgeLength_3)">{{(currentState.edgeLength_3 * 1.2).toFixed(1)}} м</p>
 								</div>
 							</li>
@@ -204,8 +224,6 @@
 			</div>
 
 
-
-
 			<div class="cutting_block">
 				<!-- <input type="text" id="platesCount" data-value="1"> -->
 				<div class="plate_box" v-for="item in currentState.cuttingPlates">
@@ -227,11 +245,12 @@
 						class="detail_item box grid-item"
 						:id="'detail_' + detail[3] + '_' + detail[4]"
 						v-for="(detail, index) in detailItemRender"
-						v-if="currentState.arrPlates[index][1] == item"
+						v-if="detail[7] == item"
 						:data-border-top="detail[4][0]"
 						:data-border-right="detail[4][1]"
 						:data-border-bottom="detail[4][2]"
 						:data-border-left="detail[4][3]"
+						:style="'height:' + detail[6][0] + 'px; width:' + detail[6][1] + 'px'"
 						>
 						<span class="width" v-if="detail[1] >= 200">{{detail[1]}}</span>
 						<span class="height" v-if="detail[2] >= 200">{{detail[2]}}</span>
@@ -298,9 +317,9 @@
 
 
 	<pre>
+		<!-- {{detailItem}} -->
+
 		<!-- {{detailItemRender}} -->
-		<!-- {{currentState}} -->
-		<!-- {{sourceDetails}} -->
 		<!-- {{currentState.arrPlates}} -->
 	</pre>
 
@@ -339,6 +358,7 @@ var vm = new Vue({
 
 		detailItemRender: [],
 		detailsId: [],
+		allowFlag: false,
 
 	},
 	methods: {
@@ -359,7 +379,66 @@ var vm = new Vue({
 		},
 
 
+
+
+
+		// Определение размеров блока для деталей
+		getCuttingBlockSizes: function() {
+			var plateWidth = $('.plate_item').width();
+			var cuttingSize = this.cuttingSizes[this.currentState.selectedDetailTypeID].split('x');
+			var cuttingLength = parseInt(cuttingSize[0]) * 10;
+			var cuttingWidth = parseInt(cuttingSize[1]) * 10;
+
+			var plateHeight = plateWidth * cuttingWidth / cuttingLength;
+
+			this.currentState.plateWidth = plateWidth;
+			this.currentState.plateHeight = plateHeight;
+			this.currentState.cuttingSize = cuttingSize;
+		},
+
+
+
+
+
+		// Добавление детали
+		addDetail: function() {
+			var i = this.detailCounter;
+
+			if (i > 0) {
+
+				if ((this.detailItem[i-1][1] == "") || (this.detailItem[i-1][2] == "")) {
+					toastr.error('Размеры детали не заполнены');
+				} else if((this.detailItem[i-1][1] == "incorrect value") || (this.detailItem[i-1][2] == "incorrect value")) {
+					toastr.error('Размеры детали некооректны');
+				} else {
+					var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
+					this.detailItem.push(detail);
+					this.detailCounter ++;
+				}
+
+			} else {
+
+				var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
+				this.detailItem.push(detail);
+				this.detailCounter ++;
+
+			}
+		},
+
+		detailCounterRefresh: function() {
+			this.detailCounter = this.detailItem.length;
+		},
+
+
+
+
+
+
+		// Заполение параметров детали
 		validateSizes: function(event) {
+
+			var self = this;
+			self.allowFlag = false;
 
 			var id = event.srcElement.id;
 			var index = parseInt(id.split('_')[2]);
@@ -395,21 +474,220 @@ var vm = new Vue({
 
 			}
 
-			if((this.detailItem[index][1] > 10) && (this.detailItem[index][2] > 10)) {
-				// Подсчитываем общее количество деталей
-				this.getDetailCount();
-				// Подсчитываем площадь и периметр деталей
-				this.getDetailSizes();
-				// Подсчитываем длину кромки
-				this.getEdgeLength();
 
+			if((this.detailItem[index][1] > 10) && (this.detailItem[index][2] > 10)) {
+				// собираем информацию о деталях на раскрое
+				this.getDetailInfo();
 				// Пересобираем детали в новый массив
 				this.getDetailsItemArray();
-
+				// Сохраняем в хранилище
+				this.localStorageSaving();
 
 				this.$forceUpdate();
 			}
 		},
+
+
+
+
+
+
+		// собираем информацию о деталях на раскрое
+		getDetailInfo: function() {
+			var detail = this.detailItem;
+			// Количество деталей
+			var totalCount = 0;
+			// Площадь и периметр
+			var totalDetailSquare = null;
+			var totalDetailPerimeter = null;
+			// Длина кромки
+			var edgeLength_1 = 0;
+			var edgeLength_2 = 0;
+			var edgeLength_3 = 0;
+
+			for (var i = 0; i < detail.length; i++) {
+				// Количество деталей
+				var count = parseInt(detail[i][3]);
+				totalCount = totalCount + count;
+
+				// Площадь и периметр
+				var itemSquare = (detail[i][1] * detail[i][2]) * detail[i][3];
+				var itemPerimetr = ((detail[i][1] * 2) + (detail[i][2] * 2)) * detail[i][3]
+
+				totalDetailSquare = totalDetailSquare + itemSquare;
+				totalDetailPerimeter = totalDetailPerimeter + itemPerimetr;
+
+
+				// Длина кромки
+				edgeLength_1 = 0;
+				edgeLength_2 = 0;
+				edgeLength_3 = 0;
+
+				var detailLength = parseInt(detail[i][1]);
+				var detailWidth = parseInt(detail[i][2]);
+				var detailCount = parseInt(detail[i][3]);
+				var edgeArr = detail[i][4];
+
+				if(edgeArr[0] != 0) {
+					if(edgeArr[0] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailLength; }
+					if(edgeArr[0] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailLength; }
+					if(edgeArr[0] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailLength; }
+				} if(edgeArr[1] != 0) {
+					if(edgeArr[1] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailWidth; }
+					if(edgeArr[1] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailWidth; }
+					if(edgeArr[1] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailWidth; }
+				} if(edgeArr[2] != 0) {
+					if(edgeArr[2] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailLength; }
+					if(edgeArr[2] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailLength; }
+					if(edgeArr[2] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailLength; }
+				} if(edgeArr[3] != 0) {
+					if(edgeArr[3] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailWidth; }
+					if(edgeArr[3] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailWidth; }
+					if(edgeArr[3] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailWidth; }
+				}
+				edgeLength_1 = edgeLength_1 * detailCount;
+				edgeLength_2 = edgeLength_2 * detailCount;
+				edgeLength_3 = edgeLength_3 * detailCount;
+			}
+
+			// Количество деталей
+			if (this.isAN(totalCount)) {
+				this.currentState.totalDetailCount = totalCount;
+			} else {
+				this.currentState.totalDetailCount = '-';
+			}
+
+
+			// Площадь и периметр
+			var min_totalDetailPerimeter = (this.currentState.cuttingSize[0] * 2) + (this.currentState.cuttingSize[1] * 2);
+
+			if(totalDetailPerimeter <= min_totalDetailPerimeter) {
+				totalDetailPerimeter = min_totalDetailPerimeter;
+			}
+
+			if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; }
+			else { this.currentState.totalDetailSquare = '-'; }
+
+			if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter / 1000; }
+			else { this.currentState.totalDetailPerimeter = '-'; }
+
+
+
+			// Длина кромки
+			if (this.isAN(edgeLength_1)) { this.currentState.edgeLength_1 = edgeLength_1 / 1000; }
+			else { this.currentState.edgeLength_1 = '-'; }
+
+			if (this.isAN(edgeLength_2)) { this.currentState.edgeLength_2 = edgeLength_2 / 1000; }
+			else { this.currentState.edgeLength_2 = '-'; }
+
+			if (this.isAN(edgeLength_3)) { this.currentState.edgeLength_3 = edgeLength_3 / 1000; }
+			else { this.currentState.edgeLength_3 = '-'; }
+		},
+
+
+
+
+		// Проверка на число
+		isAN: function(value) {
+			return (value instanceof Number||typeof value === 'number') && !isNaN(value);
+		},
+
+
+		// Записываем выбор кромки
+		getEdgeType: function(index, type, positionId) {
+			var detail = this.detailItem;
+			var typeText = '';
+
+			switch (type) {
+				case 1: typeText = '0.4 мм'; break;
+				case 2: typeText = '1.0 мм'; break;
+				case 3: typeText = '2.0 мм'; break;
+			}
+
+			$('.table_row:nth-child('+(index + 1)+')').find('.edge_group').eq(positionId).find('span').removeClass('selected');
+
+
+			$('.table_row:nth-child('+(index + 1)+')').find('.square').addClass('position_'+positionId);
+			$('.table_row:nth-child('+(index + 1)+')').find('.edge_group').eq(positionId).find('span:nth-child('+type+')').addClass('selected');
+
+
+			this.detailItem[index][4][positionId] = typeText;
+			this.$forceUpdate();
+
+			this.getDetailInfo();
+			setTimeout(this.getDetailOnPlate, 10);
+			this.localStorageSaving();
+		},
+
+
+
+		// Функция поиска подобных элементов
+		checkDetailRepeat: function(length, width, edgeArr) {
+			var details = this.detailItem;
+			var j = details.length;
+			var result = false;
+
+			for (var i = 0; i < j; i++) {
+
+				if((parseInt(details[i][1]) == length) && (parseInt(details[i][2]) == width) && this.arrayCompare(details[i][4], edgeArr)) {
+					result = i;
+				}
+
+			}
+			return result;
+		},
+
+		// функция сравнения массивов
+		arrayCompare: function(arr1, arr2) {
+			var flag = true;
+			if(arr1.length == arr2.length) {
+
+				for (var i = 0; i < arr2.length; i++) {
+
+					if(arr1[i] != arr2[i]) {
+						flag = false;
+					}
+				}
+
+			}
+			return flag;
+		},
+
+		// Замена информации о кромке при вращении детали
+		borderRotate: function(edgeArr) {
+			var edgeArrRotate = [];
+
+			edgeArrRotate[0] = edgeArr[1];
+			edgeArrRotate[1] = edgeArr[2];
+			edgeArrRotate[2] = edgeArr[3];
+			edgeArrRotate[3] = edgeArr[0];
+
+			return edgeArrRotate;
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -421,8 +699,317 @@ var vm = new Vue({
 			this.textFieldUpdate();
 			this.getDetailsItemArray();
 
+			this.localStorageSaving();
+
 		},
 
+
+
+		localStorageSaving: function() {
+			var datailsArr = this.detailItem;
+			localStorage.setItem ("details", JSON.stringify(datailsArr));
+		},
+
+		localStorageRestore: function() {
+			var datailsArr = JSON.parse(localStorage.details);
+			// console.log(datailsArr)
+	    this.detailItem = datailsArr;
+			setTimeout(this.textFieldUpdate, 10);
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		getDetailsItemArray: function() {
+			var details = this.detailItem;
+			var arrRender = [];
+			var arr = this.currentState.arrPlates;
+
+			var cuttingLength = parseInt(this.currentState.cuttingSize[0]);
+			var cuttingWidth = parseInt(this.currentState.cuttingSize[1]);
+
+			var plateWidth = this.currentState.plateWidth;
+			var plateHeight = this.currentState.plateHeight;
+
+			for (var i = 0; i < details.length; i++) {
+				var count = details[i][3];
+
+				for (var j = 0; j < count; j++) {
+
+					var lengthMod = details[i][1] * plateWidth / cuttingLength * 0.9984984984984985;
+					var widthMod = details[i][2] * plateHeight / cuttingWidth * 0.9984984984984985;
+
+					var itemArr = ['detail_' + i + '_' + j, details[i][1], details[i][2], i, j, details[i][4], [lengthMod,widthMod], 1]
+					arrRender.push(itemArr);
+				}
+			}
+
+
+			this.detailItemRender = arrRender;
+
+			setTimeout(this.getDetailOnPlate, 100);
+		},
+
+
+
+
+
+		getDetailOnPlate: function(flag) {
+			var self = this;
+			var cuttingSize = this.currentState.cuttingSize;
+			var margin = 0;
+			var details = this.detailItemRender;
+			var plateWidth = this.currentState.plateWidth;
+			var plateHeight = this.currentState.plateHeight;
+
+			// console.log(123)
+
+			for (var i = 0; i < details.length; i++) {
+				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
+
+				el.removeClass('bd-top');
+				el.removeClass('bd-right');
+				el.removeClass('bd-bottom');
+				el.removeClass('bd-left');
+
+
+				if (details[i][5][0] != '0') { el.addClass('bd-top'); }
+				if (details[i][5][1] != '0') { el.addClass('bd-right'); }
+				if (details[i][5][2] != '0') { el.addClass('bd-bottom'); }
+				if (details[i][5][3] != '0') { el.addClass('bd-left'); }
+
+				var plate = details[i][7];
+
+				var bottom = el.position().top + details[i][6][0];
+
+				if (bottom > plateHeight * plate) {
+					plate = plate + 1;
+
+					this.currentState.cuttingPlates = plate;
+
+				}
+
+				this.detailItemRender[i].splice(7,1,plate);
+
+
+			}
+
+			setTimeout(function() {
+				self.masonry();
+			}, 10)
+			setTimeout(function() {
+				self.checkPlateFit(flag);
+			}, 20)
+
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		checkPlateFit: function(flag) {
+			var details = this.detailItemRender;
+			var self = this;
+			var plateHeight = this.currentState.plateHeight;
+
+			if(typeof flag == 'undefined') {
+				flag = false;
+			}
+
+			for (var i = 0; i < details.length; i++) {
+				var plate = details[i][7];
+				var el = $('#'+details[i][0]);
+
+				el.removeClass('bd-top');
+				el.removeClass('bd-right');
+				el.removeClass('bd-bottom');
+				el.removeClass('bd-left');
+
+
+				if (details[i][5][0] != '0') { el.addClass('bd-top'); }
+				if (details[i][5][1] != '0') { el.addClass('bd-right'); }
+				if (details[i][5][2] != '0') { el.addClass('bd-bottom'); }
+				if (details[i][5][3] != '0') { el.addClass('bd-left'); }
+
+
+				var bottom = el.position().top + details[i][6][0];
+
+				// console.log(bottom, plateHeight, plate)
+
+				if (bottom > plateHeight * plate) {
+					plate = plate + 1;
+				}
+
+				this.detailItemRender[i].splice(7,1,plate);
+
+				this.currentState.cuttingPlates = plate;
+
+			}
+			if(!flag) {
+				this.getDetailOnPlate(true);
+			}
+
+			setTimeout(function() {
+				self.masonry();
+			}, 20)
+
+		},
+
+
+
+
+		masonry: function() {
+			var self = this;
+
+			for (var i = 1; i < this.currentState.cuttingPlates + 1; i++) {
+				var elem = document.querySelector('.grid_' + i);
+
+				var childs = $('.grid_' + i)[0].children.length;
+
+				if (childs > 0) {
+
+					var msnry = new Masonry( elem, {
+						itemSelector: '.grid-item',
+						columnWidth: 2,
+						gutter: 0,
+					})
+				}
+			}
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+		// Функция вращения
+		getDetailRotate: function(group, item) {
+			var i = this.detailItem.length;
+			var detailItem = this.detailItem[group];
+			var detailNew = this.detailItem[group];
+
+			var countGroup = this.detailItem[group][3] - 1;
+			this.detailItem[group][3] = countGroup;
+
+			var edgeArrRotate = this.borderRotate(detailItem[4]);
+
+			var detailNew = ['detail_'+item+'',detailItem[2],detailItem[1],1,edgeArrRotate,this.currentState.cuttingPlates];
+
+			var length = detailNew[1];
+			var width = detailNew[2];
+
+
+			var j = this.checkDetailRepeat(length, width, edgeArrRotate);
+
+			if(this.isAN(j)) {
+				var counter = this.detailItem[j][3] + 1;
+				this.detailItem[j][3] = counter;
+
+				if(this.detailItem[group][3] == 0) {
+					this.detailItem.splice(group, 1);
+				}
+
+			} else {
+				// Добавление нового
+				this.detailItem.push(detailNew);
+
+				if(this.detailItem[group][3] == 0) {
+					this.detailItem.splice(group, 1);
+				}
+			}
+
+			// this.getDetailsItemArray();
+
+			setTimeout(this.getDetailsItemArray, 100);
+			setTimeout(this.textFieldUpdate, 100);
+
+			this.localStorageSaving();
+			this.$forceUpdate();
+		},
+
+
+		// Обновление рядов с деталями и полей ввода
+		textFieldUpdate: function() {
+			var details = this.detailItem;
+
+			for (var i = 0; i < details.length; i++) {
+				var square_block = $('.table_body').find('.table_row').eq(i).find('.detail_square');
+
+				$('#detail_length_'+i).attr('value',details[i][1]);
+				$('#detail_width_'+i).attr('value',details[i][2]);
+				$('#detail_count_'+i).attr('value',details[i][3]);
+
+				var edge = details[i][4];
+				square_block.find('.square').removeClass('position_0');
+				square_block.find('.square').removeClass('position_1');
+				square_block.find('.square').removeClass('position_2');
+				square_block.find('.square').removeClass('position_3');
+				square_block.find('span').removeClass('selected');
+
+
+
+				for (var j = 0; j < edge.length; j++) {
+
+					if(parseInt(edge[j]) != 0) {
+						square_block.find('.square').addClass('position_'+j);
+
+						var typeID;
+
+						switch (edge[j]) {
+							case '0.4 мм': typeID = 0; break;
+							case '1.0 мм': typeID = 1; break;
+							case '2.0 мм': typeID = 2; break;
+						}
+
+						square_block.find('.edge_group').eq(j).find('span').eq(typeID).addClass('selected');
+					}
+				}
+
+			}
+
+			// собираем информацию о деталях на раскрое
+			this.getDetailInfo();
+
+			this.detailCounterRefresh();
+
+			this.getDetailsItemArray();
+		},
 
 
 
@@ -449,7 +1036,7 @@ var vm = new Vue({
 				html2pdf().from(element).set({
 					margin: 50,
 					pagebreak: { before: '.beforeClass', after: ['#after1', '#after2'], avoid: 'div' },
-					filename: 'test.pdf',
+					filename: 'Заказ на распил.pdf',
 					html2canvas: { scale: 1 },
 					jsPDF: {orientation: 'portrait', unit: 'px', format: [ 1470,  2797], compressPDF: true}
 				}).save();
@@ -565,632 +1152,6 @@ var vm = new Vue({
 
 
 
-
-
-
-		// Подсчитываем общее количество деталей
-		getDetailCount: function() {
-			var detail = this.detailItem;
-			var totalCount = 0;
-
-			for (var i = 0; i < detail.length; i++) {
-				var count = parseInt(detail[i][3]);
-				totalCount = totalCount + count;
-			}
-			// this.currentState.totalDetailCount = totalCount;
-			if (this.isAN(totalCount)) {
-				this.currentState.totalDetailCount = totalCount;
-			} else {
-				this.currentState.totalDetailCount = '-';
-			}
-		},
-
-
-		// Подсчитываем площадь и периметр деталей
-		getDetailSizes: function () {
-			var detail = this.detailItem;
-			var totalDetailSquare = null;
-			var totalDetailPerimeter = null;
-
-			for (var i = 0; i < detail.length; i++) {
-				var itemSquare = (detail[i][1] * detail[i][2]) * detail[i][3];
-				var itemPerimetr = ((detail[i][1] * 2) + (detail[i][2] * 2)) * detail[i][3]
-
-				totalDetailSquare = totalDetailSquare + itemSquare;
-				totalDetailPerimeter = totalDetailPerimeter + itemPerimetr;
-			}
-
-			var min_totalDetailPerimeter = (this.currentState.cuttingSize[0] * 2) + (this.currentState.cuttingSize[1] * 2);
-
-			if(totalDetailPerimeter <= min_totalDetailPerimeter) {
-				totalDetailPerimeter = min_totalDetailPerimeter;
-			}
-
-			if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; }
-			else { this.currentState.totalDetailSquare = '-'; }
-
-			if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter / 1000; }
-			else { this.currentState.totalDetailPerimeter = '-'; }
-		},
-
-
-		// Подсчитываем длину кромки
-		getEdgeLength: function() {
-			var detail = this.detailItem;
-			var edgeLength_1 = 0;
-			var edgeLength_2 = 0;
-			var edgeLength_3 = 0;
-
-			for (var i = 0; i < detail.length; i++) {
-
-				edgeLength_1 = 0;
-				edgeLength_2 = 0;
-				edgeLength_3 = 0;
-
-				var detailLength = parseInt(detail[i][1]);
-				var detailWidth = parseInt(detail[i][2]);
-				var detailCount = parseInt(detail[i][3]);
-				var edgeArr = detail[i][4];
-
-				if(edgeArr[0] != 0) {
-					if(edgeArr[0] == '0.4 мм') {
-						edgeLength_1 = edgeLength_1 + detailLength;
-					} if(edgeArr[0] == '1.0 мм') {
-						edgeLength_2 = edgeLength_2 + detailLength;
-					} if(edgeArr[0] == '2.0 мм') {
-						edgeLength_3 = edgeLength_3 + detailLength;
-					}
-				} if(edgeArr[1] != 0) {
-					if(edgeArr[1] == '0.4 мм') {
-						edgeLength_1 = edgeLength_1 + detailWidth;
-					} if(edgeArr[1] == '1.0 мм') {
-						edgeLength_2 = edgeLength_2 + detailWidth;
-					} if(edgeArr[1] == '2.0 мм') {
-						edgeLength_3 = edgeLength_3 + detailWidth;
-					}
-				} if(edgeArr[2] != 0) {
-					if(edgeArr[2] == '0.4 мм') {
-						edgeLength_1 = edgeLength_1 + detailLength;
-					} if(edgeArr[2] == '1.0 мм') {
-						edgeLength_2 = edgeLength_2 + detailLength;
-					} if(edgeArr[2] == '2.0 мм') {
-						edgeLength_3 = edgeLength_3 + detailLength;
-					}
-				} if(edgeArr[3] != 0) {
-					if(edgeArr[3] == '0.4 мм') {
-						edgeLength_1 = edgeLength_1 + detailWidth;
-					} if(edgeArr[3] == '1.0 мм') {
-						edgeLength_2 = edgeLength_2 + detailWidth;
-					} if(edgeArr[3] == '2.0 мм') {
-						edgeLength_3 = edgeLength_3 + detailWidth;
-					}
-				}
-
-				edgeLength_1 = edgeLength_1 * detailCount;
-				edgeLength_2 = edgeLength_2 * detailCount;
-				edgeLength_3 = edgeLength_3 * detailCount;
-			}
-
-			if (this.isAN(edgeLength_1)) { this.currentState.edgeLength_1 = edgeLength_1 / 1000; }
-			else { this.currentState.edgeLength_1 = '-'; }
-
-			if (this.isAN(edgeLength_2)) { this.currentState.edgeLength_2 = edgeLength_2 / 1000; }
-			else { this.currentState.edgeLength_2 = '-'; }
-
-			if (this.isAN(edgeLength_3)) { this.currentState.edgeLength_3 = edgeLength_3 / 1000; }
-			else { this.currentState.edgeLength_3 = '-'; }
-		},
-
-		// Проверка на число
-		isAN: function(value) {
-			return (value instanceof Number||typeof value === 'number') && !isNaN(value);
-		},
-
-
-		// Записываем выбор кромки
-		getEdgeType: function(index, type, positionId) {
-			var detail = this.detailItem;
-			var typeText = '';
-
-			switch (type) {
-				case 1: typeText = '0.4 мм'; break;
-				case 2: typeText = '1.0 мм'; break;
-				case 3: typeText = '2.0 мм'; break;
-			}
-
-			$('.table_row:nth-child('+(index + 1)+')').find('.edge_group').eq(positionId).find('span').removeClass('selected');
-
-
-			$('.table_row:nth-child('+(index + 1)+')').find('.square').addClass('position_'+positionId);
-			$('.table_row:nth-child('+(index + 1)+')').find('.edge_group').eq(positionId).find('span:nth-child('+type+')').addClass('selected');
-
-
-			this.detailItem[index][4][positionId] = typeText;
-			this.$forceUpdate();
-
-			this.getEdgeLength();
-			setTimeout(this.getDetailOnPlate, 10);
-		},
-
-
-		getDetailOnPlate: function(flag) {
-			var self = this;
-			var cuttingSize = this.currentState.cuttingSize;
-			var margin = 0;
-			var details = this.detailItemRender;
-			var plateWidth = this.currentState.plateWidth;
-			var plateHeight = this.currentState.plateHeight;
-
-			for (var i = 0; i < details.length; i++) {
-				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
-
-				var indexG = details[3];
-
-				el.removeClass('bd-top');
-				el.removeClass('bd-right');
-				el.removeClass('bd-bottom');
-				el.removeClass('bd-left');
-
-				var cuttingLength = parseInt(cuttingSize[0]);
-				var cuttingWidth = parseInt(cuttingSize[1]);
-
-				var width = parseInt(details[i][2]);
-				var length = parseInt(details[i][1]);
-
-				if (details[i][5][0] != '0') { el.addClass('bd-top'); }
-				if (details[i][5][1] != '0') { el.addClass('bd-right'); }
-				if (details[i][5][2] != '0') { el.addClass('bd-bottom'); }
-				if (details[i][5][3] != '0') { el.addClass('bd-left'); }
-
-				margin = 4 * plateWidth / cuttingLength;
-
-				var lengthMod = length * plateWidth / cuttingLength * 0.9984984984984985;
-				var widthMod = width * plateHeight / cuttingWidth * 0.9984984984984985;
-
-				this.detailItemRender[i][6].splice(0, 1, lengthMod);
-				this.detailItemRender[i][6].splice(1, 1, widthMod);
-
-				el.width(lengthMod);
-				el.height(widthMod);
-
-				var plate = details[i][7];
-
-				var bottom = el.position().top + el.height();
-
-				if (bottom > plateHeight * plate) {
-					plate = plate + 1;
-
-					this.currentState.cuttingPlates = plate;
-
-				}
-				this.currentState.arrPlates[i].splice(1,1,plate);
-				this.detailItemRender[i].splice(7,1,plate);
-
-
-			}
-
-			setTimeout(function() {
-				self.masonry();
-			}, 100)
-			setTimeout(function() {
-				self.checkPlateFit(flag);
-			}, 200)
-
-		},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		checkPlateFit: function(flag) {
-			var details = this.detailItemRender;
-			var self = this;
-			var plateHeight = this.currentState.plateHeight;
-
-			if(typeof flag == 'undefined') {
-				flag = false;
-			}
-
-			for (var i = 0; i < details.length; i++) {
-				var plate = details[i][7];
-				var el = $('#'+details[i][0])
-				el.width(details[i][6][0]);
-				el.height(details[i][6][1]);
-
-				// var bottom = el.position().top + el.height();
-				var bottom = el.css('top') + el.height();
-
-				if (bottom > plateHeight * plate) {
-					plate = plate + 1;
-				}
-				this.currentState.arrPlates[i].splice(1,1,plate);
-				this.detailItemRender[i].splice(7,1,plate);
-
-				this.currentState.cuttingPlates = plate;
-
-				if(!flag) {
-					this.getDetailOnPlate(true);
-				}
-
-			}
-
-			setTimeout(function() {
-				self.masonry();
-			}, 200)
-
-		},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		masonry: function() {
-			var self = this;
-
-			for (var i = 1; i < this.currentState.cuttingPlates + 1; i++) {
-				var elem = document.querySelector('.grid_' + i);
-
-				var childs = $('.grid_' + i)[0].children.length;
-
-				if (childs > 0) {
-
-					var msnry = new Masonry( elem, {
-						itemSelector: '.grid-item',
-						columnWidth: 2,
-						gutter: 0,
-					})
-				}
-
-				// this.getDetailOnPlate(true);
-			}
-		},
-
-		//
-		//
-		//
-		//
-		// platesChange: function(count) {
-		// 	this.currentState.cuttingPlates = count;
-		// },
-		//
-		//
-		// catchPlateData: function(arr) {
-		// 	var self = this;
-		// 	this.currentState.arrPlates = arr;
-		//
-		// 	var details = this.detailItemRender;
-		//
-		// 	for (var i = 0; i < details.length; i++) {
-		//
-		// 		var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
-		//
-		// 		el.width(details[i][6][0]);
-		// 		el.height(details[i][6][1]);
-		//
-		// 	}
-		//
-		// 	setTimeout(function() {
-		// 		self.getDetailOnPlate(true);
-		// 	}, 100);
-		//
-		// },
-		//
-		//
-		// arrayFunc: function(arr) {
-		// 	var self = this;
-		// 	var tmp = this.currentState.arrPlatesTemp;
-		// 	var totalCount = this.currentState.totalDetailCount;
-		//
-		// 	// tmp = $.merge(this.currentState.arrPlatesTemp, arr);
-		//
-		// 	if(tmp.length == 0) {
-		// 		tmp = $.merge(this.currentState.arrPlatesTemp, arr);
-		// 	} else {
-		// 		tmp = tmp.concat(arr);
-		// 	}
-		//
-		// 	var plates = [];
-		// 	var tmpC = [];
-		// 	var tmpU = [];
-		//
-		//
-		// 	for (var i = 0; i < tmp.length; i++) {
-		// 		plates.push(tmp[i][1]);
-		// 	}
-		//
-		// 	var maxPlate = Math.max.apply( Math, plates );
-		//
-		//
-		// 	uniq = function(items, key) {
-		// 		var set = {};
-		// 		return items.filter(function(item) {
-		// 			var k = key ? key.apply(item) : item;
-		// 			return k in set ? false : set[k] = true;
-		// 		})
-		// 	}
-		//
-		// 	tmpC = uniq(tmp, [].join)
-		//
-		// 	for (var i = 0; i <= totalCount - 1; i++) {
-		// 		// console.log(tmpC[i])
-		// 		for (var k = 0; k < tmpC.length; k++) {
-		// 			if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] == tmpC[i][1]))  {
-		// 				tmpU.push(tmpC[k]);
-		// 			} else if ((tmpC[k][0] == tmpC[i][0]) && (tmpC[k][1] > tmpC[i][1]))  {
-		//
-		// 				tmpU[i][1] = tmpC[k][1];
-		//
-		// 			}
-		// 		}
-		// 	}
-		//
-		//
-		// 	// console.log(maxPlate)
-		// 	// this.currentState.cuttingPlates = maxPlate;
-		//
-		// 	// console.log(tmpU)
-		//
-		// 	this.currentState.arrPlatesTemp = tmpC;
-		// 	// this.currentState.arrPlates = uniqueCoords;
-		//
-		// 	// $('.platesCount').attr('data-value', maxPlate)
-		//
-		// 	setTimeout(function() {
-		// 		self.platesChange(maxPlate);
-		// 		self.catchPlateData(tmpU);
-		// 	}, 100);
-		//
-		// },
-		//
-		//
-
-
-
-
-
-
-
-
-
-		getDetailsItemArray: function() {
-			var details = this.detailItem;
-			var arrRender = [];
-			var arrPlates = []
-			var startPlate = this.currentState.nextPlateItem;
-			var arr = this.currentState.arrPlates;
-
-			for (var i = 0; i < details.length; i++) {
-				var count = details[i][3];
-				plate = details[i][5];
-
-				for (var j = 0; j < count; j++) {
-
-					for (var k = 0; k < this.currentState.nextPlateItem.length; k++) {
-						var start = this.currentState.nextPlateItem[k];
-
-						if (j >= start) {
-							plate = k + 1;
-						}
-					}
-					var detailItemPlate = [details[i][0] + '_' + j, 1];
-					var itemArr = [details[i][0] + '_' + j, details[i][1], details[i][2], i, j, details[i][4], [], 1]
-					arrRender.push(itemArr);
-					arrPlates.push(detailItemPlate);
-				}
-			}
-
-			this.detailItemRender = arrRender;
-			this.currentState.arrPlates = arrPlates;
-
-			setTimeout(this.getDetailOnPlate, 10);
-			// setTimeout(this.masonry, 100);
-		},
-
-
-
-
-		// Функция вращения
-		getDetailRotate: function(group, item) {
-			var i = this.detailItem.length;
-			var detailItem = this.detailItem[group];
-			var detailNew = this.detailItem[group];
-
-			var countGroup = this.detailItem[group][3] - 1;
-			this.detailItem[group][3] = countGroup;
-
-			var edgeArrRotate = this.borderRotate(detailItem[4]);
-
-			var detailNew = ['detail_'+i+'',detailItem[2],detailItem[1],1,edgeArrRotate,this.currentState.cuttingPlates];
-
-			var length = detailNew[1];
-			var width = detailNew[2];
-
-
-			var j = this.checkDetailRepeat(length, width, edgeArrRotate);
-
-			if(this.isAN(j)) {
-				var counter = this.detailItem[j][3] + 1;
-				this.detailItem[j][3] = counter;
-
-				if(this.detailItem[group][3] == 0) {
-					this.detailItem.splice(group, 1);
-				}
-
-			} else {
-				// Добавление нового
-				this.detailItem.push(detailNew);
-
-				if(this.detailItem[group][3] == 0) {
-					this.detailItem.splice(group, 1);
-				}
-			}
-
-			this.getDetailsItemArray();
-
-			setTimeout(this.getDetailOnPlate, 10);
-			setTimeout(this.textFieldUpdate, 10);
-			this.$forceUpdate();
-		},
-
-
-		// Обновление рядов с деталями и полей ввода
-		textFieldUpdate: function() {
-			var details = this.detailItem;
-
-			for (var i = 0; i < details.length; i++) {
-				var square_block = $('.table_body').find('.table_row').eq(i).find('.detail_square');
-
-				$('#detail_length_'+i).attr('value',details[i][1]);
-				$('#detail_width_'+i).attr('value',details[i][2]);
-				$('#detail_count_'+i).attr('value',details[i][3]);
-
-				var edge = details[i][4];
-				square_block.find('.square').removeClass('position_0');
-				square_block.find('.square').removeClass('position_1');
-				square_block.find('.square').removeClass('position_2');
-				square_block.find('.square').removeClass('position_3');
-				square_block.find('span').removeClass('selected');
-
-
-
-				for (var j = 0; j < edge.length; j++) {
-
-					if(parseInt(edge[j]) != 0) {
-						square_block.find('.square').addClass('position_'+j);
-
-						var typeID;
-
-						switch (edge[j]) {
-							case '0.4 мм': typeID = 0; break;
-							case '1.0 мм': typeID = 1; break;
-							case '2.0 мм': typeID = 2; break;
-						}
-
-						square_block.find('.edge_group').eq(j).find('span').eq(typeID).addClass('selected');
-					}
-				}
-
-			}
-		},
-
-
-		// Функция поиска подобных элементов
-		checkDetailRepeat: function(length, width, edgeArr) {
-			var details = this.detailItem;
-			var j = details.length;
-			var result = false;
-
-			for (var i = 0; i < j; i++) {
-
-				if((parseInt(details[i][1]) == length) && (parseInt(details[i][2]) == width) && this.arrayCompare(details[i][4], edgeArr)) {
-					result = i;
-				}
-
-			}
-			return result;
-		},
-
-		// функция сравнения массивов
-		arrayCompare: function(arr1, arr2) {
-			var flag = true;
-			if(arr1.length == arr2.length) {
-
-				for (var i = 0; i < arr2.length; i++) {
-
-					if(arr1[i] != arr2[i]) {
-						flag = false;
-					}
-				}
-
-			}
-			return flag;
-		},
-
-		// Замена информации о кромке при вращении детали
-		borderRotate: function(edgeArr) {
-			var edgeArrRotate = [];
-
-			edgeArrRotate[0] = edgeArr[1];
-			edgeArrRotate[1] = edgeArr[2];
-			edgeArrRotate[2] = edgeArr[3];
-			edgeArrRotate[3] = edgeArr[0];
-
-			return edgeArrRotate;
-		},
-
-
-
-
-		// Определение размеров блока для деталей
-		getCuttingBlockSizes: function() {
-			var plateWidth = $('.plate_item').width();
-			var cuttingSize = this.cuttingSizes[this.currentState.selectedDetailTypeID].split('x');
-			var cuttingLength = parseInt(cuttingSize[0]) * 10;
-			var cuttingWidth = parseInt(cuttingSize[1]) * 10;
-
-			var plateHeight = plateWidth * cuttingWidth / cuttingLength;
-			// $('.plate_item').css('height', plateHeight + 'px');
-
-			this.currentState.plateWidth = plateWidth;
-			this.currentState.plateHeight = plateHeight;
-			this.currentState.cuttingSize = cuttingSize;
-		},
-
-		// Добавление детали
-		addDetail: function() {
-			var i = this.detailCounter;
-
-			if (i > 0) {
-
-				if ((this.detailItem[i-1][1] == "") || (this.detailItem[i-1][2] == "")) {
-
-					toastr.error('Размеры детали не заполнены');
-
-				} else if((this.detailItem[i-1][1] == "incorrect value") || (this.detailItem[i-1][2] == "incorrect value")) {
-
-					toastr.error('Размеры детали некооректны');
-
-				} else {
-
-					var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
-
-					this.detailItem.push(detail);
-					this.detailCounter ++;
-
-				}
-
-			} else {
-
-				var detail = ['detail_'+i+'','','','1',['0','0','0','0'],this.currentState.cuttingPlates];
-
-				this.detailItem.push(detail);
-				this.detailCounter ++;
-
-			}
-
-		},
-
 	},
 	watch:{
 		'currentState.nextPlateItem'(){
@@ -1202,8 +1163,9 @@ var vm = new Vue({
 	},
 	mounted() {
 		this.getSourseDetails();
-		this.textFieldUpdate();
-		this.getDetailsItemArray();
+		// this.textFieldUpdate();
+		// this.getDetailsItemArray();
+		this.localStorageRestore();
 	},
 
 });

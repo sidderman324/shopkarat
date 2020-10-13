@@ -3097,6 +3097,44 @@ body > p font.notetext {
   padding-top: 4em;
   padding-bottom: 4em;
 }
+.calculator_wrapper .head {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-bottom: 3em;
+}
+.calculator_wrapper .head .contacts_block {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+}
+.calculator_wrapper .head .contacts_block .item {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  width: 19em;
+  margin-left: 2em;
+}
+.calculator_wrapper .head .contacts_block .item p.block_title {
+  margin-bottom: .5em;
+}
+.calculator_wrapper .head .contacts_block .item a,
+.calculator_wrapper .head .contacts_block .item p {
+  font-size: 1em;
+  margin-bottom: .3em;
+}
 .calculator_wrapper .select {
   width: 15em;
 }
@@ -3378,15 +3416,15 @@ body > p font.notetext {
 .calculator_wrapper .cutting_block .plate_box .plate_item .detail_item .height {
   font-size: .8em;
   position: absolute;
-  left: -0.5em;
-  bottom: 1em;
+  left: 0em;
+  bottom: 0.8em;
   transform: rotate(-90deg);
 }
 .calculator_wrapper .cutting_block .plate_box .plate_item .detail_item .width {
   font-size: .8em;
   position: absolute;
   top: 0.2em;
-  right: 0.3em;
+  right: 0.5em;
 }
 .calculator_wrapper .cutting_block .plate_box .plate_item .detail_item.bd-top:before {
   border-top: 2px solid #000;
