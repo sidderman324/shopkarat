@@ -28,7 +28,7 @@
 		<div class="calculator_wrapper" :class="{ simple_view: pdfScanFlag }" id="calculatorBox">
 
 			<div class="head" v-if="pdfScanFlag">
-				<div class="logo_wrapper"><img src="/wp-content/themes/karat/static/imgs/main_logo_orange.svg" alt=""></div>
+				<div class="logo_wrapper"><img src="/local/templates/karat/static/imgs/main_logo_orange.svg" alt=""></div>
 
 				<div class="contacts_block">
 					<div class="item">
@@ -698,6 +698,7 @@ var vm = new Vue({
 			this.detailItem.splice(index, 1);
 			this.textFieldUpdate();
 			this.getDetailsItemArray();
+			this.getDetailInfo();
 
 			this.localStorageSaving();
 
@@ -1040,11 +1041,11 @@ var vm = new Vue({
 					html2canvas: { scale: 1 },
 					jsPDF: {orientation: 'portrait', unit: 'px', format: [ 1470,  2797], compressPDF: true}
 				}).save();
-			}, 300);
+			}, 1000);
 
 			setTimeout(function() {
 				self.pdfScanFlag = false;
-			}, 5000);
+			}, 7000);
 
 		},
 
@@ -1092,7 +1093,7 @@ var vm = new Vue({
 							'fileDataURI': pdfAsString,
 						};
 					});
-				}, 300);
+				}, 1000);
 
 
 
@@ -1116,11 +1117,11 @@ var vm = new Vue({
 
 				self.sentData(formData);
 
-			}, 4000);
+			}, 5000);
 
 			setTimeout(function() {
 				self.pdfScanFlag = false;
-			}, 5000);
+			}, 7000);
 
 
 		},
