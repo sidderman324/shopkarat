@@ -91,7 +91,7 @@
     }
   }
 
-
+.filter_spoiler.opened .checkbox_list { margin-top: .5em; margin-bottom: .5em; }
   .filter_spoiler {
     border-bottom: 1px solid #C4C4C4;
 
@@ -127,7 +127,7 @@
 
       .category_list_item {
         // margin: 0.6em 3em;
-        margin: .5em 2.6em;
+        margin: .5em 0em;
         font-size: 1em;
         transition: .3s;
 
@@ -146,10 +146,10 @@
 
 
     .checkbox_list {
-      margin: .5em 2.6em;
+      margin: .0em 2.6em;
 
       @media(max-width: @screen-xd) {
-        margin: .5em 1.2em;
+        margin: .0em 1.2em;
       }
 
 
@@ -231,7 +231,8 @@
     flex-direction: row;
     margin: .5em 2em;
     justify-content: space-between;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+    padding-top: 1em;
 
     @media(max-width: @screen-xd) {
       margin: .5em 1.2em;

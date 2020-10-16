@@ -10,7 +10,10 @@
   width: 24%;
   margin-bottom: 2em;
   align-items: flex-start;
-  // padding-right: 1em;
+
+  @media (max-width: @screen-md) {
+    margin-bottom: 1em;
+  }
 
   .img_wrapper {
     border: 1px solid @black;
@@ -42,7 +45,8 @@
     font-weight: bold;
     padding-top: 1.1em;
     line-height: 1.4;
-    height: 5.5em;
+    height: 5.3em;
+    margin-bottom: 1em;
 
 
     display: -moz-box;
@@ -330,7 +334,7 @@
       display: grid;
       grid-template-columns: 37% 57%;
       grid-gap: 6%;
-      padding: 2em 0;
+      padding: 2em 0 4em;
       border-top: 1px solid #c4c4c4;
     }
 
@@ -338,6 +342,7 @@
       @media (max-width: @screen-sm) {
         grid-column: 1 / span 1;
         grid-row: 1 / span 4;
+        height: 9em;
       }
     }
 
@@ -397,6 +402,7 @@
         grid-column: 1 / span 2;
         grid-row: 5 / span 1;
         justify-content: flex-start;
+        flex-direction: row;
       }
 
       .btn {
@@ -420,6 +426,9 @@
   .img_wrapper {
     width: 80%;
     margin: 0 auto;
+    height: 8em;
+    margin-bottom: 1em;
+    margin-top: 1em;
   }
 
   .catalog_card_mini_title,
@@ -442,7 +451,7 @@
     line-clamp: 3;
     box-orient: vertical;
 
-    height: 5em;
+    height: 4.6em;
   }
 
 

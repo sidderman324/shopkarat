@@ -78,7 +78,7 @@ $(document).ready(function(){
     e.preventDefault();
     var label_class = $(this).attr('data-label-name');
 
-    var posX = $(this).offset().left + $(this).width() - $('.' + label_class).width() / 2;
+    var posX = $(this).offset().left + $(this).width();
     var posY = $(this).offset().top + $(this).height() + 10;
 
     $('.' + label_class).css({ 'top': posY + 'px', 'left': posX + 'px' });
@@ -86,7 +86,7 @@ $(document).ready(function(){
 
     setTimeout(function () {
       $('.' + label_class).removeClass('visible');
-    }, 2000)
+    }, 4000)
 
   });
 
@@ -346,6 +346,30 @@ $(document).ready(function(){
   $(document).on('click', '#js-rating-review', function(e) {
     $('#selected_rating').attr('value',stars);
   });
+
+
+
+  function getBasketTabs() {
+    if($('section').hasClass('basket')) {
+      var url = document.location.hash;
+      var ind = null;
+      if(url == '#basket') {
+        ind = 0;
+      } else if(url == '#favorite') {
+        ind = 1;
+      }
+
+      $('.tabs_head_item').removeClass('active');
+      $('.tabs_head_item').eq(ind).addClass('active');
+
+      $('.tabs_body_item').removeClass('active');
+      $('.tabs_body_item').eq(ind).addClass('active');
+    }
+  };
+
+  getBasketTabs();
+
+
 
 
 

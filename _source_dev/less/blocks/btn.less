@@ -19,6 +19,7 @@
 	line-height: 2.37;
 	width: auto;
 	white-space: nowrap;
+	transition: .3s;
 
 	@media(max-width: @screen-xd) {
 		padding-left: .9em;
@@ -36,16 +37,30 @@
 		background-color: @orange;
 		color: @white;
 		border-color: @black;
+
+		&:hover {
+			background-color: transparent;
+			color: @black;
+			border-color: @black;
+		}
 	}
 	&--transparent {
 		background-color: transparent;
 		color: @black;
 		border-color: @black;
+
+		&:hover { background-color: @orange; color: @white; border-color: @black; }
 	}
 	&--black {
 		background-color: @black;
 		color: @white;
 		border-color: @black;
+
+		&:hover {
+			background-color: @orange;
+			color: @white;
+			border-color: @black;
+		}
 	}
 	&--white-border {
 		border-color: @white;
@@ -55,11 +70,26 @@
 	}
 	&--orange-border {
 		border-color: @orange;
+
+		&:hover {
+			background-color: transparent;
+			color: @black;
+			border-color: @black;
+		}
 	}
 	&--icon-arrow {
 		padding: 0 4em !important;
 		position: relative;
 		font-size: 0.875em;
+
+		&:hover {
+			background-color: @white;
+			color: @black;
+
+			&:before {
+				background-image: url('../imgs/icons/icon_arrow_active.svg');
+			}
+		}
 
 		@media (max-width: @screen-sm) {
 			padding: 0 2em !important;
@@ -95,6 +125,12 @@
 		}
 		@media (max-width: @screen-sm) {
 			padding: 0 2.5em 0 .8em !important;
+		}
+
+		&:hover {
+			&:before {
+				background-image: url('../imgs/icons/icon_basket.svg');
+			}
 		}
 
 		&:before {

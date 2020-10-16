@@ -6,7 +6,7 @@
 
   @media (max-width: @screen-sm) {
     height: auto;
-    overflow: auto;
+    overflow: visible;
   }
 }
 .hover_menu_block {
@@ -63,6 +63,10 @@
       position: relative;
       padding: 0.8em 2.5em;
       display: inline-block;
+
+      @media (max-width: @screen-sm) {
+        padding-right: 1em;
+      }
 
       .title {
         font-size: 1.125em;

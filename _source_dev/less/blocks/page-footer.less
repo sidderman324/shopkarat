@@ -53,6 +53,11 @@
               font-size: .875em;
               padding: .6em 0;
               display: inline-block;
+              transition: .3s;
+
+              &:hover {
+                color: @orange;
+              }
 
               @media (max-width: @screen-sm) {
                 padding: .4em 0;
@@ -91,6 +96,7 @@
 
         a.phone_header {
           margin-right: 0;
+          margin-bottom: .5em;
 
           @media (max-width: @screen-sm) {
             font-size: .9em;
