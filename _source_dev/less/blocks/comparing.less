@@ -11,15 +11,23 @@
     justify-content: space-between;
   }
 
+
   .scroll_block {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .scroll_block_inner {
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
     overflow-x: hidden;
+    margin-bottom: 3em;
   }
 
   .comparing_tabs {
@@ -29,6 +37,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 3em;
+    margin-bottom: 5em;
 
     .comparing_tabs_head {
       display: -webkit-flex;
@@ -61,17 +70,32 @@
       .comparing_tabs_body_item {
         display: none;
         padding: 2em 0;
+        flex-direction: column;
+
+        .head_block {
+          display: -webkit-flex;
+          display: -ms-flex;
+          display: flex;
+          flex-direction: row;
+        }
 
         .left_block {
           width: 17em;
         }
-        .specifications_list,
+        .specification_table {
+          display: -webkit-flex;
+          display: -ms-flex;
+          display: flex;
+          flex-direction: row;
+        }
+        .specifications_list_name,
         .product_specifications_list {
           display: -webkit-flex;
           display: -ms-flex;
           display: flex;
           flex-direction: column;
           width: 100%;
+          width: 17em !important;
 
           .specifications_list_item {
             font-weight: bold;
@@ -89,6 +113,7 @@
             line-clamp: 2;
             box-orient: vertical;
             padding: .5em;
+            padding-left: 0;
             padding-right: 1.5em;
             border-top: 1px solid @gray;
 
@@ -166,7 +191,6 @@
         display: -webkit-flex;
         display: -ms-flex;
         display: flex;
-        flex-direction: row;
       }
     }
   }

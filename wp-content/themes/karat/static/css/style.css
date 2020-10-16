@@ -6906,17 +6906,23 @@ body > p font.notetext {
       justify-content: space-between;
 }
 .catalog--comparing .scroll_block {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+.catalog--comparing .scroll_block_inner {
   display: -ms-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
+  -ms-flex-direction: column;
+      flex-direction: column;
   -ms-flex-align: start;
       align-items: flex-start;
   -ms-flex-pack: start;
       justify-content: flex-start;
   width: 100%;
   overflow-x: hidden;
+  margin-bottom: 3em;
 }
 .catalog--comparing .comparing_tabs {
   width: 100%;
@@ -6926,6 +6932,7 @@ body > p font.notetext {
   -ms-flex-direction: column;
       flex-direction: column;
   margin-top: 3em;
+  margin-bottom: 5em;
 }
 .catalog--comparing .comparing_tabs .comparing_tabs_head {
   display: -ms-flex;
@@ -6954,11 +6961,27 @@ body > p font.notetext {
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item {
   display: none;
   padding: 2em 0;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .head_block {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
 }
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .left_block {
   width: 17em;
 }
-.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specification_table {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list {
   display: -ms-flex;
   display: -ms-flexbox;
@@ -6966,14 +6989,15 @@ body > p font.notetext {
   -ms-flex-direction: column;
       flex-direction: column;
   width: 100%;
+  width: 17em !important;
 }
-.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .specifications_list_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name .specifications_list_item,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .specifications_list_item {
   font-weight: bold;
 }
-.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .specifications_list_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name .specifications_list_item,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .specifications_list_item,
-.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .product_specifications_item,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name .product_specifications_item,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .product_specifications_item {
   font-size: 1.125em;
   height: 3.5em;
@@ -6985,12 +7009,13 @@ body > p font.notetext {
   line-clamp: 2;
   box-orient: vertical;
   padding: .5em;
+  padding-left: 0;
   padding-right: 1.5em;
   border-top: 1px solid #E5E5E5;
 }
-.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .specifications_list_item:last-of-type,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name .specifications_list_item:last-of-type,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .specifications_list_item:last-of-type,
-.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list .product_specifications_item:last-of-type,
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name .product_specifications_item:last-of-type,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list .product_specifications_item:last-of-type {
   border-bottom: 1px solid #E5E5E5;
 }
@@ -7057,8 +7082,6 @@ body > p font.notetext {
   display: -ms-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
 }
 @media all and (min-width: 241px) and (max-width: 480px) {
   #toast-container > div {

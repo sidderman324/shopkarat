@@ -93,6 +93,20 @@ $(document).ready(function(){
 
 
 
+function getWidthTabCompare() {
+  var cw = $('.left_block').width();
+
+  $('.comparing_tabs_body_item').each(function(){
+    var amount = $(this).find('.product_item').length;
+    $(this).find('.product_item').css('width', cw);
+    $(this).find('.scroll_block_inner').css('width', cw * amount);
+  });
+
+};
+getWidthTabCompare();
+
+
+
 
 
   $(document).on('click', '.catalog_card_amount_btn', function(e) {
