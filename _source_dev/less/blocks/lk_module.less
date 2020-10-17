@@ -15,6 +15,11 @@
   }
 
 
+  .main-profile-block-date-info {
+    margin-bottom: 1.5em;
+  }
+
+
   .container {
     display: -webkit-flex;
     display: -ms-flex;
@@ -150,10 +155,19 @@
           flex-direction: column;
           align-items: flex-end;
         }
+        @media (max-width: @screen-sm) {
+          width: 100%;
+          flex-direction: row !important;
+          justify-content: flex-start !important;
+          align-items: flex-start !important;
+        }
 
         .btn {
           @media(max-width: @screen-xd) {
             margin-bottom: 1em;
+          }
+          @media (max-width: @screen-sm) {
+            margin-right: 1em;
           }
         }
       }
@@ -166,6 +180,10 @@
       }
       .specifications--narrow {
         width: 60%;
+
+        @media (max-width: @screen-sm) {
+          width: 100%;
+        }
 
         td.text span {
           display: inline-block;
@@ -193,6 +211,10 @@
       }
       .specifications--orders td.table_btn {
         padding: 0;
+
+        @media (max-width: @screen-sm) {
+          padding: 0 .6rem;
+        }
       }
       .specifications--border-head tbody {
         width: 100%;
@@ -204,6 +226,10 @@
       .specifications--orders td {
         width: 16.66% !important;
         position: relative;
+
+        @media (max-width: @screen-sm) {
+          width: 10em !important;
+        }
       }
       .specifications--orders-inner {
         margin-bottom: 0;
@@ -260,6 +286,10 @@
       form {
         width: 85%;
         margin-top: 3em;
+
+        @media (max-width: @screen-sm) {
+          margin-top: 0;
+        }
 
         .input_box {
           margin-bottom: 1em;

@@ -4643,6 +4643,9 @@ body > p font.notetext {
 .catalog--search-page .catalog_item {
   width: 100%;
 }
+.catalog--search-page .pagination {
+  margin: 2em auto;
+}
 .catalog h2.title {
   width: 100%;
   text-align: left;
@@ -5181,9 +5184,6 @@ body > p font.notetext {
 .filter_block .filter_spoiler {
   border-bottom: 1px solid #C4C4C4;
 }
-.filter_block .filter_spoiler--price {
-  border-bottom: none;
-}
 .filter_block .filter_spoiler .filter_spoiler_title {
   font-size: 1.125em;
   font-weight: bold;
@@ -5268,18 +5268,18 @@ body > p font.notetext {
   background-color: #F18700;
   border-color: #000;
 }
-.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider {
+.filter_block .filter_spoiler .filter_spoiler_price_interval .slider {
   width: 100%;
   margin-top: 4em;
   margin-bottom: 3em;
 }
-.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider #currentStart,
-.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider #currentEnd {
+.filter_block .filter_spoiler .filter_spoiler_price_interval .slider .blackoutLeft,
+.filter_block .filter_spoiler .filter_spoiler_price_interval .slider .blackoutRight {
   position: absolute;
   top: -2em;
   left: 0;
 }
-.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider #currentEnd {
+.filter_block .filter_spoiler .filter_spoiler_price_interval .slider .blackoutRight {
   left: auto;
   right: 0;
 }
@@ -5626,6 +5626,7 @@ body > p font.notetext {
   border: 1px solid #000;
   border-radius: 4px;
   width: 100%;
+  font-size: 1em;
 }
 .specifications td {
   width: 49%;
@@ -6485,6 +6486,9 @@ body > p font.notetext {
 .lk_module--index .container {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+.lk_module .main-profile-block-date-info {
+  margin-bottom: 1.5em;
 }
 .lk_module .container {
   display: -ms-flex;
@@ -7910,6 +7914,9 @@ body > p font.notetext {
   .tabs .tabs_body .tabs_body_item {
     padding-right: 0 !important;
   }
+  .specifications td {
+    padding: .3em .5em;
+  }
   .popup_block .popup_title {
     font-size: 2em;
   }
@@ -8087,6 +8094,30 @@ body > p font.notetext {
   .lk_module .container .lk_content {
     overflow-x: auto;
     overflow-y: hidden;
+  }
+  .lk_module .container .lk_content .button_block {
+    width: 100%;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+    -ms-flex-pack: start !important;
+    justify-content: flex-start !important;
+    -ms-flex-align: start !important;
+    align-items: flex-start !important;
+  }
+  .lk_module .container .lk_content .button_block .btn {
+    margin-right: 1em;
+  }
+  .lk_module .container .lk_content .specifications--narrow {
+    width: 100%;
+  }
+  .lk_module .container .lk_content .specifications--orders td.table_btn {
+    padding: 0 .6rem;
+  }
+  .lk_module .container .lk_content .specifications--orders td {
+    width: 10em !important;
+  }
+  .lk_module .container .lk_content form {
+    margin-top: 0;
   }
   .ordering p.notification {
     font-size: 1em;

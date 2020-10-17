@@ -8,64 +8,94 @@ $(document).ready(function(){
 
 
   $( function() {
-    var min = parseInt($('#priceIntervalMin').attr('data-price-start'));
-    var max = parseInt($('#priceIntervalMax').attr('data-price-end'));
+
+    $('.filter_spoiler_price_interval').each(function(){
+
+      var inputMin = $(this).find('.input_box').eq(0).find('.input_text');
+      var inputMax = $(this).find('.input_box').eq(1).find('.input_text');
+
+      var textMin = $(this).find('.blackoutLeft');
+      var textMax = $(this).find('.blackoutRight');
+
+      var min = parseInt(inputMin.attr('data-val'));
+      var max = parseInt(inputMax.attr('data-val'));
 
 
-    $( "#priceIntervalSlider" ).slider({
-      range: true,
-      step: 10,
-      min: min,
-      max: max,
-      values: [ min, max ],
-      slide: function( event, ui ) {
-        $("#currentStart").text(ui.values[0]);
-        $("#currentEnd").text(ui.values[1]);
+      $(this).find('.slider').slider({
+        range: true,
+        step: 10,
+        min: min,
+        max: max,
+        values: [ min, max ],
+        slide: function( event, ui ) {
+          textMin.text(ui.values[0]);
+          textMax.text(ui.values[1]);
 
-        $("#priceIntervalMin").val(ui.values[0]);
-        $("#priceIntervalMax").val(ui.values[1]);
-      }
+          inputMin.val(ui.values[0]);
+          inputMax.val(ui.values[1]);
+        },
+        change: function() {
+          smartFilter.keyup(this);
+        }
+      });
+
+
+      textMin.text(min);
+      textMax.text(max);
+
+      inputMin.val(min);
+      inputMax.val(max);
+
+
+
+      inputMin.on('input', function(){
+        updateSlider();
+      });
+      inputMax.on('input', function(){
+        updateSlider();
+      });
     });
-
-    $("#currentStart").text(min);
-    $("#currentEnd").text(max);
-
-    $("#priceIntervalMin").val(min);
-    $("#priceIntervalMax").val(max);
   });
 
-  $("#priceIntervalMin").on('change', function(){
-    updateSlider();
-  })
-  $("#priceIntervalMax").on('change', function(){
-    updateSlider();
-  })
 
   function updateSlider() {
-    var min = parseInt($('#priceIntervalMin').val());
-    var max = parseInt($('#priceIntervalMax').val());
+    $('.filter_spoiler_price_interval').each(function(){
 
-    var minPrice = parseInt($('#priceIntervalMin').attr('data-price-start'));
-    var maxPrice = parseInt($('#priceIntervalMax').attr('data-price-end'));
+      var inputMin = $(this).find('.input_box').eq(0).find('.input_text');
+      var inputMax = $(this).find('.input_box').eq(1).find('.input_text');
 
-    if (max > maxPrice) { max = maxPrice }
-    if (min < minPrice) { min = minPrice }
+      var textMin = $(this).find('.blackoutLeft');
+      var textMax = $(this).find('.blackoutRight');
 
-    if(min < max) {
-      $("#currentStart").text(min);
-      $("#currentEnd").text(max);
-      $("#priceIntervalSlider").slider( "values", [ min, max ] );
+      var minPrice = parseInt(inputMin.attr('data-val'));
+      var maxPrice = parseInt(inputMax.attr('data-val'));
 
-      $('#priceIntervalMin').val(min);
-      $('#priceIntervalMax').val(max);
-    } else if (max < min) {
-      $("#currentStart").text(max);
-      $("#currentEnd").text(min);
-      $("#priceIntervalSlider").slider( "values", [ max, min ] );
+      var min = parseInt(inputMin.val());
+      var max = parseInt(inputMax.val());
 
-      $('#priceIntervalMin').val(max);
-      $('#priceIntervalMax').val(min);
-    }
+      if (max > maxPrice) { max = maxPrice }
+      if (min < minPrice) { min = minPrice }
+
+      if(min < max) {
+        textMin.text(min);
+        textMax.text(max);
+        $(this).find('.slider').slider( "values", [ min, max ] );
+
+        inputMin.val(min);
+        inputMax.val(max);
+      } else if (max < min) {
+        textMin.text(max);
+        textMax.text(min);
+        $(this).find('.slider').slider( "values", [ max, min ] );
+
+        inputMin.val(max);
+        inputMax.val(min);
+      }
+
+
+
+    });
+
   }
 
 
@@ -93,17 +123,17 @@ $(document).ready(function(){
 
 
 
-function getWidthTabCompare() {
-  var cw = $('.left_block').width();
+  function getWidthTabCompare() {
+    var cw = $('.left_block').width();
 
-  $('.comparing_tabs_body_item').each(function(){
-    var amount = $(this).find('.product_item').length;
-    $(this).find('.product_item').css('width', cw);
-    $(this).find('.scroll_block_inner').css('width', cw * amount);
-  });
+    $('.comparing_tabs_body_item').each(function(){
+      var amount = $(this).find('.product_item').length;
+      $(this).find('.product_item').css('width', cw);
+      $(this).find('.scroll_block_inner').css('width', cw * amount);
+    });
 
-};
-getWidthTabCompare();
+  };
+  getWidthTabCompare();
 
 
 
