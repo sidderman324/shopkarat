@@ -18,7 +18,7 @@
   top: 150%;
   left: 50%;
   transform: translate(-50%,-50.1%);
-  z-index: 999;
+  z-index: 9999;
   background-color: #FDFAFA;
   border-radius: 4px;
   border: 1px solid @black;
@@ -31,6 +31,10 @@
 
   #result {
     margin-top: 2em;
+  }
+  #thanks_review {
+    font-size: 1.675em;
+    text-align: center;
   }
 
   .row {
@@ -111,6 +115,24 @@
   &--lk {
     width: 60em;
     min-height: 55vh;
+
+    @media (max-width: @screen-sm) {
+      width: 90%;
+    }
+
+    .row {
+      @media (max-width: @screen-sm) {
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .column {
+      @media (max-width: @screen-sm) {
+        width: 100%;
+      }
+    }
 
     .popup_title {
       margin-bottom: .5em;
@@ -215,7 +237,7 @@
   left: 0;
   background-color: rgba(0,0,0,.5);
   cursor: pointer;
-  z-index: 998;
+  z-index: 9998;
   visibility: hidden;
   opacity: 0;
   transition: .3s;

@@ -92,7 +92,7 @@
 					</div>
 					<div class="row">
 						<p class="text">Площадь деталей:</p>
-						<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare / 1000000}} м<sup>2</sup></div></p>
+						<p class="text"><div v-if="currentState.totalDetailSquare">{{currentState.totalDetailSquare}} м<sup>2</sup></div></p>
 					</div>
 					<div class="row">
 						<p class="text">Длина пропила:</p>
@@ -103,19 +103,19 @@
 						<ul class="list">
 							<li>
 								<div v-if="currentState.edgeLength_1">
-									<p class="text">толщиной 0,4 мм</p>
+									<p class="text">толщиной <span class="edge">0,4</span> мм</p>
 									<p class="text" v-if="isAN(currentState.edgeLength_1)">{{(currentState.edgeLength_1 * 1.2).toFixed(1)}} м</p>
 								</div>
 							</li>
 							<li>
 								<div v-if="currentState.edgeLength_2">
-									<p class="text">толщиной 1,0 мм</p>
+									<p class="text">толщиной <span class="edge">1,0</span> мм</p>
 									<p class="text" v-if="isAN(currentState.edgeLength_2)">{{(currentState.edgeLength_2 * 1.2).toFixed(1)}} м</p>
 								</div>
 							</li>
 							<li>
 								<div v-if="currentState.edgeLength_3">
-									<p class="text">толщиной 2,0 мм</p>
+									<p class="text">толщиной <span class="edge">2,0</span> мм</p>
 									<p class="text" v-if="isAN(currentState.edgeLength_3)">{{(currentState.edgeLength_3 * 1.2).toFixed(1)}} м</p>
 								</div>
 							</li>
@@ -228,6 +228,10 @@
 				<!-- <input type="text" id="platesCount" data-value="1"> -->
 				<div class="plate_box" v-for="item in currentState.cuttingPlates">
 					<p class="text">Лист {{item}}</p>
+<!--
+					<p class="text">
+						Лист <span v-for="rep in currentState.repeatArr">{{rep}}</span>
+					</p> -->
 
 					<div class="size_length">
 						<span class="text">{{currentState.cuttingSize[0]}}</span>
@@ -317,7 +321,7 @@
 
 
 	<pre>
-		<!-- {{detailItem}} -->
+		{{detailItem}}
 
 		<!-- {{detailItemRender}} -->
 		<!-- {{currentState.arrPlates}} -->
@@ -350,6 +354,7 @@ var vm = new Vue({
 			nextPlateItem: [0],
 			arrPlates: [],
 			arrPlatesTemp: [],
+			repeatArr: [],
 		},
 		detailItem: [],
 		detailRotate: true,
@@ -517,34 +522,20 @@ var vm = new Vue({
 				totalDetailSquare = totalDetailSquare + itemSquare;
 				totalDetailPerimeter = totalDetailPerimeter + itemPerimetr;
 
-
 				// Длина кромки
-				edgeLength_1 = 0;
-				edgeLength_2 = 0;
-				edgeLength_3 = 0;
-
 				var detailLength = parseInt(detail[i][1]);
 				var detailWidth = parseInt(detail[i][2]);
 				var detailCount = parseInt(detail[i][3]);
 				var edgeArr = detail[i][4];
 
-				if(edgeArr[0] != 0) {
-					if(edgeArr[0] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailLength; }
-					if(edgeArr[0] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailLength; }
-					if(edgeArr[0] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailLength; }
-				} if(edgeArr[1] != 0) {
-					if(edgeArr[1] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailWidth; }
-					if(edgeArr[1] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailWidth; }
-					if(edgeArr[1] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailWidth; }
-				} if(edgeArr[2] != 0) {
-					if(edgeArr[2] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailLength; }
-					if(edgeArr[2] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailLength; }
-					if(edgeArr[2] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailLength; }
-				} if(edgeArr[3] != 0) {
-					if(edgeArr[3] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailWidth; }
-					if(edgeArr[3] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailWidth; }
-					if(edgeArr[3] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailWidth; }
+				for (var k = 0; k < edgeArr.length; k++) {
+					if(edgeArr[k] != 0) {
+						if(edgeArr[k] == '0.4 мм') { edgeLength_1 = edgeLength_1 + detailLength; }
+						if(edgeArr[k] == '1.0 мм') { edgeLength_2 = edgeLength_2 + detailLength; }
+						if(edgeArr[k] == '2.0 мм') { edgeLength_3 = edgeLength_3 + detailLength; }
+					}
 				}
+
 				edgeLength_1 = edgeLength_1 * detailCount;
 				edgeLength_2 = edgeLength_2 * detailCount;
 				edgeLength_3 = edgeLength_3 * detailCount;
@@ -557,18 +548,19 @@ var vm = new Vue({
 				this.currentState.totalDetailCount = '-';
 			}
 
-
 			// Площадь и периметр
 			var min_totalDetailPerimeter = (this.currentState.cuttingSize[0] * 2) + (this.currentState.cuttingSize[1] * 2);
 
-			if(totalDetailPerimeter <= min_totalDetailPerimeter) {
-				totalDetailPerimeter = min_totalDetailPerimeter;
-			}
-
-			if (this.isAN(totalDetailSquare)) { this.currentState.totalDetailSquare = totalDetailSquare; }
+			if (this.isAN(totalDetailSquare) && (totalDetailSquare != null)) { this.currentState.totalDetailSquare = totalDetailSquare / 1000000; }
 			else { this.currentState.totalDetailSquare = '-'; }
 
-			if (this.isAN(totalDetailPerimeter)) { this.currentState.totalDetailPerimeter = totalDetailPerimeter / 1000; }
+			if (this.isAN(totalDetailPerimeter)) {
+				if(totalDetailPerimeter <= min_totalDetailPerimeter) {
+					totalDetailPerimeter = min_totalDetailPerimeter;
+				}
+
+				this.currentState.totalDetailPerimeter = totalDetailPerimeter / 1000;
+			}
 			else { this.currentState.totalDetailPerimeter = '-'; }
 
 
@@ -611,13 +603,17 @@ var vm = new Vue({
 			$('.table_row:nth-child('+(index + 1)+')').find('.edge_group').eq(positionId).find('span:nth-child('+type+')').addClass('selected');
 
 
-			this.detailItem[index][4][positionId] = typeText;
-			this.$forceUpdate();
+			// this.detailItem[index][4][positionId] = typeText;
+			this.detailItem[index][4].splice(positionId,1,typeText);
 
 			this.getDetailInfo();
 			setTimeout(this.getDetailOnPlate, 10);
 			this.localStorageSaving();
+
+			this.$forceUpdate();
 		},
+
+
 
 
 
@@ -714,7 +710,7 @@ var vm = new Vue({
 		localStorageRestore: function() {
 			var datailsArr = JSON.parse(localStorage.details);
 			// console.log(datailsArr)
-	    this.detailItem = datailsArr;
+			this.detailItem = datailsArr;
 			setTimeout(this.textFieldUpdate, 10);
 		},
 
@@ -782,8 +778,6 @@ var vm = new Vue({
 			var details = this.detailItemRender;
 			var plateWidth = this.currentState.plateWidth;
 			var plateHeight = this.currentState.plateHeight;
-
-			// console.log(123)
 
 			for (var i = 0; i < details.length; i++) {
 				var el = $('#detail_' + details[i][3] + '_' + details[i][4]);
@@ -864,8 +858,6 @@ var vm = new Vue({
 
 				var bottom = el.position().top + details[i][6][0];
 
-				// console.log(bottom, plateHeight, plate)
-
 				if (bottom > plateHeight * plate) {
 					plate = plate + 1;
 				}
@@ -877,13 +869,78 @@ var vm = new Vue({
 			}
 			if(!flag) {
 				this.getDetailOnPlate(true);
+
+				setTimeout(function() {
+					self.checkPlateRepeat();
+				}, 100);
 			}
 
 			setTimeout(function() {
 				self.masonry();
-			}, 20)
+			}, 20);
 
 		},
+
+		checkPlateRepeat: function() {
+			var amount = this.currentState.cuttingPlates;
+			var details = this.detailItemRender;
+			var detailOnPlateArr = [];
+			detailOnPlateArr = new Array(amount - 1);
+
+			for (var item = 1; item < amount + 1; item++) {
+				detailOnPlateArr[item] = []
+				for (var i = 0; i < details.length; i++) {
+					if(details[i][7] == item) {
+						// detailOnPlateArr[item].push([details[i][1], details[i][2]]);
+						detailOnPlateArr[item].push(details[i][1] + '_' + details[i][2] + '_' + details[i][5][0] + '_' + details[i][5][1] + '_' + details[i][5][2] + '_' + details[i][5][3]);
+					}
+				}
+			}
+
+			this.searchPlateRepeat(detailOnPlateArr);
+		},
+
+		searchPlateRepeat: function(detailOnPlateArr) {
+
+			var arr = detailOnPlateArr;
+			var arrLite = [];
+			var twinsArr = [];
+
+			for (var i = 1; i < arr.length; i++) {
+				var item = '';
+				for (var k = 0; k < arr[i].length; k++) {
+					item = item + '_' + arr[i][k];
+				}
+				arrLite.push(item)
+			}
+
+			var res = arrLite.filter(function(number, index, arrLite) {
+
+				if(!(arrLite.lastIndexOf(number) == index) || !(arrLite.indexOf(number) == index)) {
+					twinsArr.push(index + 1);
+				}
+
+				return (!(arrLite.lastIndexOf(number) == index) || !(arrLite.indexOf(number) == index)) && true;
+
+			});
+
+			this.currentState.repeatArr = twinsArr;
+
+		},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -983,11 +1040,9 @@ var vm = new Vue({
 				square_block.find('.square').removeClass('position_3');
 				square_block.find('span').removeClass('selected');
 
-
-
 				for (var j = 0; j < edge.length; j++) {
 
-					if(parseInt(edge[j]) != 0) {
+					if(edge[j] != 0) {
 						square_block.find('.square').addClass('position_'+j);
 
 						var typeID;

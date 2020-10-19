@@ -87,6 +87,47 @@
           display: -ms-flex;
           display: flex;
           flex-direction: row;
+          width: 100%;
+
+          table {
+            width: 100%;
+
+            tr {
+              display: -webkit-flex;
+              display: -ms-flex;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: flex-start;
+              border-top: 1px solid @gray;
+
+              &:last-of-type {
+                border-bottom: 1px solid @gray;
+              }
+            }
+
+            td {
+              width: 17em;
+
+              font-size: 1em;
+              height: 3.5em;
+              display: -moz-box;
+              display: -webkit-box;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              -webkit-line-clamp: 2;
+              line-clamp: 2;
+              box-orient: vertical;
+              padding: .5em;
+              padding-left: 0;
+              padding-right: 1.5em;
+
+              &:first-child {
+                font-weight: bold;
+              }
+
+            }
+          }
         }
         .specifications_list_name,
         .product_specifications_list {

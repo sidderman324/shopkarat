@@ -3130,6 +3130,10 @@ body > p font.notetext {
   padding-top: 4em;
   padding-bottom: 4em;
 }
+.calculator_wrapper .edge {
+  width: 1.5em;
+  display: inline-block;
+}
 .calculator_wrapper .head {
   display: -ms-flex;
   display: -ms-flexbox;
@@ -3926,6 +3930,8 @@ body > p font.notetext {
 .page-header {
   margin: 0;
   padding: 0;
+  position: relative;
+  z-index: 999;
 }
 .page-header .container {
   display: -ms-flex;
@@ -4288,6 +4294,7 @@ body > p font.notetext {
   height: 4em;
   margin-right: 1em;
   border: 1px solid #000;
+  overflow: hidden;
 }
 .middle_menu_block .search_results a.result_item .item_name {
   font-size: 1.125em;
@@ -5268,18 +5275,20 @@ body > p font.notetext {
   background-color: #F18700;
   border-color: #000;
 }
-.filter_block .filter_spoiler .filter_spoiler_price_interval .slider {
+.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider {
   width: 100%;
   margin-top: 4em;
   margin-bottom: 3em;
+  margin-left: .6em;
+  margin-right: .6em;
 }
-.filter_block .filter_spoiler .filter_spoiler_price_interval .slider .blackoutLeft,
-.filter_block .filter_spoiler .filter_spoiler_price_interval .slider .blackoutRight {
+.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider #currentStart,
+.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider #currentEnd {
   position: absolute;
   top: -2em;
   left: 0;
 }
-.filter_block .filter_spoiler .filter_spoiler_price_interval .slider .blackoutRight {
+.filter_block .filter_spoiler .filter_spoiler_price_interval #priceIntervalSlider #currentEnd {
   left: auto;
   right: 0;
 }
@@ -5296,7 +5305,7 @@ body > p font.notetext {
   padding-top: 1em;
 }
 .filter_block .filter_button_block .btn {
-  width: 45%;
+  width: auto;
 }
 .filter_block .filter_spoiler.opened .filter_spoiler_title {
   border-bottom: 2px solid #F18700;
@@ -5673,10 +5682,14 @@ body > p font.notetext {
   padding: .8em 0;
   border-bottom: 3px solid #F18700;
   margin-bottom: .8em;
+  -ms-flex-align: center;
+      align-items: center;
 }
 .reviews_list .review_item .review_head .review_name {
   font-size: 1.125em;
   font-weight: bold;
+  margin-right: 1.5em;
+  max-width: 50%;
 }
 .reviews_list .review_item .review_head .rating_box {
   display: -ms-flex;
@@ -5713,7 +5726,7 @@ body > p font.notetext {
   top: 150%;
   left: 50%;
   transform: translate(-50%, -50.1%);
-  z-index: 999;
+  z-index: 9999;
   background-color: #FDFAFA;
   border-radius: 4px;
   border: 1px solid #000;
@@ -5725,6 +5738,10 @@ body > p font.notetext {
 }
 .popup_block #result {
   margin-top: 2em;
+}
+.popup_block #thanks_review {
+  font-size: 1.675em;
+  text-align: center;
 }
 .popup_block .row {
   display: -ms-flex;
@@ -5893,7 +5910,7 @@ body > p font.notetext {
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  z-index: 998;
+  z-index: 9998;
   visibility: hidden;
   opacity: 0;
   transition: .3s;
@@ -6894,6 +6911,7 @@ body > p font.notetext {
 }
 .contacts .row .adress_text span.text {
   font-size: 1.125em;
+  width: calc(100% - 13em);
 }
 .contacts .row .adress_text a {
   font-weight: bold;
@@ -6984,6 +7002,43 @@ body > p font.notetext {
   display: flex;
   -ms-flex-direction: row;
       flex-direction: row;
+  width: 100%;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specification_table table {
+  width: 100%;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specification_table table tr {
+  display: -ms-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  border-top: 1px solid #E5E5E5;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specification_table table tr:last-of-type {
+  border-bottom: 1px solid #E5E5E5;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specification_table table td {
+  width: 17em;
+  font-size: 1em;
+  height: 3.5em;
+  display: -moz-box;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  box-orient: vertical;
+  padding: .5em;
+  padding-left: 0;
+  padding-right: 1.5em;
+}
+.catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specification_table table td:first-child {
+  font-weight: bold;
 }
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .specifications_list_name,
 .catalog--comparing .comparing_tabs .comparing_tabs_body .comparing_tabs_body_item .product_specifications_list {
@@ -7919,6 +7974,19 @@ body > p font.notetext {
   }
   .popup_block .popup_title {
     font-size: 2em;
+  }
+  .popup_block--lk {
+    width: 90%;
+  }
+  .popup_block--lk .row {
+    display: -ms-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .popup_block--lk .column {
+    width: 100%;
   }
   .basket .tabs .tabs_head .tabs_head_item {
     font-size: 1.2em;
